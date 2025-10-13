@@ -25,7 +25,7 @@ const ProjectCard = ({ name, description, language, stars, forks, url, homepage,
 
   return (
     <div 
-      className="group bg-white rounded-lg border-2 border-saffron/30 hover:border-saffron transition-all duration-300 overflow-hidden hover:shadow-2xl hover:shadow-saffron/30 hover:-translate-y-2"
+      className="group bg-dark-card rounded-lg border-2 border-saffron/30 hover:border-saffron transition-all duration-300 overflow-hidden hover:shadow-2xl hover:shadow-saffron/30 hover:-translate-y-2"
       style={{ animationDelay: `${index * 0.1}s` }}
     >
       <div className="p-6 flex flex-col h-full">
@@ -33,7 +33,7 @@ const ProjectCard = ({ name, description, language, stars, forks, url, homepage,
         <div className="mb-4">
           <div className="flex items-start justify-between mb-3">
             <div className="flex-1">
-              <h3 className="text-xl font-bold text-navy group-hover:text-saffron transition-colors duration-300 mb-2">
+              <h3 className="text-xl font-bold text-text-primary group-hover:text-saffron transition-colors duration-300 mb-2">
                 {name.replace(/-/g, ' ').replace(/_/g, ' ').split(' ').map(word => 
                   word.charAt(0).toUpperCase() + word.slice(1)
                 ).join(' ')}
@@ -52,7 +52,7 @@ const ProjectCard = ({ name, description, language, stars, forks, url, homepage,
           </div>
 
           {/* Description */}
-          <p className="text-text-primary text-sm leading-relaxed mb-4 line-clamp-3">
+          <p className="text-text-secondary text-sm leading-relaxed mb-4 line-clamp-3">
             {description}
           </p>
         </div>
@@ -72,7 +72,7 @@ const ProjectCard = ({ name, description, language, stars, forks, url, homepage,
         )}
 
         {/* Project Footer */}
-        <div className="mt-auto pt-4 border-t border-gray-200">
+        <div className="mt-auto pt-4 border-t border-dark-tertiary">
           <div className="flex items-center justify-between mb-4">
             {/* Language */}
             {language && (
@@ -81,12 +81,12 @@ const ProjectCard = ({ name, description, language, stars, forks, url, homepage,
                   className="w-3 h-3 rounded-full" 
                   style={{ backgroundColor: languageColor }}
                 ></span>
-                <span className="text-navy text-sm font-semibold">{language}</span>
+                <span className="text-text-primary text-sm font-semibold">{language}</span>
               </div>
             )}
 
             {/* Stats */}
-            <div className="flex items-center gap-4 text-navy text-sm font-semibold">
+            <div className="flex items-center gap-4 text-text-primary text-sm font-semibold">
               {stars > 0 && (
                 <div className="flex items-center gap-1">
                   <svg className="w-4 h-4 text-saffron" fill="currentColor" viewBox="0 0 20 20">
@@ -112,7 +112,7 @@ const ProjectCard = ({ name, description, language, stars, forks, url, homepage,
               href={url}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 px-4 py-2 bg-saffron/10 text-saffron text-center rounded border-2 border-saffron/50 hover:bg-saffron hover:text-white transition-all duration-300 font-semibold text-sm shadow-md"
+              className="flex-1 px-4 py-2 bg-saffron/10 text-saffron text-center rounded border-2 border-saffron/50 hover:bg-saffron hover:text-text-dark transition-all duration-300 font-semibold text-sm shadow-md"
             >
               View Code
             </a>
@@ -121,7 +121,7 @@ const ProjectCard = ({ name, description, language, stars, forks, url, homepage,
                 href={homepage}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 px-4 py-2 bg-green/10 text-green text-center rounded border-2 border-green/50 hover:bg-green hover:text-white transition-all duration-300 font-semibold text-sm shadow-md"
+                className="flex-1 px-4 py-2 bg-green/10 text-green text-center rounded border-2 border-green/50 hover:bg-green hover:text-text-dark transition-all duration-300 font-semibold text-sm shadow-md"
               >
                 Live Demo
               </a>

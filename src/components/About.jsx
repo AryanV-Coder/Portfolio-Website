@@ -4,22 +4,22 @@ const About = () => {
   return (
     <section 
       id="about" 
-      className="min-h-screen py-20 px-6 md:px-12 bg-white"
+      className="min-h-screen py-20 px-6 md:px-12 bg-dark-secondary"
     >
       <div className="max-w-5xl mx-auto fade-in-section">
         {/* Section Header */}
         <div className="mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-navy">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-text-primary">
             About <span className="gradient-text">Me</span>
           </h2>
           <div className="w-24 h-1 bg-saffron rounded-full"></div>
         </div>
 
         {/* Story Content */}
-        <div className="space-y-8 text-text-primary text-lg leading-relaxed">
+        <div className="space-y-8 text-text-secondary text-lg leading-relaxed">
           <p className="animate-fade-in-up">
             My journey into software development started with a fascination for technology and its power 
-            to transform lives. As a Computer Science student at <strong className="text-navy">JIIT Noida</strong> (2024–28), 
+            to transform lives. As a Computer Science student at <strong className="text-saffron">JIIT Noida</strong> (2024–28), 
             I'm not just learning to code—I'm learning to create systems that think, automate, and make a difference.
           </p>
 
@@ -105,7 +105,7 @@ const About = () => {
 
           {/* Skills Tags */}
           <div className="mt-12">
-            <h3 className="text-2xl font-semibold text-navy mb-6">
+            <h3 className="text-2xl font-semibold text-text-primary mb-6">
               🛠️ Tech Stack
             </h3>
             
@@ -118,7 +118,7 @@ const About = () => {
                 ].map((skill, index) => (
                   <span 
                     key={index}
-                    className="px-4 py-2 bg-saffron/10 border-2 border-saffron/50 rounded-full text-navy font-semibold hover:bg-saffron hover:text-white transition-all duration-300 cursor-default shadow-md"
+                    className="px-4 py-2 bg-saffron/10 border-2 border-saffron/50 rounded-full text-saffron font-semibold hover:bg-saffron hover:text-text-dark transition-all duration-300 cursor-default shadow-md"
                   >
                     {skill}
                   </span>
@@ -135,7 +135,7 @@ const About = () => {
                 ].map((skill, index) => (
                   <span 
                     key={index}
-                    className="px-4 py-2 bg-green/10 border-2 border-green/50 rounded-full text-navy font-semibold hover:bg-green hover:text-white transition-all duration-300 cursor-default shadow-md"
+                    className="px-4 py-2 bg-green/10 border-2 border-green/50 rounded-full text-green font-semibold hover:bg-green hover:text-text-dark transition-all duration-300 cursor-default shadow-md"
                   >
                     {skill}
                   </span>
@@ -145,14 +145,14 @@ const About = () => {
 
             {/* AI & APIs */}
             <div>
-              <h4 className="text-lg font-semibold text-navy mb-3">AI & APIs</h4>
+              <h4 className="text-lg font-semibold text-saffron mb-3">AI & APIs</h4>
               <div className="flex flex-wrap gap-3">
                 {[
                   'Google Gemini API', 'OpenAI API', 'AI Agents', 'ML Models'
                 ].map((skill, index) => (
                   <span 
                     key={index}
-                    className="px-4 py-2 bg-navy/10 border-2 border-navy/50 rounded-full text-navy font-semibold hover:bg-navy hover:text-white transition-all duration-300 cursor-default shadow-md"
+                    className="px-4 py-2 bg-saffron/10 border-2 border-saffron/50 rounded-full text-saffron font-semibold hover:bg-saffron hover:text-text-dark transition-all duration-300 cursor-default shadow-md"
                   >
                     {skill}
                   </span>

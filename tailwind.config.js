@@ -6,7 +6,13 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // Indian Tricolor Theme
+        // Dark Mode with Indian Tricolor Accents
+        dark: {
+          primary: '#0a0a0a',
+          secondary: '#1a1a1a',
+          tertiary: '#2a2a2a',
+          card: '#151515',
+        },
         saffron: {
           DEFAULT: '#FF9933',
           light: '#FFB366',
@@ -28,12 +34,12 @@ module.exports = {
           red: '#FF0000',
           yellow: '#FFD700',
         },
-        // Text colors
+        // Text colors for dark mode
         text: {
-          primary: '#000000',
-          secondary: '#000080',
-          muted: '#666666',
-          light: '#FFFFFF',
+          primary: '#FFFFFF',
+          secondary: '#B0B0B0',
+          muted: '#808080',
+          dark: '#000000',
         }
       },
       fontFamily: {
