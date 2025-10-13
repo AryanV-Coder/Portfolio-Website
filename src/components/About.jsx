@@ -4,102 +4,98 @@ const About = () => {
   return (
     <section 
       id="about" 
-      className="min-h-screen py-20 px-6 md:px-12 bg-gradient-to-b from-primary-darker to-primary-dark"
+      className="min-h-screen py-20 px-6 md:px-12 bg-white"
     >
       <div className="max-w-5xl mx-auto fade-in-section">
         {/* Section Header */}
         <div className="mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-navy">
             About <span className="gradient-text">Me</span>
           </h2>
-          <div className="w-24 h-1 bg-accent-teal rounded-full"></div>
+          <div className="w-24 h-1 bg-saffron rounded-full"></div>
         </div>
 
         {/* Story Content */}
-        <div className="space-y-8 text-text-secondary text-lg leading-relaxed">
+        <div className="space-y-8 text-text-primary text-lg leading-relaxed">
           <p className="animate-fade-in-up">
-            My journey into software development started not with a keyboard, but with curiosity. 
-            As a kid, I was fascinated by how things worked—taking apart gadgets, sketching 
-            impossible inventions, and wondering what made the digital world tick. That curiosity 
-            evolved into a passion when I wrote my first line of code and watched it come to life 
-            on the screen. It was magic, and I was hooked.
+            My journey into software development started with a fascination for technology and its power 
+            to transform lives. As a Computer Science student at <strong className="text-navy">JIIT Noida</strong> (2024–28), 
+            I'm not just learning to code—I'm learning to create systems that think, automate, and make a difference.
           </p>
 
           <p className="animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
-            Over the years, I've discovered that great software isn't just about solving problems—it's 
-            about crafting experiences that feel natural, intuitive, and delightful. I believe in the 
-            power of clean, maintainable code that tells a story. Every function has a purpose, every 
-            component serves a vision, and every line matters.
+            What drives me? <strong className="text-saffron">Building intelligent systems that interact, automate, and improve lives.</strong> 
+            I'm constantly experimenting with AI agents, automation frameworks, and cutting-edge APIs. From FastAPI backends 
+            to Flutter mobile apps, I love crafting solutions that are both powerful and user-friendly.
           </p>
 
           <p className="animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-            What drives me? It's the challenge of turning complex problems into elegant solutions. 
-            Whether I'm building responsive web applications, architecting scalable systems, or 
-            diving into the latest technologies, I approach each project with the same mindset: 
-            attention to detail, empathy for the end user, and a commitment to excellence.
+            I'm on a mission to leverage technology for <strong className="text-green">India's advancement</strong>—particularly 
+            in defense and wellness sectors. Every project I build is a step toward that vision: code that serves the nation, 
+            innovations that empower people, and systems that make the future brighter. 🇮🇳
           </p>
 
           {/* Core Philosophies */}
-          <div className="mt-12 pt-8 border-t border-primary-light">
-            <h3 className="text-2xl font-semibold text-text-primary mb-6 gradient-text">
-              My Core Philosophies
+          <div className="mt-12 pt-8 border-t border-gray-200">
+            <h3 className="text-2xl font-semibold text-navy mb-6">
+              My Core <span className="gradient-text">Philosophies</span>
             </h3>
             <div className="grid md:grid-cols-2 gap-6">
-              <div className="bg-primary-light p-6 rounded-lg border border-accent-teal/20 hover:border-accent-teal/50 transition-all duration-300">
+              <div className="bg-gradient-to-br from-saffron/10 to-white p-6 rounded-lg border-2 border-saffron/30 hover:border-saffron transition-all duration-300 shadow-lg">
                 <div className="flex items-start gap-4">
-                  <div className="text-accent-teal text-3xl">💡</div>
+                  <div className="text-4xl">🧠</div>
                   <div>
-                    <h4 className="text-xl font-semibold text-text-primary mb-2">
-                      Simplicity Over Complexity
+                    <h4 className="text-xl font-semibold text-navy mb-2">
+                      AI-First Thinking
                     </h4>
-                    <p className="text-base">
-                      The best solutions are often the simplest. I strive to write code that's 
-                      easy to understand, maintain, and scale.
+                    <p className="text-base text-text-primary">
+                      Every problem is an opportunity to leverage AI. I build systems that learn, 
+                      adapt, and make intelligent decisions.
                     </p>
                   </div>
                 </div>
               </div>
 
-              <div className="bg-primary-light p-6 rounded-lg border border-accent-teal/20 hover:border-accent-teal/50 transition-all duration-300">
+              <div className="bg-gradient-to-br from-green/10 to-white p-6 rounded-lg border-2 border-green/30 hover:border-green transition-all duration-300 shadow-lg">
                 <div className="flex items-start gap-4">
-                  <div className="text-accent-teal text-3xl">🎨</div>
+                  <div className="text-4xl">�🇳</div>
                   <div>
-                    <h4 className="text-xl font-semibold text-text-primary mb-2">
-                      Design Meets Functionality
+                    <h4 className="text-xl font-semibold text-navy mb-2">
+                      Code for the Nation
                     </h4>
-                    <p className="text-base">
-                      Beautiful interfaces and robust backends aren't mutually exclusive. 
-                      I believe in the harmony of aesthetics and performance.
+                    <p className="text-base text-text-primary">
+                      Technology for India's advancement. Building solutions that strengthen 
+                      defense capabilities and improve public wellness.
                     </p>
                   </div>
                 </div>
               </div>
 
-              <div className="bg-primary-light p-6 rounded-lg border border-accent-teal/20 hover:border-accent-teal/50 transition-all duration-300">
+              <div className="bg-gradient-to-br from-navy/10 to-white p-6 rounded-lg border-2 border-navy/30 hover:border-navy transition-all duration-300 shadow-lg">
                 <div className="flex items-start gap-4">
-                  <div className="text-accent-teal text-3xl">🚀</div>
+                  <div className="text-4xl">⚡</div>
                   <div>
-                    <h4 className="text-xl font-semibold text-text-primary mb-2">
-                      Continuous Learning
+                    <h4 className="text-xl font-semibold text-navy mb-2">
+                      Automation First
                     </h4>
-                    <p className="text-base">
-                      Technology evolves rapidly, and so do I. I'm always exploring new tools, 
-                      frameworks, and methodologies to stay ahead of the curve.
+                    <p className="text-base text-text-primary">
+                      Why do manually what can be automated? I create systems that work 
+                      smarter, not harder—freeing humans for creative work.
                     </p>
                   </div>
                 </div>
               </div>
 
-              <div className="bg-primary-light p-6 rounded-lg border border-accent-teal/20 hover:border-accent-teal/50 transition-all duration-300">
+              <div className="bg-gradient-to-br from-saffron/10 to-green/10 p-6 rounded-lg border-2 border-saffron/30 hover:border-green transition-all duration-300 shadow-lg">
                 <div className="flex items-start gap-4">
-                  <div className="text-accent-teal text-3xl">🤝</div>
+                  <div className="text-4xl">🔬</div>
                   <div>
-                    <h4 className="text-xl font-semibold text-text-primary mb-2">
-                      User-Centric Approach
+                    <h4 className="text-xl font-semibold text-navy mb-2">
+                      Experiment & Innovate
                     </h4>
-                    <p className="text-base">
-                      Every feature I build starts with a simple question: "How will this 
-                      improve the user's experience?" Empathy drives innovation.
+                    <p className="text-base text-text-primary">
+                      Constantly experimenting with new technologies, APIs, and hardware 
+                      integrations to push the boundaries of what's possible.
                     </p>
                   </div>
                 </div>
@@ -109,22 +105,59 @@ const About = () => {
 
           {/* Skills Tags */}
           <div className="mt-12">
-            <h3 className="text-2xl font-semibold text-text-primary mb-6">
-              Technologies I Work With
+            <h3 className="text-2xl font-semibold text-navy mb-6">
+              🛠️ Tech Stack
             </h3>
-            <div className="flex flex-wrap gap-3">
-              {[
-                'React', 'JavaScript', 'TypeScript', 'Node.js', 'Python', 
-                'Tailwind CSS', 'MongoDB', 'PostgreSQL', 'Git', 'Docker',
-                'REST APIs', 'GraphQL', 'AWS', 'Next.js', 'Express.js'
-              ].map((skill, index) => (
-                <span 
-                  key={index}
-                  className="px-4 py-2 bg-primary-light border border-accent-teal/30 rounded-full text-accent-teal-light hover:bg-accent-teal/10 hover:border-accent-teal transition-all duration-300 cursor-default"
-                >
-                  {skill}
-                </span>
-              ))}
+            
+            {/* Languages */}
+            <div className="mb-6">
+              <h4 className="text-lg font-semibold text-saffron mb-3">Languages</h4>
+              <div className="flex flex-wrap gap-3">
+                {[
+                  'Python', 'Java', 'Dart', 'C', 'C++'
+                ].map((skill, index) => (
+                  <span 
+                    key={index}
+                    className="px-4 py-2 bg-saffron/10 border-2 border-saffron/50 rounded-full text-navy font-semibold hover:bg-saffron hover:text-white transition-all duration-300 cursor-default shadow-md"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* Frameworks & Tools */}
+            <div className="mb-6">
+              <h4 className="text-lg font-semibold text-green mb-3">Frameworks & Tools</h4>
+              <div className="flex flex-wrap gap-3">
+                {[
+                  'FastAPI', 'Flutter', 'Spring Boot', 'Streamlit', 'MySQL'
+                ].map((skill, index) => (
+                  <span 
+                    key={index}
+                    className="px-4 py-2 bg-green/10 border-2 border-green/50 rounded-full text-navy font-semibold hover:bg-green hover:text-white transition-all duration-300 cursor-default shadow-md"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* AI & APIs */}
+            <div>
+              <h4 className="text-lg font-semibold text-navy mb-3">AI & APIs</h4>
+              <div className="flex flex-wrap gap-3">
+                {[
+                  'Google Gemini API', 'OpenAI API', 'AI Agents', 'ML Models'
+                ].map((skill, index) => (
+                  <span 
+                    key={index}
+                    className="px-4 py-2 bg-navy/10 border-2 border-navy/50 rounded-full text-navy font-semibold hover:bg-navy hover:text-white transition-all duration-300 cursor-default shadow-md"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
         </div>

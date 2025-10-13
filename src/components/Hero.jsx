@@ -4,13 +4,13 @@ const Hero = () => {
   return (
     <section 
       id="home" 
-      className="min-h-screen flex items-center justify-center bg-gradient-to-br from-primary-dark via-primary-dark to-primary-darker px-6 md:px-12"
+      className="min-h-screen flex items-center justify-center bg-gradient-to-br from-saffron via-white to-green px-6 md:px-12"
     >
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12 md:gap-16">
         {/* Profile Image */}
         <div className="w-64 h-64 md:w-80 md:h-80 flex-shrink-0 animate-fade-in">
-          <div className="w-full h-full rounded-full bg-gradient-to-br from-accent-teal to-accent-teal-dark p-1 shadow-2xl">
-            <div className="w-full h-full rounded-full bg-primary-light flex items-center justify-center overflow-hidden">
+          <div className="w-full h-full rounded-full bg-gradient-to-br from-saffron via-white to-green p-1 shadow-2xl">
+            <div className="w-full h-full rounded-full bg-white flex items-center justify-center overflow-hidden border-4 border-navy">
               {/* 
                 TODO: Replace this placeholder with your actual photo
                 Add your image to /src/assets/profile.jpg and import it at the top:
@@ -26,32 +26,32 @@ const Hero = () => {
 
         {/* Hero Content */}
         <div className="flex-1 text-center md:text-left animate-fade-in-up">
-          <h1 className="text-5xl md:text-7xl font-bold mb-4">
-            Hi, I'm <span className="gradient-text">Aryan Varshney</span>
+          <h1 className="text-5xl md:text-7xl font-bold mb-4 text-navy">
+            Hi 👋, I'm <span className="gradient-text">Aryan Varshney</span>
           </h1>
           
-          <p className="text-2xl md:text-3xl text-accent-teal-light font-medium mb-6">
-            Software Engineer & Creative Coder
+          <p className="text-2xl md:text-3xl text-navy font-semibold mb-6">
+            🚀 AI Tools Creator | FastAPI & Flutter Dev | B.Tech CSE @ JIIT 🇮🇳
           </p>
           
-          <p className="text-lg md:text-xl text-text-secondary leading-relaxed max-w-2xl mb-8">
-            I transform ideas into elegant digital experiences. With a passion for clean code 
-            and intuitive design, I build applications that don't just work—they inspire. 
-            From crafting seamless user interfaces to architecting robust backend systems, 
-            I thrive at the intersection of creativity and technology.
+          <p className="text-lg md:text-xl text-text-primary leading-relaxed max-w-2xl mb-8">
+            I love building intelligent systems that <strong>interact, automate, and improve lives</strong>. 
+            Currently exploring <strong>AI agents, automation, FastAPI, Flutter</strong>, and <strong>AI APIs</strong>. 
+            Mission-driven to use tech for <strong className="text-saffron">India's advancement</strong> in defense and wellness. 
+            Constantly experimenting with <strong>AI, ML, automation, and hardware integration</strong>.
           </p>
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
             <a 
               href="#projects" 
-              className="px-8 py-3 bg-accent-teal text-primary-dark font-semibold rounded-lg hover:bg-accent-teal-light transition-all duration-300 btn-glow"
+              className="px-8 py-3 bg-saffron text-white font-semibold rounded-lg hover:bg-green hover:text-white transition-all duration-300 btn-glow shadow-lg"
             >
               View My Work
             </a>
             <a 
               href="#contact" 
-              className="px-8 py-3 border-2 border-accent-teal text-accent-teal font-semibold rounded-lg hover:bg-accent-teal hover:text-primary-dark transition-all duration-300"
+              className="px-8 py-3 border-2 border-navy text-navy font-semibold rounded-lg hover:bg-navy hover:text-white transition-all duration-300 shadow-lg"
             >
               Get In Touch
             </a>
@@ -60,7 +60,7 @@ const Hero = () => {
           {/* Scroll Indicator */}
           <div className="mt-16 animate-bounce hidden md:block">
             <svg 
-              className="w-6 h-6 mx-auto md:mx-0 text-accent-teal" 
+              className="w-6 h-6 mx-auto md:mx-0 text-saffron" 
               fill="none" 
               strokeLinecap="round" 
               strokeLinejoin="round" 

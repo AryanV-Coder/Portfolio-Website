@@ -1,10 +1,22 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import SplashScreen from './components/SplashScreen';
 import Hero from './components/Hero';
 import About from './components/About';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
 
 function App() {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate loading time for splash screen
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 2500); // 2.5 seconds
+
+    return () => clearTimeout(timer);
+  }, []);
+
   useEffect(() => {
     // Fade-in animation on scroll
     const observerOptions = {
@@ -30,12 +42,15 @@ function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-primary-dark">
-      <Hero />
-      <About />
-      <Projects />
-      <Contact />
-    </div>
+    <>
+      <SplashScreen isLoading={isLoading} />
+      <div className={`min-h-screen bg-white transition-opacity duration-1000 ${isLoading ? 'opacity-0' : 'opacity-100'}`}>
+        <Hero />
+        <About />
+        <Projects />
+        <Contact />
+      </div>
+    </>
   );
 }
 

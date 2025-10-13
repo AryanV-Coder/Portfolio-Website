@@ -6,20 +6,34 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: {
-          dark: '#111827',
-          darker: '#0a0e1a',
-          light: '#1f2937',
+        // Indian Tricolor Theme
+        saffron: {
+          DEFAULT: '#FF9933',
+          light: '#FFB366',
+          dark: '#E68A2E',
         },
+        green: {
+          DEFAULT: '#138808',
+          light: '#1BAA0A',
+          dark: '#0F6606',
+        },
+        navy: {
+          DEFAULT: '#000080',
+          light: '#0000B3',
+          dark: '#000066',
+        },
+        // Accent colors
         accent: {
-          teal: '#14b8a6',
-          'teal-light': '#2dd4bf',
-          'teal-dark': '#0f766e',
+          pink: '#FF1493',
+          red: '#FF0000',
+          yellow: '#FFD700',
         },
+        // Text colors
         text: {
-          primary: '#f9fafb',
-          secondary: '#d1d5db',
-          muted: '#9ca3af',
+          primary: '#000000',
+          secondary: '#000080',
+          muted: '#666666',
+          light: '#FFFFFF',
         }
       },
       fontFamily: {
@@ -30,6 +44,7 @@ module.exports = {
         'fade-in': 'fadeIn 0.6s ease-out',
         'fade-in-up': 'fadeInUp 0.6s ease-out',
         'slide-in': 'slideIn 0.4s ease-out',
+        'spin-slow': 'spin 3s linear infinite',
       },
       keyframes: {
         fadeIn: {

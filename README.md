@@ -6,24 +6,25 @@ A modern, responsive, and visually stunning personal portfolio website built wit
 
 ## ✨ Features
 
-- **🎨 Modern Dark-Mode Design**: Clean, professional aesthetic with a carefully chosen color palette
+- **�🇳 Indian Tricolor Theme**: Unique design using the colors of the Indian flag (Saffron, White, Green)
+- **⚙️ Rotating Ashoka Chakra Splash Screen**: Beautiful loading animation with navy blue chakra
 - **📱 Fully Responsive**: Seamless experience across desktop, tablet, and mobile devices
-- **🚀 Dynamic Project Showcase**: Automatically fetches and displays your GitHub repositories via API
-- **✍️ Catchy Project Descriptions**: Engaging, rhyming descriptions that make your projects stand out
+- **🚀 Dynamic Project Showcase**: Automatically fetches and displays GitHub repositories via API
+- **📖 README-Based Descriptions**: Parses README files to generate concise project summaries
+- **✍️ Catchy Fallback Descriptions**: Engaging, rhyming descriptions when README is unavailable
 - **🎭 Smooth Animations**: Subtle fade-in effects on scroll and hover animations
 - **⚡ Fast Performance**: Optimized for speed with React and Tailwind CSS
 - **🎯 SEO Friendly**: Proper meta tags and semantic HTML structure
 - **🔧 Easy Customization**: Clear instructions for personalizing all content
 
-## 🎨 Color Palette
+## 🎨 Color Palette - Indian Tricolor Theme 🇮🇳
 
-- **Background Dark**: `#111827` (primary-dark)
-- **Background Darker**: `#0a0e1a` (primary-darker)
-- **Background Light**: `#1f2937` (primary-light)
-- **Accent Teal**: `#14b8a6` (accent-teal)
-- **Accent Teal Light**: `#2dd4bf` (accent-teal-light)
-- **Text Primary**: `#f9fafb`
-- **Text Secondary**: `#d1d5db`
+- **Saffron**: `#FF9933` (Primary accent)
+- **White**: `#FFFFFF` (Background)
+- **Green**: `#138808` (Secondary accent)
+- **Navy Blue**: `#000080` (Text and emphasis)
+- **Black**: `#000000` (Primary text)
+- **Accent Colors**: Pink, Red, Yellow (Used sparingly)
 
 ## 📂 Project Structure
 

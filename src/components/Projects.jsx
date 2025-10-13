@@ -7,9 +7,53 @@ const Projects = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // TODO: Replace 'YOUR_GITHUB_USERNAME' with your actual GitHub username
-  // Example: const GITHUB_USERNAME = 'AryanV-Coder';
   const GITHUB_USERNAME = 'AryanV-Coder';
+
+  // Function to fetch README content for a repository
+  const fetchReadmeContent = async (repoName) => {
+    try {
+      const response = await axios.get(
+        `https://api.github.com/repos/${GITHUB_USERNAME}/${repoName}/readme`,
+        {
+          headers: {
+            Accept: 'application/vnd.github.v3.raw'
+          }
+        }
+      );
+      return response.data;
+    } catch (err) {
+      console.log(`No README found for ${repoName}`);
+      return null;
+    }
+  };
+
+  // Function to generate a concise summary from README content
+  const generateSummaryFromReadme = (readmeContent, repoName) => {
+    if (!readmeContent) return null;
+
+    // Remove markdown formatting and extract meaningful content
+    let text = readmeContent
+      .replace(/#{1,6}\s/g, '') // Remove headers
+      .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1') // Remove links but keep text
+      .replace(/[*_`]/g, '') // Remove formatting
+      .replace(/!\[[^\]]*\]\([^)]+\)/g, '') // Remove images
+      .split('\n')
+      .filter(line => line.trim().length > 20) // Keep only substantial lines
+      .slice(0, 5) // Take first 5 meaningful lines
+      .join(' ');
+
+    // Extract first 2-3 sentences or about 200 characters
+    const sentences = text.match(/[^.!?]+[.!?]+/g) || [];
+    let summary = sentences.slice(0, 2).join(' ').trim();
+    
+    if (summary.length > 200) {
+      summary = summary.substring(0, 200) + '...';
+    } else if (summary.length < 50 && text.length > 0) {
+      summary = text.substring(0, 200) + '...';
+    }
+
+    return summary || null;
+  };
 
   useEffect(() => {
     const fetchRepos = async () => {
@@ -34,7 +78,20 @@ const Projects = () => {
           .filter(repo => !repo.fork)
           .sort((a, b) => b.stargazers_count - a.stargazers_count);
 
-        setRepos(filteredRepos);
+        // Fetch README for each repository and generate summaries
+        const reposWithReadme = await Promise.all(
+          filteredRepos.map(async (repo) => {
+            const readmeContent = await fetchReadmeContent(repo.name);
+            const readmeSummary = generateSummaryFromReadme(readmeContent, repo.name);
+            
+            return {
+              ...repo,
+              readmeSummary: readmeSummary
+            };
+          })
+        );
+
+        setRepos(reposWithReadme);
         setLoading(false);
       } catch (err) {
         console.error('Error fetching repositories:', err);
@@ -46,16 +103,20 @@ const Projects = () => {
     fetchRepos();
   }, [GITHUB_USERNAME]);
 
-  // Catchy descriptions generator based on repo characteristics
+  // Generate description with priority: README summary > repo description > catchy fallback
   const generateDescription = (repo) => {
-    // If repo has a description, use it; otherwise generate a catchy one
+    // First priority: README summary
+    if (repo.readmeSummary && repo.readmeSummary.length > 10) {
+      return repo.readmeSummary;
+    }
+
+    // Second priority: Repository description
     if (repo.description && repo.description.length > 10) {
       return repo.description;
     }
 
-    // Generate catchy rhyming descriptions based on language or name
+    // Fallback: Generate catchy rhyming descriptions based on language
     const language = repo.language || 'Code';
-    const name = repo.name.toLowerCase();
 
     const catchyDescriptions = [
       `${language} magic that's pure delight, turning complex problems into solutions bright! ✨`,
@@ -76,18 +137,18 @@ const Projects = () => {
   return (
     <section 
       id="projects" 
-      className="min-h-screen py-20 px-6 md:px-12 bg-gradient-to-b from-primary-dark to-primary-darker"
+      className="min-h-screen py-20 px-6 md:px-12 bg-gradient-to-b from-white via-saffron/5 to-green/5"
     >
       <div className="max-w-7xl mx-auto fade-in-section">
         {/* Section Header */}
         <div className="mb-16 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-navy">
             Featured <span className="gradient-text">Projects</span>
           </h2>
-          <div className="w-24 h-1 bg-accent-teal rounded-full mx-auto mb-6"></div>
-          <p className="text-text-secondary text-lg max-w-2xl mx-auto">
-            A collection of projects that showcase my skills, creativity, and passion for 
-            building meaningful solutions. Each one tells a unique story.
+          <div className="w-24 h-1 bg-saffron rounded-full mx-auto mb-6"></div>
+          <p className="text-text-primary text-lg max-w-2xl mx-auto">
+            A collection of AI-powered tools and intelligent systems that automate, interact, 
+            and improve lives. Each project represents innovation with purpose. 🚀
           </p>
         </div>
 
@@ -142,7 +203,7 @@ const Projects = () => {
             href={`https://github.com/${GITHUB_USERNAME}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-8 py-3 bg-primary-light border-2 border-accent-teal text-accent-teal font-semibold rounded-lg hover:bg-accent-teal hover:text-primary-dark transition-all duration-300"
+            className="inline-flex items-center gap-2 px-8 py-3 bg-white border-2 border-saffron text-navy font-semibold rounded-lg hover:bg-saffron hover:text-white transition-all duration-300 shadow-lg btn-glow"
           >
             <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
               <path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd" />
