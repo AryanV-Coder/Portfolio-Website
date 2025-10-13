@@ -142,14 +142,35 @@ Edit `src/components/About.jsx`:
 
 ### 3. Projects Section (GitHub API)
 
+#### **Set Up GitHub Token** (Required to avoid rate limits)
+
+1. **Create a `.env` file** in the root directory (already created for you!)
+
+2. **Generate a GitHub Personal Access Token**:
+   - Go to: https://github.com/settings/tokens
+   - Click "Generate new token (classic)"
+   - Name it "Portfolio Website"
+   - **Don't select any scopes** (no permissions needed for public repos)
+   - Click "Generate token"
+   - Copy the token
+
+3. **Add token to `.env` file**:
+   ```
+   REACT_APP_GITHUB_TOKEN=ghp_your_token_here
+   ```
+
+4. **Restart dev server**: Stop (Ctrl+C) and run `npm start` again
+
+📖 **See [SETUP_TOKEN.md](./SETUP_TOKEN.md) for detailed instructions**
+
 Edit `src/components/Projects.jsx`:
 
-- **Line 14**: **IMPORTANT** - Update with your GitHub username:
+- **Line 10**: Update with your GitHub username (if different):
   ```jsx
-  const GITHUB_USERNAME = 'YourGitHubUsername';
+  const GITHUB_USERNAME = 'AryanV-Coder';
   ```
 
-The projects will automatically fetch from your GitHub repositories and display them with catchy descriptions!
+The projects will automatically fetch from your GitHub repositories with README-based descriptions!
 
 ### 4. Contact Section
 

@@ -56,21 +56,6 @@ const Hero = () => {
               Get In Touch
             </a>
           </div>
-
-          {/* Scroll Indicator */}
-          <div className="mt-16 animate-bounce hidden md:block">
-            <svg 
-              className="w-6 h-6 mx-auto md:mx-0 text-saffron" 
-              fill="none" 
-              strokeLinecap="round" 
-              strokeLinejoin="round" 
-              strokeWidth="2" 
-              viewBox="0 0 24 24" 
-              stroke="currentColor"
-            >
-              <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-            </svg>
-          </div>
         </div>
       </div>
     </section>

@@ -8,17 +8,25 @@ const Projects = () => {
   const [error, setError] = useState(null);
 
   const GITHUB_USERNAME = 'AryanV-Coder';
+  // GitHub Personal Access Token from environment variable
+  // Add your token to the .env file: REACT_APP_GITHUB_TOKEN=your_token_here
+  const GITHUB_TOKEN = process.env.REACT_APP_GITHUB_TOKEN || '';
 
   // Function to fetch README content for a repository
   const fetchReadmeContent = async (repoName) => {
     try {
+      const headers = {
+        Accept: 'application/vnd.github.v3.raw'
+      };
+      
+      // Add authorization header if token is provided
+      if (GITHUB_TOKEN) {
+        headers.Authorization = `token ${GITHUB_TOKEN}`;
+      }
+
       const response = await axios.get(
         `https://api.github.com/repos/${GITHUB_USERNAME}/${repoName}/readme`,
-        {
-          headers: {
-            Accept: 'application/vnd.github.v3.raw'
-          }
-        }
+        { headers }
       );
       return response.data;
     } catch (err) {
@@ -62,9 +70,15 @@ const Projects = () => {
         setError(null);
         
         // Fetch repositories from GitHub API
+        const headers = {};
+        if (GITHUB_TOKEN) {
+          headers.Authorization = `token ${GITHUB_TOKEN}`;
+        }
+
         const response = await axios.get(
           `https://api.github.com/users/${GITHUB_USERNAME}/repos`,
           {
+            headers,
             params: {
               sort: 'updated',
               per_page: 100,
