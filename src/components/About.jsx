@@ -36,19 +36,19 @@ const About = () => {
           </p>
 
           {/* Core Philosophies */}
-          <div className="mt-12 pt-8 border-t border-gray-200">
-            <h3 className="text-2xl font-semibold text-navy mb-6">
+          <div className="mt-12 pt-8 border-t border-dark-tertiary">
+            <h3 className="text-2xl font-semibold text-text-primary mb-6">
               My Core <span className="gradient-text">Philosophies</span>
             </h3>
             <div className="grid md:grid-cols-2 gap-6">
-              <div className="bg-gradient-to-br from-saffron/10 to-white p-6 rounded-lg border-2 border-saffron/30 hover:border-saffron transition-all duration-300 shadow-lg">
+                            <div className="bg-dark-card p-6 rounded-lg border-2 border-saffron/30 hover:border-saffron transition-all duration-300 shadow-lg">
                 <div className="flex items-start gap-4">
                   <div className="text-4xl">🧠</div>
                   <div>
-                    <h4 className="text-xl font-semibold text-navy mb-2">
+                    <h4 className="text-xl font-semibold text-text-primary mb-2">
                       AI-First Thinking
                     </h4>
-                    <p className="text-base text-text-primary">
+                    <p className="text-base text-text-secondary">
                       Every problem is an opportunity to leverage AI. I build systems that learn, 
                       adapt, and make intelligent decisions.
                     </p>
@@ -56,14 +56,14 @@ const About = () => {
                 </div>
               </div>
 
-              <div className="bg-gradient-to-br from-green/10 to-white p-6 rounded-lg border-2 border-green/30 hover:border-green transition-all duration-300 shadow-lg">
+              <div className="bg-dark-card p-6 rounded-lg border-2 border-saffron/30 hover:border-saffron transition-all duration-300 shadow-lg">
                 <div className="flex items-start gap-4">
-                  <div className="text-4xl">�🇳</div>
+                  <div className="text-4xl">🇮🇳</div>
                   <div>
-                    <h4 className="text-xl font-semibold text-navy mb-2">
+                    <h4 className="text-xl font-semibold text-text-primary mb-2">
                       Code for the Nation
                     </h4>
-                    <p className="text-base text-text-primary">
+                    <p className="text-base text-text-secondary">
                       Technology for India's advancement. Building solutions that strengthen 
                       defense capabilities and improve public wellness.
                     </p>
@@ -71,14 +71,14 @@ const About = () => {
                 </div>
               </div>
 
-              <div className="bg-gradient-to-br from-navy/10 to-white p-6 rounded-lg border-2 border-navy/30 hover:border-navy transition-all duration-300 shadow-lg">
+              <div className="bg-dark-card p-6 rounded-lg border-2 border-saffron/30 hover:border-saffron transition-all duration-300 shadow-lg">
                 <div className="flex items-start gap-4">
                   <div className="text-4xl">⚡</div>
                   <div>
-                    <h4 className="text-xl font-semibold text-navy mb-2">
+                    <h4 className="text-xl font-semibold text-text-primary mb-2">
                       Automation First
                     </h4>
-                    <p className="text-base text-text-primary">
+                    <p className="text-base text-text-secondary">
                       Why do manually what can be automated? I create systems that work 
                       smarter, not harder—freeing humans for creative work.
                     </p>
@@ -86,14 +86,14 @@ const About = () => {
                 </div>
               </div>
 
-              <div className="bg-gradient-to-br from-saffron/10 to-green/10 p-6 rounded-lg border-2 border-saffron/30 hover:border-green transition-all duration-300 shadow-lg">
+              <div className="bg-dark-card p-6 rounded-lg border-2 border-saffron/30 hover:border-saffron transition-all duration-300 shadow-lg">
                 <div className="flex items-start gap-4">
                   <div className="text-4xl">🔬</div>
                   <div>
-                    <h4 className="text-xl font-semibold text-navy mb-2">
+                    <h4 className="text-xl font-semibold text-text-primary mb-2">
                       Experiment & Innovate
                     </h4>
-                    <p className="text-base text-text-primary">
+                    <p className="text-base text-text-secondary">
                       Constantly experimenting with new technologies, APIs, and hardware 
                       integrations to push the boundaries of what's possible.
                     </p>
