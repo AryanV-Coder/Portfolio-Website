@@ -1,4 +1,5 @@
 import React from 'react';
+import profileImage from '../assets/profile_pic.jpg';
 
 const Hero = () => {
   return (
@@ -11,15 +12,11 @@ const Hero = () => {
         <div className="w-64 h-64 md:w-80 md:h-80 flex-shrink-0 animate-fade-in">
           <div className="w-full h-full rounded-full bg-gradient-to-br from-saffron via-green to-saffron p-1 shadow-2xl shadow-saffron/20">
             <div className="w-full h-full rounded-full bg-dark-secondary flex items-center justify-center overflow-hidden border-4 border-saffron/50">
-              {/* 
-                TODO: Replace this placeholder with your actual photo
-                Add your image to /src/assets/profile.jpg and import it at the top:
-                import profileImage from '../assets/profile.jpg';
-                Then replace the div below with: <img src={profileImage} alt="Aryan Varshney" className="w-full h-full object-cover" />
-              */}
-              <div className="w-full h-full flex items-center justify-center text-6xl font-bold gradient-text">
-                AV
-              </div>
+              <img 
+                src={profileImage} 
+                alt="Aryan Varshney" 
+                className="w-full h-full object-cover"
+              />
             </div>
           </div>
         </div>
