@@ -35,32 +35,89 @@ const Projects = () => {
     }
   };
 
-  // Function to generate a concise summary from README content
-  const generateSummaryFromReadme = (readmeContent, repoName) => {
+  // Function to generate catchy rhyming description from README content
+  const generateCatchyDescription = (readmeContent, repoName, language) => {
     if (!readmeContent) return null;
 
-    // Remove markdown formatting and extract meaningful content
-    let text = readmeContent
-      .replace(/#{1,6}\s/g, '') // Remove headers
-      .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1') // Remove links but keep text
-      .replace(/[*_`]/g, '') // Remove formatting
-      .replace(/!\[[^\]]*\]\([^)]+\)/g, '') // Remove images
-      .split('\n')
-      .filter(line => line.trim().length > 20) // Keep only substantial lines
-      .slice(0, 5) // Take first 5 meaningful lines
-      .join(' ');
-
-    // Extract first 2-3 sentences or about 200 characters
-    const sentences = text.match(/[^.!?]+[.!?]+/g) || [];
-    let summary = sentences.slice(0, 2).join(' ').trim();
+    // Extract key information from README
+    let text = readmeContent.toLowerCase();
     
-    if (summary.length > 200) {
-      summary = summary.substring(0, 200) + '...';
-    } else if (summary.length < 50 && text.length > 0) {
-      summary = text.substring(0, 200) + '...';
+    // Detect project type and purpose based on README content
+    const isAPI = text.includes('api') || text.includes('backend') || text.includes('fastapi') || text.includes('rest');
+    const isApp = text.includes('app') || text.includes('application') || text.includes('flutter') || text.includes('mobile');
+    const isAI = text.includes('ai') || text.includes('machine learning') || text.includes('ml') || text.includes('gemini') || text.includes('openai') || text.includes('intelligent');
+    const isAutomation = text.includes('automat') || text.includes('bot') || text.includes('agent') || text.includes('schedule');
+    const isWeb = text.includes('web') || text.includes('website') || text.includes('react') || text.includes('frontend');
+    const isData = text.includes('data') || text.includes('database') || text.includes('analytics') || text.includes('visualization');
+    const isTool = text.includes('tool') || text.includes('utility') || text.includes('helper') || text.includes('generator');
+    const isChat = text.includes('chat') || text.includes('conversation') || text.includes('message');
+    const isGame = text.includes('game') || text.includes('play') || text.includes('puzzle');
+    const isSecurity = text.includes('security') || text.includes('encrypt') || text.includes('auth') || text.includes('secure');
+    const isEducation = text.includes('learn') || text.includes('tutorial') || text.includes('education') || text.includes('teach');
+    const isHealth = text.includes('health') || text.includes('fitness') || text.includes('medical') || text.includes('wellness');
+    const isFinance = text.includes('finance') || text.includes('money') || text.includes('payment') || text.includes('banking');
+    const isProductivity = text.includes('productivity') || text.includes('organize') || text.includes('manage') || text.includes('tracker');
+    
+    // Generate creative rhyming descriptions based on project purpose
+    if (isAI && isChat) {
+      return `Talk to AI that understands your need, intelligent conversations at lightning speed! 💬🤖`;
+    } else if (isAI && isData) {
+      return `Turning data into wisdom profound, where artificial intelligence and insights are found! 📊🧠`;
+    } else if (isAI && isAutomation) {
+      return `Smart automation that thinks and acts, handling complex workflows—those are the facts! 🤖⚡`;
+    } else if (isAI) {
+      return `Intelligence that learns and grows each day, solving problems in an innovative way! 🧠✨`;
+    } else if (isAutomation && isProductivity) {
+      return `Streamline your workflow, save precious time, efficiency and automation in perfect rhyme! ⏰🚀`;
+    } else if (isAutomation) {
+      return `Repetitive tasks? Consider them done, automation magic—now work is fun! 🔄�`;
+    } else if (isChat || isWeb && text.includes('social')) {
+      return `Connect and communicate with ease and grace, bringing people together in one special place! 💬🌐`;
+    } else if (isGame) {
+      return `Fun and challenges that make you think, entertainment and gaming in perfect sync! 🎮🎯`;
+    } else if (isHealth || isWeb && text.includes('wellness')) {
+      return `Your health companion, always by your side, tracking wellness with digital pride! 💪❤️`;
+    } else if (isEducation) {
+      return `Knowledge shared and skills you gain, learning made easy—that's the main aim! 📚🎓`;
+    } else if (isSecurity) {
+      return `Keeping your data safe and sound, where security and peace of mind are found! 🔒🛡️`;
+    } else if (isFinance || text.includes('expense')) {
+      return `Managing money smart and wise, financial clarity before your eyes! ��`;
+    } else if (isProductivity && isTool) {
+      return `Boost your output, work with flair, productivity tools beyond compare! 📋⚡`;
+    } else if (isData && text.includes('visual')) {
+      return `Complex data made simple and clear, insights you need are always near! ��️`;
+    } else if (isAPI && text.includes('service')) {
+      return `Connecting systems far and wide, seamless integration with tech as guide! 🔌🌐`;
+    } else if (isAPI) {
+      return `Services that power apps you love, delivering data from the cloud above! ☁️⚡`;
+    } else if (isApp && text.includes('social')) {
+      return `Community building at its best, connecting hearts from east to west! 👥💙`;
+    } else if (isApp && text.includes('shopping')) {
+      return `Shop with ease, find what you seek, great deals and treasures every week! 🛍️✨`;
+    } else if (isApp) {
+      return `Experience crafted with care and thought, solutions for problems you've long sought! 📱💫`;
+    } else if (isWeb && text.includes('portfolio')) {
+      return `Showcase your talent, let your work shine bright, a digital stage set just right! �💼`;
+    } else if (isWeb && text.includes('blog')) {
+      return `Share your stories, thoughts, and views, a platform where ideas you can choose! ✍️📰`;
+    } else if (isWeb) {
+      return `Browse and explore with speed and style, digital experiences that make you smile! 🌐😊`;
+    } else if (isTool && text.includes('convert')) {
+      return `Transform your files with just one click, conversion made simple, easy, and quick! ��`;
+    } else if (isTool) {
+      return `Solving problems both big and small, handy utilities that do it all! 🛠️🎯`;
+    } else if (text.includes('dashboard')) {
+      return `All your metrics in one view, insights and analytics just for you! 📈👀`;
+    } else if (text.includes('search')) {
+      return `Find what you need in record time, search made powerful and sublime! �⚡`;
+    } else if (text.includes('real-time') || text.includes('live')) {
+      return `Updates streaming live and fast, real-time magic unsurpassed! ⚡🔴`;
+    } else if (text.includes('collaborate')) {
+      return `Work together, create as one, collaboration where great things get done! 🤝🚀`;
+    } else {
+      return `Innovation meets purpose true, solving challenges just for you! �🎯`;
     }
-
-    return summary || null;
   };
 
   useEffect(() => {
@@ -87,20 +144,20 @@ const Projects = () => {
           }
         );
 
-        // Filter out forked repos and sort by stars
+        // Filter out forked repos, AryanV-Coder repo, and sort by stars
         const filteredRepos = response.data
-          .filter(repo => !repo.fork)
+          .filter(repo => !repo.fork && repo.name !== 'AryanV-Coder')
           .sort((a, b) => b.stargazers_count - a.stargazers_count);
 
-        // Fetch README for each repository and generate summaries
+        // Fetch README for each repository and generate catchy descriptions
         const reposWithReadme = await Promise.all(
           filteredRepos.map(async (repo) => {
             const readmeContent = await fetchReadmeContent(repo.name);
-            const readmeSummary = generateSummaryFromReadme(readmeContent, repo.name);
+            const catchyDescription = generateCatchyDescription(readmeContent, repo.name, repo.language);
             
             return {
               ...repo,
-              readmeSummary: readmeSummary
+              catchyDescription: catchyDescription
             };
           })
         );
@@ -117,19 +174,19 @@ const Projects = () => {
     fetchRepos();
   }, [GITHUB_USERNAME]);
 
-  // Generate description with priority: README summary > repo description > catchy fallback
+  // Generate description with priority: catchy description from README > repo description > generic fallback
   const generateDescription = (repo) => {
-    // First priority: README summary
-    if (repo.readmeSummary && repo.readmeSummary.length > 10) {
-      return repo.readmeSummary;
+    // First priority: Catchy description based on README analysis
+    if (repo.catchyDescription) {
+      return repo.catchyDescription;
     }
 
-    // Second priority: Repository description
+    // Second priority: Repository description from GitHub
     if (repo.description && repo.description.length > 10) {
       return repo.description;
     }
 
-    // Fallback: Generate catchy rhyming descriptions based on language
+    // Fallback: Generate generic catchy rhyming descriptions based on language
     const language = repo.language || 'Code';
 
     const catchyDescriptions = [
