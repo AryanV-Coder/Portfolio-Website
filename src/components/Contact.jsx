@@ -139,7 +139,7 @@ const Contact = () => {
           </p>
           <a
             href={`mailto:${socialLinks.email}`}
-            className="inline-block px-8 py-3 bg-saffron text-text-dark font-semibold rounded-lg hover:bg-green transition-all duration-300 btn-glow shadow-lg"
+            className="inline-block px-8 py-3 bg-dark-card border-2 border-saffron text-saffron font-semibold rounded-lg hover:bg-saffron hover:text-text-dark transition-all duration-300 shadow-lg btn-glow"
           >
             Start a Conversation
           </a>
