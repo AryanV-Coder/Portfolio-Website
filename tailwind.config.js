@@ -14,14 +14,14 @@ module.exports = {
           card: '#151515',
         },
         saffron: {
-          DEFAULT: '#FF9933',
-          light: '#FFB366',
-          dark: '#E68A2E',
+          DEFAULT: '#F97316',
+          light: '#FB923C',
+          dark: '#EA580C',
         },
         green: {
-          DEFAULT: '#138808',
-          light: '#1BAA0A',
-          dark: '#0F6606',
+          DEFAULT: '#22C55E',
+          light: '#4ADE80',
+          dark: '#16A34A',
         },
         navy: {
           DEFAULT: '#000080',

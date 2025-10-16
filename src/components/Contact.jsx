@@ -51,15 +51,15 @@ const Contact = () => {
           </a>
 
           {/* Location Card */}
-          <div className="bg-dark-card p-8 rounded-lg border-2 border-green/30 shadow-lg">
+          <div className="group bg-dark-card p-8 rounded-lg border-2 border-green/30 hover:border-green transition-all duration-300 hover:shadow-xl hover:shadow-green/30">
             <div className="flex items-center gap-4 mb-4">
-              <div className="w-12 h-12 bg-green/10 rounded-full flex items-center justify-center">
+              <div className="w-12 h-12 bg-green/10 rounded-full flex items-center justify-center group-hover:bg-green/20 transition-all duration-300">
                 <svg className="w-6 h-6 text-green" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold text-text-primary">
+              <h3 className="text-xl font-semibold text-text-primary group-hover:text-green transition-colors duration-300">
                 Location
               </h3>
             </div>
