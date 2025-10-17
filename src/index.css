@@ -58,7 +58,7 @@ code {
 
 /* Gradient text effect - Indian Tricolor */
 .gradient-text {
-  background: linear-gradient(135deg, #FF9933 0%, #138808 100%);
+  background: linear-gradient(135deg, #F97316 0%, #FB923C 50%, #22C55E 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
