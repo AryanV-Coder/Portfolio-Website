@@ -23,26 +23,30 @@ const Hero = () => {
 
         {/* Hero Content */}
         <div className="flex-1 text-center md:text-left animate-fade-in-up">
-          {/* Greeting */}
-          <div className="mb-6">
-            <p className="text-text-secondary text-lg mb-2">
-              Hi there 👋, I'm
-            </p>
-            <h1 className="text-5xl md:text-7xl font-bold mb-4 text-text-primary leading-tight">
+          {/* Greeting & Name */}
+          <div className="mb-8">
+            <div className="inline-block mb-4">
+              <div className="flex items-center gap-3 bg-dark-card border border-saffron/20 rounded-full px-5 py-2 shadow-lg">
+                <span className="text-3xl animate-bounce">👋</span>
+                <span className="text-text-secondary text-base font-medium">Hello, I'm</span>
+              </div>
+            </div>
+            
+            <h1 className="text-6xl md:text-8xl font-bold mb-4 leading-tight">
               <span className="gradient-text">Aryan</span>
               <br />
               <span className="text-green">Varshney</span>
             </h1>
-          </div>
-          
-          {/* Title */}
-          <div className="mb-6 space-y-3">
-            <p className="text-xl md:text-2xl text-text-primary font-semibold">
-              AI/ML Engineer
-            </p>
-            <p className="text-lg text-text-secondary">
-              B.Tech CSE @ <span className="text-green font-semibold">JIIT Noida</span> 🇮🇳 <span className="text-text-muted">(2024–28)</span>
-            </p>
+            
+            <div className="flex flex-wrap gap-3 items-center justify-center md:justify-start mt-4">
+              <span className="px-4 py-2 bg-saffron/10 border border-saffron/30 rounded-lg text-saffron font-semibold text-lg">
+                AI/ML Engineer
+              </span>
+              <span className="text-text-muted text-lg">•</span>
+              <span className="text-text-secondary text-lg">
+                B.Tech CSE @ <span className="text-green font-semibold">JIIT Noida</span> 🇮🇳
+              </span>
+            </div>
           </div>
           
           {/* Description */}
