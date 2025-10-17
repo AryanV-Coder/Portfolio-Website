@@ -57,6 +57,10 @@ const Hero = () => {
               automating everything that moves, or dreaming up ways to use technology for 
               <span className="text-saffron font-semibold"> India's growth</span> 🇮🇳. 
             </p>
+            
+            <p className="text-base leading-relaxed max-w-2xl italic">
+              <span className="text-text-primary">"Why do it manually when you can automate it?"</span>
+            </p>
           </div>
 
           {/* CTA Buttons */}
