@@ -23,26 +23,47 @@ const Hero = () => {
 
         {/* Hero Content */}
         <div className="flex-1 text-center md:text-left animate-fade-in-up">
-          <h1 className="text-5xl md:text-7xl font-bold mb-4 text-text-primary">
-            Hi 👋, I'm <span className="gradient-text">Aryan Varshney</span>
-          </h1>
+          {/* Greeting */}
+          <div className="mb-6">
+            <p className="text-text-secondary text-lg mb-2">
+              Hi there 👋, I'm
+            </p>
+            <h1 className="text-5xl md:text-7xl font-bold mb-4 text-text-primary leading-tight">
+              <span className="gradient-text">Aryan</span>
+              <br />
+              <span className="text-green">Varshney</span>
+            </h1>
+          </div>
           
-          <p className="text-2xl md:text-3xl text-saffron font-semibold mb-6">
-            🚀 AI Tools Creator | FastAPI & Flutter Dev | B.Tech CSE @ JIIT 🇮🇳
-          </p>
+          {/* Title */}
+          <div className="mb-6 space-y-3">
+            <p className="text-xl md:text-2xl text-text-primary font-semibold">
+              AI/ML Engineer
+            </p>
+            <p className="text-lg text-text-secondary">
+              B.Tech CSE @ <span className="text-green font-semibold">JIIT Noida</span> 🇮🇳 <span className="text-text-muted">(2024–28)</span>
+            </p>
+          </div>
           
-          <p className="text-lg md:text-xl text-text-secondary leading-relaxed max-w-2xl mb-8">
-            I love building intelligent systems that <strong className="text-text-primary">interact, automate, and improve lives</strong>. 
-            Currently exploring <strong className="text-text-primary">AI agents, automation, FastAPI, Flutter</strong>, and <strong className="text-text-primary">AI APIs</strong>. 
-            Mission-driven to use tech for <strong className="text-saffron">India's advancement</strong> in defense and wellness. 
-            Constantly experimenting with <strong className="text-text-primary">AI, ML, automation, and hardware integration</strong>.
-          </p>
+          {/* Description */}
+          <div className="mb-8 space-y-4 text-text-secondary">
+            <p className="text-lg leading-relaxed max-w-2xl">
+              I'm a <span className="text-saffron font-semibold">tech enthusiast</span> who believes AI isn't just about algorithms—
+              it's about <span className="text-green font-semibold">solving real problems</span> and making life easier! 🎯
+            </p>
+            
+            <p className="text-lg leading-relaxed max-w-2xl">
+              When I'm not coding intelligent systems, you'll find me experimenting with new APIs, 
+              automating everything that moves, or dreaming up ways to use technology for 
+              <span className="text-saffron font-semibold"> India's growth</span> 🇮🇳. 
+            </p>
+          </div>
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
             <a 
               href="#projects" 
-              className="px-8 py-3 bg-saffron text-text-dark font-semibold rounded-lg hover:bg-green hover:text-text-primary transition-all duration-300 btn-glow shadow-lg"
+              className="px-8 py-3 bg-saffron text-text-dark font-semibold rounded-lg hover:bg-saffron/90 transition-all duration-300 btn-glow shadow-lg"
             >
               View My Work
             </a>
