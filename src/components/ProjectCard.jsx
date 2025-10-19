@@ -39,16 +39,22 @@ const ProjectCard = ({ name, description, language, stars, forks, url, homepage,
                 ).join(' ')}
               </h3>
             </div>
-            <div className="flex-shrink-0 ml-2">
+            <a
+              href={homepage || url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-shrink-0 ml-2 cursor-pointer hover:scale-110 transition-transform duration-300"
+              title={homepage ? "Open Live Demo" : "View on GitHub"}
+            >
               <svg 
-                className="w-6 h-6 text-text-muted group-hover:text-saffron transition-colors duration-300" 
+                className="w-6 h-6 text-text-muted group-hover:text-saffron hover:text-saffron transition-colors duration-300" 
                 fill="none" 
                 viewBox="0 0 24 24" 
                 stroke="currentColor"
               >
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
               </svg>
-            </div>
+            </a>
           </div>
 
           {/* Description */}
