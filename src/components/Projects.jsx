@@ -13,7 +13,7 @@ const Projects = () => {
   const GITHUB_TOKEN = process.env.REACT_APP_GITHUB_TOKEN || '';
 
   // Function to fetch README content for a repository
-  const fetchReadmeContent = async (repoName) => {
+  const fetchReadmeContent = React.useCallback(async (repoName) => {
     try {
       const headers = {
         Accept: 'application/vnd.github.v3.raw'
@@ -33,7 +33,7 @@ const Projects = () => {
       console.log(`No README found for ${repoName}`);
       return null;
     }
-  };
+  }, [GITHUB_TOKEN, GITHUB_USERNAME]);
 
   // Function to generate catchy rhyming description from README content
   const generateCatchyDescription = (readmeContent, repoName, language) => {
@@ -70,12 +70,12 @@ const Projects = () => {
     } else if (isAutomation && isProductivity) {
       return `Streamline your workflow, save precious time, efficiency and automation in perfect rhyme! ⏰🚀`;
     } else if (isAutomation) {
-      return `Repetitive tasks? Consider them done, automation magic—now work is fun! 🔄�`;
-    } else if (isChat || isWeb && text.includes('social')) {
+      return `Repetitive tasks? Consider them done, automation magic—now work is fun! 🔄⚡`;
+    } else if (isChat || (isWeb && text.includes('social'))) {
       return `Connect and communicate with ease and grace, bringing people together in one special place! 💬🌐`;
     } else if (isGame) {
       return `Fun and challenges that make you think, entertainment and gaming in perfect sync! 🎮🎯`;
-    } else if (isHealth || isWeb && text.includes('wellness')) {
+    } else if (isHealth || (isWeb && text.includes('wellness'))) {
       return `Your health companion, always by your side, tracking wellness with digital pride! 💪❤️`;
     } else if (isEducation) {
       return `Knowledge shared and skills you gain, learning made easy—that's the main aim! 📚🎓`;
@@ -172,7 +172,7 @@ const Projects = () => {
     };
 
     fetchRepos();
-  }, [GITHUB_USERNAME]);
+  }, [GITHUB_USERNAME, GITHUB_TOKEN, fetchReadmeContent]);
 
   // Generate description with priority: catchy description from README > repo description > generic fallback
   const generateDescription = (repo) => {

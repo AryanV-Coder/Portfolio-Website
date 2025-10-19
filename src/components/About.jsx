@@ -1,4 +1,5 @@
 import React from 'react';
+import SkillsOrbit from './SkillsOrbit';
 
 const About = () => {
   return (
@@ -6,7 +7,7 @@ const About = () => {
       id="about" 
       className="min-h-screen py-20 px-6 md:px-12 bg-dark-secondary"
     >
-      <div className="max-w-5xl mx-auto fade-in-section">
+      <div className="max-w-7xl mx-auto fade-in-section">
         {/* Section Header */}
         <div className="mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-text-primary">
@@ -16,7 +17,7 @@ const About = () => {
         </div>
 
         {/* Story Content */}
-        <div className="space-y-8 text-text-secondary text-lg leading-relaxed">
+        <div className="space-y-8 text-text-secondary text-lg leading-relaxed max-w-5xl">
           <p className="animate-fade-in-up">
             My journey into software development started with a fascination for technology and its power 
             to transform lives. As a Computer Science student at <strong className="text-saffron">JIIT Noida</strong> (2024–28), 
@@ -34,129 +35,139 @@ const About = () => {
             in defense and wellness sectors. Every project I build is a step toward that vision: code that serves the nation, 
             innovations that empower people, and systems that make the future brighter. 🇮🇳
           </p>
+        </div>
 
-          {/* Core Philosophies */}
-          <div className="mt-12 pt-8 border-t border-dark-tertiary">
-            <h3 className="text-2xl font-semibold text-text-primary mb-6">
-              My Core <span className="gradient-text">Philosophies</span>
-            </h3>
-            <div className="grid md:grid-cols-2 gap-6">
-                            <div className="bg-dark-card p-6 rounded-lg border-2 border-saffron/30 hover:border-saffron transition-all duration-300 shadow-lg">
-                <div className="flex items-start gap-4">
-                  <div className="text-4xl">🧠</div>
-                  <div>
-                    <h4 className="text-xl font-semibold text-text-primary mb-2">
-                      AI-First Thinking
-                    </h4>
-                    <p className="text-base text-text-secondary">
-                      Every problem is an opportunity to leverage AI. I build systems that learn, 
-                      adapt, and make intelligent decisions.
-                    </p>
-                  </div>
+        {/* Core Philosophies */}
+        <div className="mt-16 pt-8 border-t border-dark-tertiary max-w-5xl">
+          <h3 className="text-2xl font-semibold text-text-primary mb-6">
+            My Core <span className="gradient-text">Philosophies</span>
+          </h3>
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="bg-dark-card p-6 rounded-lg border-2 border-saffron/30 hover:border-saffron transition-all duration-300 shadow-lg">
+              <div className="flex items-start gap-4">
+                <div className="text-4xl">🧠</div>
+                <div>
+                  <h4 className="text-xl font-semibold text-text-primary mb-2">
+                    AI-First Thinking
+                  </h4>
+                  <p className="text-base text-text-secondary">
+                    Every problem is an opportunity to leverage AI. I build systems that learn, 
+                    adapt, and make intelligent decisions.
+                  </p>
                 </div>
               </div>
+            </div>
 
-              <div className="bg-dark-card p-6 rounded-lg border-2 border-saffron/30 hover:border-saffron transition-all duration-300 shadow-lg">
-                <div className="flex items-start gap-4">
-                  <div className="text-4xl">🇮🇳</div>
-                  <div>
-                    <h4 className="text-xl font-semibold text-text-primary mb-2">
-                      Code for the Nation
-                    </h4>
-                    <p className="text-base text-text-secondary">
-                      Technology for India's advancement. Building solutions that strengthen 
-                      defense capabilities and improve public wellness.
-                    </p>
-                  </div>
+            <div className="bg-dark-card p-6 rounded-lg border-2 border-saffron/30 hover:border-saffron transition-all duration-300 shadow-lg">
+              <div className="flex items-start gap-4">
+                <div className="text-4xl">🇮🇳</div>
+                <div>
+                  <h4 className="text-xl font-semibold text-text-primary mb-2">
+                    Code for the Nation
+                  </h4>
+                  <p className="text-base text-text-secondary">
+                    Technology for India's advancement. Building solutions that strengthen 
+                    defense capabilities and improve public wellness.
+                  </p>
                 </div>
               </div>
+            </div>
 
-              <div className="bg-dark-card p-6 rounded-lg border-2 border-saffron/30 hover:border-saffron transition-all duration-300 shadow-lg">
-                <div className="flex items-start gap-4">
-                  <div className="text-4xl">⚡</div>
-                  <div>
-                    <h4 className="text-xl font-semibold text-text-primary mb-2">
-                      Automation First
-                    </h4>
-                    <p className="text-base text-text-secondary">
-                      Why do manually what can be automated? I create systems that work 
-                      smarter, not harder—freeing humans for creative work.
-                    </p>
-                  </div>
+            <div className="bg-dark-card p-6 rounded-lg border-2 border-saffron/30 hover:border-saffron transition-all duration-300 shadow-lg">
+              <div className="flex items-start gap-4">
+                <div className="text-4xl">⚡</div>
+                <div>
+                  <h4 className="text-xl font-semibold text-text-primary mb-2">
+                    Automation First
+                  </h4>
+                  <p className="text-base text-text-secondary">
+                    Why do manually what can be automated? I create systems that work 
+                    smarter, not harder—freeing humans for creative work.
+                  </p>
                 </div>
               </div>
+            </div>
 
-              <div className="bg-dark-card p-6 rounded-lg border-2 border-saffron/30 hover:border-saffron transition-all duration-300 shadow-lg">
-                <div className="flex items-start gap-4">
-                  <div className="text-4xl">🔬</div>
-                  <div>
-                    <h4 className="text-xl font-semibold text-text-primary mb-2">
-                      Experiment & Innovate
-                    </h4>
-                    <p className="text-base text-text-secondary">
-                      Constantly experimenting with new technologies, APIs, and hardware 
-                      integrations to push the boundaries of what's possible.
-                    </p>
-                  </div>
+            <div className="bg-dark-card p-6 rounded-lg border-2 border-saffron/30 hover:border-saffron transition-all duration-300 shadow-lg">
+              <div className="flex items-start gap-4">
+                <div className="text-4xl">🔬</div>
+                <div>
+                  <h4 className="text-xl font-semibold text-text-primary mb-2">
+                    Experiment & Innovate
+                  </h4>
+                  <p className="text-base text-text-secondary">
+                    Constantly experimenting with new technologies, APIs, and hardware 
+                    integrations to push the boundaries of what's possible.
+                  </p>
                 </div>
               </div>
             </div>
           </div>
+        </div>
 
-          {/* Skills Tags */}
-          <div className="mt-12">
-            <h3 className="text-2xl font-semibold text-text-primary mb-6">
-              🛠️ Tech Stack
-            </h3>
-            
-            {/* Languages */}
-            <div className="mb-6">
-              <h4 className="text-lg font-semibold text-saffron mb-3">Languages</h4>
-              <div className="flex flex-wrap gap-3">
-                {[
-                  'Python', 'Java', 'Dart', 'C', 'C++'
-                ].map((skill, index) => (
-                  <span 
-                    key={index}
-                    className="px-4 py-2 bg-saffron/10 border-2 border-saffron/50 rounded-full text-saffron font-semibold hover:bg-saffron hover:text-text-dark transition-all duration-300 cursor-default shadow-md"
-                  >
-                    {skill}
-                  </span>
-                ))}
-              </div>
+        {/* Tech Stack Section with Rotating Orbit */}
+        <div className="mt-16 pt-8 border-t border-dark-tertiary">
+          <h3 className="text-2xl font-semibold text-text-primary mb-8 text-center">
+            🛠️ Tech Stack
+          </h3>
+          
+          <div className="flex flex-col lg:flex-row gap-12 items-center">
+            {/* Left - Rotating Skills Orbit */}
+            <div className="flex-shrink-0 flex items-center justify-center">
+              <SkillsOrbit />
             </div>
 
-            {/* Frameworks & Tools */}
-            <div className="mb-6">
-              <h4 className="text-lg font-semibold text-green mb-3">Frameworks & Tools</h4>
-              <div className="flex flex-wrap gap-3">
-                {[
-                  'FastAPI', 'Flutter', 'Spring Boot', 'Streamlit', 'MySQL'
-                ].map((skill, index) => (
-                  <span 
-                    key={index}
-                    className="px-4 py-2 bg-green/10 border-2 border-green/50 rounded-full text-green font-semibold hover:bg-green hover:text-text-dark transition-all duration-300 cursor-default shadow-md"
-                  >
-                    {skill}
-                  </span>
-                ))}
+            {/* Right - Skills Tags */}
+            <div className="flex-1">
+              {/* Languages */}
+              <div className="mb-6">
+                <h4 className="text-lg font-semibold text-saffron mb-3">Languages</h4>
+                <div className="flex flex-wrap gap-3">
+                  {[
+                    'Python', 'Java', 'Dart', 'C', 'C++'
+                  ].map((skill, index) => (
+                    <span 
+                      key={index}
+                      className="px-4 py-2 bg-saffron/10 border-2 border-saffron/50 rounded-full text-saffron font-semibold hover:bg-saffron hover:text-text-dark transition-all duration-300 cursor-default shadow-md"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
               </div>
-            </div>
 
-            {/* AI & APIs */}
-            <div>
-              <h4 className="text-lg font-semibold text-saffron mb-3">AI & APIs</h4>
-              <div className="flex flex-wrap gap-3">
-                {[
-                  'Google Gemini API', 'OpenAI API', 'AI Agents', 'ML Models'
-                ].map((skill, index) => (
-                  <span 
-                    key={index}
-                    className="px-4 py-2 bg-saffron/10 border-2 border-saffron/50 rounded-full text-saffron font-semibold hover:bg-saffron hover:text-text-dark transition-all duration-300 cursor-default shadow-md"
-                  >
-                    {skill}
-                  </span>
-                ))}
+              {/* Frameworks & Tools */}
+              <div className="mb-6">
+                <h4 className="text-lg font-semibold text-green mb-3">Frameworks & Tools</h4>
+                <div className="flex flex-wrap gap-3">
+                  {[
+                    'FastAPI', 'Flutter', 'Spring Boot', 'Streamlit', 'MySQL'
+                  ].map((skill, index) => (
+                    <span 
+                      key={index}
+                      className="px-4 py-2 bg-green/10 border-2 border-green/50 rounded-full text-green font-semibold hover:bg-green hover:text-text-dark transition-all duration-300 cursor-default shadow-md"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              {/* AI & APIs */}
+              <div>
+                <h4 className="text-lg font-semibold text-saffron mb-3">AI & APIs</h4>
+                <div className="flex flex-wrap gap-3">
+                  {[
+                    'Google Gemini API', 'OpenAI API', 'AI Agents', 'ML Models'
+                  ].map((skill, index) => (
+                    <span 
+                      key={index}
+                      className="px-4 py-2 bg-saffron/10 border-2 border-saffron/50 rounded-full text-saffron font-semibold hover:bg-saffron hover:text-text-dark transition-all duration-300 cursor-default shadow-md"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
