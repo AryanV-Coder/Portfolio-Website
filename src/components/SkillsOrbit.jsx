@@ -28,6 +28,31 @@ const skill2 = [
 
 const SkillsOrbit = () => {
     const [rotation, setRotation] = useState(0);
+    const [isLoaded, setIsLoaded] = useState(false);
+    const containerRef = React.useRef(null);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting && !isLoaded) {
+                        setIsLoaded(true);
+                    }
+                });
+            },
+            { threshold: 0.3 }
+        );
+
+        if (containerRef.current) {
+            observer.observe(containerRef.current);
+        }
+
+        return () => {
+            if (containerRef.current) {
+                observer.unobserve(containerRef.current);
+            }
+        };
+    }, [isLoaded]);
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -67,7 +92,7 @@ const SkillsOrbit = () => {
     }, []);
 
     return (
-        <div className="orbit-container">
+        <div ref={containerRef} className={`orbit-container ${isLoaded ? 'loaded' : ''}`}>
             <div className="center-text">Skills</div>
             
             {/* Inner Orbit */}
