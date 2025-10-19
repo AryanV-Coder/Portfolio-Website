@@ -28,7 +28,7 @@ const Hero = () => {
             <div className="inline-block mb-4">
               <div className="flex items-center gap-3 bg-dark-card border border-saffron/20 rounded-full px-5 py-2 shadow-lg">
                 <span className="text-3xl animate-bounce">👋</span>
-                <span className="text-text-secondary text-base font-medium">Hello, I'm</span>
+                <span className="text-text-secondary text-base font-medium">Hey, myself</span>
               </div>
             </div>
             
@@ -43,6 +43,14 @@ const Hero = () => {
                 AI/ML Engineer
               </span>
               <span className="text-text-muted text-lg">•</span>
+              <span className="px-4 py-2 bg-white/10 border border-white/30 rounded-lg text-white font-semibold text-lg">
+                AI Generalist
+              </span>
+              <span className="text-text-muted text-lg">•</span>
+              <span className="px-4 py-2 bg-green/10 border border-green/30 rounded-lg text-green font-semibold text-lg">
+                Full Stack Mobile App Developer
+              </span>
+              <span className="text-text-muted text-lg hidden sm:inline">•</span>
               <span className="text-text-secondary text-lg">
                 B.Tech CSE @ <span className="text-green font-semibold">JIIT Noida</span> 🇮🇳
               </span>
