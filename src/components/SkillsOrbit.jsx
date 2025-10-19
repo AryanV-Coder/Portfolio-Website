@@ -1,32 +1,29 @@
 import React, { useEffect, useState } from "react";
-import { FaPython, FaJs, FaReact, FaNodeJs } from "react-icons/fa";
+import { FaPython, FaJava } from "react-icons/fa";
 import {
-    SiCplusplus, SiExpress, SiTypescript, SiNextdotjs, SiTailwindcss,
-    SiMongodb
+    SiCplusplus, SiDart, SiFastapi, SiFlutter, SiSpringboot, SiMysql
 } from "react-icons/si";
-import { DiMysql, DiPhp } from "react-icons/di";
-import { TbLetterC } from "react-icons/tb";
+import { TbLetterC, TbBrandOpenai } from "react-icons/tb";
+import { IoSparkles } from "react-icons/io5";
 import "./SkillsOrbit.css";
 
-// Inner orbit skills - exactly as shown in reference
+// Inner orbit skills - Your Languages
 const skills = [
-    { icon: <TbLetterC color="#A8B9CC" /> }, // C
-    { icon: <SiCplusplus color="#00599C" /> }, // C++
-    { icon: <FaPython color="#3776AB" /> }, // Python
-    { icon: <FaJs color="#F7DF1E" /> }, // JavaScript
-    { icon: <DiMysql color="#4479A1" /> }, // MySQL
-    { icon: <DiPhp color="#777BB4" /> }, // PHP
+    { icon: <TbLetterC color="#A8B9CC" />, name: "C" }, 
+    { icon: <SiCplusplus color="#00599C" />, name: "C++" },
+    { icon: <FaPython color="#3776AB" />, name: "Python" },
+    { icon: <FaJava color="#ED8B00" />, name: "Java" },
+    { icon: <SiDart color="#0175C2" />, name: "Dart" },
 ];
 
-// Outer orbit skills - exactly as shown in reference
+// Outer orbit skills - Your Frameworks & APIs
 const skill2 = [
-    { icon: <FaReact color="#61DBFB" /> }, // React
-    { icon: <FaNodeJs color="#8CC84B" /> }, // Node.js
-    { icon: <SiTypescript color="#3178C6" /> }, // TypeScript
-    { icon: <SiNextdotjs color="#FFFFFF" /> }, // Next.js (white)
-    { icon: <SiExpress color="#FFFFFF" /> }, // Express (white)
-    { icon: <SiMongodb color="#4DB33D" /> }, // MongoDB
-    { icon: <SiTailwindcss color="#38B2AC" /> }, // Tailwind CSS
+    { icon: <SiFastapi color="#05998B" />, name: "FastAPI" },
+    { icon: <SiFlutter color="#02569B" />, name: "Flutter" },
+    { icon: <SiSpringboot color="#6DB33F" />, name: "Spring Boot" },
+    { icon: <SiMysql color="#4479A1" />, name: "MySQL" },
+    { icon: <TbBrandOpenai color="#10A37F" />, name: "OpenAI" },
+    { icon: <IoSparkles color="#F97316" />, name: "Gemini" },
 ];
 
 const SkillsOrbit = () => {

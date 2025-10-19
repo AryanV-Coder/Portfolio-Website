@@ -107,66 +107,125 @@ const About = () => {
 
         {/* Tech Stack Section with Rotating Orbit */}
         <div className="mt-16 pt-8 border-t border-dark-tertiary">
-          <h3 className="text-2xl font-semibold text-text-primary mb-8 text-center">
-            🛠️ Tech Stack
-          </h3>
+          <div className="text-center mb-12">
+            <h3 className="text-3xl md:text-4xl font-bold text-text-primary mb-4">
+              Technical <span className="gradient-text">Skills</span>
+            </h3>
+            <p className="text-text-secondary text-lg">
+              Tools and technologies I use to bring ideas to life
+            </p>
+          </div>
           
-          <div className="flex flex-col lg:flex-row gap-12 items-center">
+          <div className="flex flex-col lg:flex-row gap-16 items-center justify-center">
             {/* Left - Rotating Skills Orbit */}
-            <div className="flex-shrink-0 flex items-center justify-center">
+            <div className="flex-shrink-0 relative">
+              <div className="absolute -inset-4 bg-gradient-to-r from-saffron/20 via-green/20 to-saffron/20 rounded-full blur-2xl opacity-50"></div>
               <SkillsOrbit />
             </div>
 
-            {/* Right - Skills Tags */}
-            <div className="flex-1">
-              {/* Languages */}
-              <div className="mb-6">
-                <h4 className="text-lg font-semibold text-saffron mb-3">Languages</h4>
-                <div className="flex flex-wrap gap-3">
-                  {[
-                    'Python', 'Java', 'Dart', 'C', 'C++'
-                  ].map((skill, index) => (
-                    <span 
-                      key={index}
-                      className="px-4 py-2 bg-saffron/10 border-2 border-saffron/50 rounded-full text-saffron font-semibold hover:bg-saffron hover:text-text-dark transition-all duration-300 cursor-default shadow-md"
-                    >
-                      {skill}
-                    </span>
-                  ))}
+            {/* Right - Skills Categories */}
+            <div className="flex-1 max-w-2xl">
+              <div className="space-y-8">
+                {/* Languages */}
+                <div className="group">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-1 h-8 bg-gradient-to-b from-saffron to-saffron/50 rounded-full"></div>
+                    <h4 className="text-xl font-bold text-saffron">Languages</h4>
+                    <div className="flex-1 h-px bg-gradient-to-r from-saffron/30 to-transparent"></div>
+                  </div>
+                  <div className="flex flex-wrap gap-3">
+                    {[
+                      { name: 'Python', icon: '🐍' },
+                      { name: 'Java', icon: '☕' },
+                      { name: 'Dart', icon: '🎯' },
+                      { name: 'C', icon: '©️' },
+                      { name: 'C++', icon: '⚡' }
+                    ].map((skill, index) => (
+                      <div 
+                        key={index}
+                        className="group/card relative overflow-hidden"
+                      >
+                        <div className="absolute inset-0 bg-gradient-to-r from-saffron/20 to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-300"></div>
+                        <span className="relative px-5 py-2.5 bg-dark-card border-2 border-saffron/40 rounded-xl text-saffron font-semibold hover:border-saffron hover:shadow-lg hover:shadow-saffron/20 transition-all duration-300 cursor-default flex items-center gap-2 hover:-translate-y-1">
+                          <span>{skill.icon}</span>
+                          <span>{skill.name}</span>
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Frameworks & Tools */}
+                <div className="group">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-1 h-8 bg-gradient-to-b from-green to-green/50 rounded-full"></div>
+                    <h4 className="text-xl font-bold text-green">Frameworks & Tools</h4>
+                    <div className="flex-1 h-px bg-gradient-to-r from-green/30 to-transparent"></div>
+                  </div>
+                  <div className="flex flex-wrap gap-3">
+                    {[
+                      { name: 'FastAPI', icon: '⚡' },
+                      { name: 'Flutter', icon: '📱' },
+                      { name: 'Spring Boot', icon: '🍃' },
+                      { name: 'Streamlit', icon: '🎨' },
+                      { name: 'MySQL', icon: '🐬' }
+                    ].map((skill, index) => (
+                      <div 
+                        key={index}
+                        className="group/card relative overflow-hidden"
+                      >
+                        <div className="absolute inset-0 bg-gradient-to-r from-green/20 to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-300"></div>
+                        <span className="relative px-5 py-2.5 bg-dark-card border-2 border-green/40 rounded-xl text-green font-semibold hover:border-green hover:shadow-lg hover:shadow-green/20 transition-all duration-300 cursor-default flex items-center gap-2 hover:-translate-y-1">
+                          <span>{skill.icon}</span>
+                          <span>{skill.name}</span>
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* AI & APIs */}
+                <div className="group">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-1 h-8 bg-gradient-to-b from-saffron to-saffron/50 rounded-full"></div>
+                    <h4 className="text-xl font-bold text-saffron">AI & APIs</h4>
+                    <div className="flex-1 h-px bg-gradient-to-r from-saffron/30 to-transparent"></div>
+                  </div>
+                  <div className="flex flex-wrap gap-3">
+                    {[
+                      { name: 'Google Gemini API', icon: '✨' },
+                      { name: 'OpenAI API', icon: '🤖' },
+                      { name: 'AI Agents', icon: '🧠' },
+                      { name: 'ML Models', icon: '🎯' }
+                    ].map((skill, index) => (
+                      <div 
+                        key={index}
+                        className="group/card relative overflow-hidden"
+                      >
+                        <div className="absolute inset-0 bg-gradient-to-r from-saffron/20 to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-300"></div>
+                        <span className="relative px-5 py-2.5 bg-dark-card border-2 border-saffron/40 rounded-xl text-saffron font-semibold hover:border-saffron hover:shadow-lg hover:shadow-saffron/20 transition-all duration-300 cursor-default flex items-center gap-2 hover:-translate-y-1">
+                          <span>{skill.icon}</span>
+                          <span>{skill.name}</span>
+                        </span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
 
-              {/* Frameworks & Tools */}
-              <div className="mb-6">
-                <h4 className="text-lg font-semibold text-green mb-3">Frameworks & Tools</h4>
-                <div className="flex flex-wrap gap-3">
-                  {[
-                    'FastAPI', 'Flutter', 'Spring Boot', 'Streamlit', 'MySQL'
-                  ].map((skill, index) => (
-                    <span 
-                      key={index}
-                      className="px-4 py-2 bg-green/10 border-2 border-green/50 rounded-full text-green font-semibold hover:bg-green hover:text-text-dark transition-all duration-300 cursor-default shadow-md"
-                    >
-                      {skill}
-                    </span>
-                  ))}
+              {/* Stats Cards */}
+              <div className="grid grid-cols-3 gap-4 mt-8">
+                <div className="bg-dark-card border-2 border-saffron/30 rounded-xl p-4 text-center hover:border-saffron transition-all duration-300 group">
+                  <div className="text-3xl font-bold gradient-text mb-1">5+</div>
+                  <div className="text-sm text-text-secondary">Languages</div>
                 </div>
-              </div>
-
-              {/* AI & APIs */}
-              <div>
-                <h4 className="text-lg font-semibold text-saffron mb-3">AI & APIs</h4>
-                <div className="flex flex-wrap gap-3">
-                  {[
-                    'Google Gemini API', 'OpenAI API', 'AI Agents', 'ML Models'
-                  ].map((skill, index) => (
-                    <span 
-                      key={index}
-                      className="px-4 py-2 bg-saffron/10 border-2 border-saffron/50 rounded-full text-saffron font-semibold hover:bg-saffron hover:text-text-dark transition-all duration-300 cursor-default shadow-md"
-                    >
-                      {skill}
-                    </span>
-                  ))}
+                <div className="bg-dark-card border-2 border-green/30 rounded-xl p-4 text-center hover:border-green transition-all duration-300 group">
+                  <div className="text-3xl font-bold text-green mb-1">5+</div>
+                  <div className="text-sm text-text-secondary">Frameworks</div>
+                </div>
+                <div className="bg-dark-card border-2 border-saffron/30 rounded-xl p-4 text-center hover:border-saffron transition-all duration-300 group">
+                  <div className="text-3xl font-bold gradient-text mb-1">4+</div>
+                  <div className="text-sm text-text-secondary">AI Tools</div>
                 </div>
               </div>
             </div>
