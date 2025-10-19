@@ -158,9 +158,9 @@ const About = () => {
                 {/* Frameworks & Tools */}
                 <div className="group">
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-1 h-8 bg-gradient-to-b from-green to-green/50 rounded-full"></div>
-                    <h4 className="text-xl font-bold text-green">Frameworks & Tools</h4>
-                    <div className="flex-1 h-px bg-gradient-to-r from-green/30 to-transparent"></div>
+                    <div className="w-1 h-8 bg-gradient-to-b from-white to-white/50 rounded-full"></div>
+                    <h4 className="text-xl font-bold text-white">Frameworks & Tools</h4>
+                    <div className="flex-1 h-px bg-gradient-to-r from-white/30 to-transparent"></div>
                   </div>
                   <div className="flex flex-wrap gap-3">
                     {[
@@ -174,8 +174,8 @@ const About = () => {
                         key={index}
                         className="group/card relative overflow-hidden"
                       >
-                        <div className="absolute inset-0 bg-gradient-to-r from-green/20 to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-300"></div>
-                        <span className="relative px-5 py-2.5 bg-dark-card border-2 border-green/40 rounded-xl text-green font-semibold hover:border-green hover:shadow-lg hover:shadow-green/20 transition-all duration-300 cursor-default flex items-center gap-2 hover:-translate-y-1">
+                        <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-300"></div>
+                        <span className="relative px-5 py-2.5 bg-dark-card border-2 border-white/40 rounded-xl text-white font-semibold hover:border-white hover:shadow-lg hover:shadow-white/20 transition-all duration-300 cursor-default flex items-center gap-2 hover:-translate-y-1">
                           <span>{skill.icon}</span>
                           <span>{skill.name}</span>
                         </span>
@@ -187,9 +187,9 @@ const About = () => {
                 {/* AI & APIs */}
                 <div className="group">
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-1 h-8 bg-gradient-to-b from-saffron to-saffron/50 rounded-full"></div>
-                    <h4 className="text-xl font-bold text-saffron">AI & APIs</h4>
-                    <div className="flex-1 h-px bg-gradient-to-r from-saffron/30 to-transparent"></div>
+                    <div className="w-1 h-8 bg-gradient-to-b from-green to-green/50 rounded-full"></div>
+                    <h4 className="text-xl font-bold text-green">AI & APIs</h4>
+                    <div className="flex-1 h-px bg-gradient-to-r from-green/30 to-transparent"></div>
                   </div>
                   <div className="flex flex-wrap gap-3">
                     {[
@@ -202,8 +202,8 @@ const About = () => {
                         key={index}
                         className="group/card relative overflow-hidden"
                       >
-                        <div className="absolute inset-0 bg-gradient-to-r from-saffron/20 to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-300"></div>
-                        <span className="relative px-5 py-2.5 bg-dark-card border-2 border-saffron/40 rounded-xl text-saffron font-semibold hover:border-saffron hover:shadow-lg hover:shadow-saffron/20 transition-all duration-300 cursor-default flex items-center gap-2 hover:-translate-y-1">
+                        <div className="absolute inset-0 bg-gradient-to-r from-green/20 to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-300"></div>
+                        <span className="relative px-5 py-2.5 bg-dark-card border-2 border-green/40 rounded-xl text-green font-semibold hover:border-green hover:shadow-lg hover:shadow-green/20 transition-all duration-300 cursor-default flex items-center gap-2 hover:-translate-y-1">
                           <span>{skill.icon}</span>
                           <span>{skill.name}</span>
                         </span>
@@ -219,12 +219,12 @@ const About = () => {
                   <div className="text-3xl font-bold gradient-text mb-1">5+</div>
                   <div className="text-sm text-text-secondary">Languages</div>
                 </div>
-                <div className="bg-dark-card border-2 border-green/30 rounded-xl p-4 text-center hover:border-green transition-all duration-300 group">
-                  <div className="text-3xl font-bold text-green mb-1">5+</div>
+                <div className="bg-dark-card border-2 border-white/30 rounded-xl p-4 text-center hover:border-white transition-all duration-300 group">
+                  <div className="text-3xl font-bold text-white mb-1">5+</div>
                   <div className="text-sm text-text-secondary">Frameworks</div>
                 </div>
-                <div className="bg-dark-card border-2 border-saffron/30 rounded-xl p-4 text-center hover:border-saffron transition-all duration-300 group">
-                  <div className="text-3xl font-bold gradient-text mb-1">4+</div>
+                <div className="bg-dark-card border-2 border-green/30 rounded-xl p-4 text-center hover:border-green transition-all duration-300 group">
+                  <div className="text-3xl font-bold text-green mb-1">4+</div>
                   <div className="text-sm text-text-secondary">AI Tools</div>
                 </div>
               </div>
