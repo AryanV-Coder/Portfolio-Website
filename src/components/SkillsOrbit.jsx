@@ -1,29 +1,29 @@
 import React, { useEffect, useState } from "react";
-import { FaPython, FaJava } from "react-icons/fa";
+import { FaPython, FaJava, FaGithub } from "react-icons/fa";
 import {
-    SiCplusplus, SiDart, SiFastapi, SiFlutter, SiSpringboot, SiMysql
+    SiCplusplus, SiDart, SiFastapi, SiFlutter, SiSpringboot, SiMysql, SiGooglegemini
 } from "react-icons/si";
 import { TbLetterC, TbBrandOpenai } from "react-icons/tb";
-import { IoSparkles } from "react-icons/io5";
 import "./SkillsOrbit.css";
 
-// Inner orbit skills - Your Languages
+// Inner orbit skills - Your Languages (Original Brand Colors)
 const skills = [
     { icon: <TbLetterC color="#A8B9CC" />, name: "C" }, 
     { icon: <SiCplusplus color="#00599C" />, name: "C++" },
     { icon: <FaPython color="#3776AB" />, name: "Python" },
-    { icon: <FaJava color="#ED8B00" />, name: "Java" },
+    { icon: <FaJava color="#007396" />, name: "Java" }, // Java official color
     { icon: <SiDart color="#0175C2" />, name: "Dart" },
+    { icon: <FaGithub color="#FFFFFF" />, name: "GitHub" }, // Added GitHub
 ];
 
-// Outer orbit skills - Your Frameworks & APIs
+// Outer orbit skills - Your Frameworks & APIs (Original Brand Colors)
 const skill2 = [
-    { icon: <SiFastapi color="#05998B" />, name: "FastAPI" },
+    { icon: <SiFastapi color="#009688" />, name: "FastAPI" }, // FastAPI teal
     { icon: <SiFlutter color="#02569B" />, name: "Flutter" },
     { icon: <SiSpringboot color="#6DB33F" />, name: "Spring Boot" },
     { icon: <SiMysql color="#4479A1" />, name: "MySQL" },
-    { icon: <TbBrandOpenai color="#10A37F" />, name: "OpenAI" },
-    { icon: <IoSparkles color="#F97316" />, name: "Gemini" },
+    { icon: <TbBrandOpenai color="#412991" />, name: "OpenAI" }, // OpenAI purple
+    { icon: <SiGooglegemini color="#8E75B2" />, name: "Gemini" }, // Google Gemini purple
 ];
 
 const SkillsOrbit = () => {

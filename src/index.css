@@ -26,9 +26,9 @@ code {
     monospace;
 }
 
-/* Custom Scrollbar */
+/* Custom Scrollbar - Thin White */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
@@ -36,12 +36,12 @@ code {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #FF9933;
-  border-radius: 5px;
+  background: #FFFFFF;
+  border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #138808;
+  background: #E0E0E0;
 }
 
 /* Fade-in on scroll animation */
