@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
-import { FaGraduationCap, FaSchool, FaUniversity, FaRocket } from 'react-icons/fa';
+import { FaGraduationCap, FaSchool, FaUniversity, FaRocket, FaPen, FaGuitar, FaFistRaised, FaMedal } from 'react-icons/fa';
+import { GiCricketBat } from 'react-icons/gi';
 import './Journey.css';
 
 const Journey = () => {
@@ -49,7 +50,7 @@ const Journey = () => {
   return (
     <section 
       id="journey" 
-      className="min-h-screen py-20 px-6 md:px-12 bg-gradient-to-br from-gray-900 via-black to-gray-800 relative overflow-hidden"
+      className="min-h-screen pt-20 pb-0 px-6 md:px-12 bg-gradient-to-br from-gray-900 via-black to-gray-800 relative overflow-hidden"
       ref={containerRef}
       style={{ isolation: 'isolate' }}
     >
@@ -229,42 +230,165 @@ const Journey = () => {
             })}
           </div>
 
-          {/* Enhanced Future Section */}
-          <div className="relative flex items-center justify-center mt-20">
-            <div className="absolute left-8 md:left-1/2 transform -translate-x-1/2">
-              <div className="relative w-24 h-24 rounded-full bg-gradient-to-br from-orange-500 to-green-500 flex items-center justify-center shadow-2xl shadow-orange-500/50">
-                <FaRocket className="text-3xl text-white animate-bounce" />
-                <div className="absolute inset-0 rounded-full border-4 border-white/20 animate-ping"></div>
+        </div>
+
+        {/* Beyond Code Section - Part 2 */}
+        <div className="pt-20" id="extracurricular">
+          {/* Header Section */}
+          <div className="text-center mb-16 relative">
+            <div className="absolute inset-0 bg-gradient-to-r from-orange-500/10 via-transparent to-green-500/10 blur-3xl transform -rotate-2"></div>
+            <h2 className="text-5xl md:text-7xl font-bold mb-6 relative z-10">
+              <span className="bg-gradient-to-r from-orange-400 via-orange-500 to-green-400 bg-clip-text text-transparent animate-gradient-shift">
+                Beyond Code
+              </span>
+            </h2>
+            <div className="flex justify-center mb-6">
+              <div className="w-32 h-2 bg-gradient-to-r from-orange-400 to-green-400 rounded-full relative">
+                <div className="absolute inset-0 bg-gradient-to-r from-orange-400 to-green-400 rounded-full blur-sm opacity-50"></div>
               </div>
             </div>
-            <div className="ml-32 md:ml-0 md:mt-20 text-center md:text-left">
-              <h3 className="text-3xl font-bold bg-gradient-to-r from-orange-400 to-green-400 bg-clip-text text-transparent mb-2">
-                The Journey Continues...
-              </h3>
-              <p className="text-gray-300 text-lg">
-                Building tomorrow's technology, creating infinite possibilities
+            <p className="text-gray-300 text-xl max-w-3xl mx-auto leading-relaxed">
+              Exploring diverse interests and personal passions outside the world of technology
+            </p>
+          </div>
+
+          {/* Activities Grid */}
+          <div className="grid md:grid-cols-2 gap-8 mb-16">
+            {[
+              {
+                id: 1,
+                title: 'Writing',
+                icon: FaPen,
+                description: 'Expressing thoughts and ideas through creative writing',
+                color: 'orange'
+              },
+              {
+                id: 2,
+                title: 'Guitar',
+                icon: FaGuitar,
+                description: 'Playing melodies and exploring musical creativity',
+                color: 'green'
+              },
+              {
+                id: 3,
+                title: 'Cricket',
+                icon: GiCricketBat,
+                description: 'Team sports and strategic gameplay',
+                color: 'orange'
+              },
+              {
+                id: 4,
+                title: 'Karate',
+                icon: FaFistRaised,
+                description: 'All India Championship Silver Medalist',
+                color: 'green',
+                special: true
+              }
+            ].map((activity, index) => {
+              const Icon = activity.icon;
+              const isActive = activeCard === `beyond-${activity.id}`;
+
+              return (
+                <div
+                  key={activity.id}
+                  className="relative"
+                  onMouseEnter={() => setActiveCard(`beyond-${activity.id}`)}
+                  onMouseLeave={() => setActiveCard(null)}
+                >
+                  <div 
+                    className={`group relative transition-all duration-700 ease-out ${
+                      isActive ? 'z-30' : 'z-20'
+                    }`}
+                    style={{
+                      transform: getCardTransform(index, isActive),
+                      transformStyle: 'preserve-3d',
+                      isolation: 'isolate'
+                    }}
+                  >
+                    {/* Card glow effect */}
+                    <div className={`absolute inset-0 rounded-2xl ${
+                      activity.color === 'orange' 
+                        ? 'bg-gradient-to-br from-orange-400/20 to-orange-600/20' 
+                        : 'bg-gradient-to-br from-green-400/20 to-green-600/20'
+                    } blur-xl transition-all duration-500 ${
+                      isActive ? 'scale-110 opacity-100' : 'scale-100 opacity-60'
+                    }`}></div>
+                    
+                    {/* Main card */}
+                    <div className={`relative bg-gradient-to-br from-gray-900/95 to-black/95 p-8 rounded-2xl border-2 transition-all duration-500 backdrop-blur-lg ${
+                      activity.color === 'orange' 
+                        ? 'border-orange-500/30 hover:border-orange-400/60' 
+                        : 'border-green-500/30 hover:border-green-400/60'
+                    } ${
+                      isActive ? 'shadow-2xl' : 'shadow-lg'
+                    }`}>
+                      
+                      {/* Special Badge for Karate */}
+                      {activity.special && (
+                        <div className="absolute -top-3 -right-3">
+                          <div className="w-8 h-8 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center">
+                            <FaMedal className="text-white text-sm" />
+                          </div>
+                        </div>
+                      )}
+
+                      {/* Icon */}
+                      <div className="flex items-center justify-center mb-6">
+                        <div className={`p-6 rounded-full ${
+                          activity.color === 'orange' 
+                            ? 'bg-gradient-to-br from-orange-500/20 to-orange-600/20 border border-orange-500/40' 
+                            : 'bg-gradient-to-br from-green-500/20 to-green-600/20 border border-green-500/40'
+                        }`}>
+                          <Icon className={`text-4xl ${
+                            activity.color === 'orange' ? 'text-orange-400' : 'text-green-400'
+                          } ${isActive ? 'animate-pulse' : ''}`} />
+                        </div>
+                      </div>
+
+                      {/* Title */}
+                      <h3 className={`text-2xl md:text-3xl font-bold mb-4 text-center transition-all duration-300 ${
+                        activity.color === 'orange' 
+                          ? 'bg-gradient-to-r from-orange-400 to-orange-600' 
+                          : 'bg-gradient-to-r from-green-400 to-green-600'
+                      } bg-clip-text text-transparent ${
+                        isActive ? 'scale-105' : ''
+                      }`}>
+                        {activity.title}
+                      </h3>
+
+                      {/* Description */}
+                      <p className="text-gray-300 leading-relaxed text-center">
+                        {activity.description}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Achievement Highlight */}
+          <div className="text-center relative">
+            <div className="absolute inset-0 bg-gradient-to-r from-orange-500/5 via-green-500/5 to-orange-500/5 blur-3xl rounded-3xl"></div>
+            <div className="relative bg-gradient-to-br from-gray-900/50 to-black/50 backdrop-blur-lg border border-white/10 rounded-3xl p-8">
+              <div className="flex items-center justify-center gap-3 mb-4">
+                <FaMedal className="text-2xl text-yellow-400" />
+                <h3 className="text-2xl font-bold text-white">
+                  Achievement Highlight
+                </h3>
+                <FaMedal className="text-2xl text-yellow-400" />
+              </div>
+              <p className="text-lg text-yellow-300 mb-2 font-semibold">
+                🥈 All India Karate Championship Silver Medalist
+              </p>
+              <p className="text-gray-400 max-w-2xl mx-auto leading-relaxed">
+                A testament to years of dedicated training, discipline, and competitive spirit in martial arts
               </p>
             </div>
           </div>
         </div>
-
-        {/* Enhanced Call to Action */}
-        <div className="mt-20 text-center relative">
-          <div className="absolute inset-0 bg-gradient-to-r from-orange-500/5 via-green-500/5 to-orange-500/5 blur-3xl rounded-3xl"></div>
-          <div className="relative bg-gradient-to-br from-gray-900/50 to-black/50 backdrop-blur-lg border border-white/10 rounded-3xl p-8">
-            <p className="text-gray-300 mb-6 text-xl">
-              Ready to be part of my next chapter? Let's build something amazing together!
-            </p>
-            <a 
-              href="#contact"
-              className="group inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-orange-500 to-green-500 text-white rounded-2xl font-bold text-lg hover:from-orange-400 hover:to-green-400 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-orange-500/25"
-            >
-              <span>Connect With Me</span>
-              <FaRocket className="group-hover:translate-x-1 transition-transform duration-300" />
-            </a>
-          </div>
-        </div>
       </div>
+      
     </section>
   );
 };

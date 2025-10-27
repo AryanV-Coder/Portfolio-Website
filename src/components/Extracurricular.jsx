@@ -45,7 +45,7 @@ const Extracurricular = () => {
   return (
     <section 
       id="extracurricular" 
-      className="min-h-screen py-20 px-6 md:px-12 bg-gradient-to-br from-gray-900 via-black to-gray-800 relative overflow-hidden"
+      className="min-h-screen pt-0 pb-20 px-6 md:px-12 bg-gradient-to-br from-gray-900 via-black to-gray-800 relative overflow-hidden"
     >
       {/* Background particles similar to Journey section */}
       <div 
@@ -91,7 +91,7 @@ const Extracurricular = () => {
 
       <div className="max-w-7xl mx-auto relative z-10" style={{ isolation: 'isolate' }}>
         {/* Header Section */}
-        <div className="text-center mb-20 relative">
+        <div className="text-center mb-16 relative pt-16">
           <div className="absolute inset-0 bg-gradient-to-r from-orange-500/10 via-transparent to-green-500/10 blur-3xl transform -rotate-2"></div>
           <h2 className="text-5xl md:text-7xl font-bold mb-6 relative z-10">
             <span className="bg-gradient-to-r from-orange-400 via-orange-500 to-green-400 bg-clip-text text-transparent animate-gradient-shift">
