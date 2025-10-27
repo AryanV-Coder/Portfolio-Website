@@ -1,0 +1,300 @@
+/* ProjectCard.css - Flipping Card Styles */
+
+.project-card-container {
+  perspective: 1000px;
+  width: 300px;
+  height: 400px;
+  margin: 15px;
+  transition: transform 0.3s ease;
+}
+
+.project-card-container:hover {
+  transform: translateY(-10px);
+}
+
+.project-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+}
+
+.project-card-container.flipped .project-card-inner {
+  transform: rotateY(180deg);
+}
+
+.project-card-front,
+.project-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  background-color: #1a1a1a;
+  border: 2px solid #F97316;
+  color: #FFFFFF;
+}
+
+.project-card-back {
+  transform: rotateY(180deg);
+}
+
+.project-card-title {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  color: #F97316;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Front Card Styles */
+.project-preview-image {
+  width: 100%;
+  height: 150px;
+  object-fit: contain;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  background-color: #2a2a2a;
+  border: 1px solid #444;
+}
+
+.project-description {
+  flex-grow: 1;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+  color: #CCCCCC;
+}
+
+.project-description-full {
+  flex-grow: 1;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  overflow-y: auto;
+  margin-bottom: 15px;
+  min-height: 60px;
+  max-height: 120px;
+  color: #CCCCCC;
+}
+
+.project-language {
+  margin: 10px 0;
+  font-size: 0.85rem;
+  color: #FFFFFF;
+  opacity: 0.8;
+}
+
+.project-card-actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: auto;
+}
+
+.info-button {
+  background-color: #F97316;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.info-button:hover {
+  background-color: #EA580C;
+  transform: scale(1.05);
+}
+
+.live-button {
+  background-color: #22C55E !important;
+}
+
+.live-button:hover {
+  background-color: #16A34A !important;
+}
+
+/* Back Card Styles */
+.tech-stack {
+  margin: 15px 0;
+}
+
+.tech-stack h4 {
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+  color: #F97316;
+  font-weight: bold;
+}
+
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.tech-tag {
+  background-color: rgba(34, 197, 94, 0.2);
+  color: #22C55E;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  border: 1px solid #22C55E;
+}
+
+.project-stats {
+  margin: 15px 0;
+}
+
+.project-stats h4 {
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+  color: #F97316;
+  font-weight: bold;
+}
+
+.stats-container {
+  display: flex;
+  gap: 15px;
+}
+
+.stat-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.85rem;
+  color: #FFFFFF;
+}
+
+.project-links {
+  display: flex;
+  gap: 10px;
+  margin: 15px 0;
+}
+
+.project-link {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 12px;
+  border-radius: 5px;
+  font-size: 0.85rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  flex: 1;
+  justify-content: center;
+}
+
+.project-link.github {
+  background-color: #333;
+  color: white;
+  border: 2px solid #666;
+}
+
+.project-link.demo {
+  background-color: #22C55E;
+  color: white;
+  border: 2px solid #22C55E;
+}
+
+.project-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.project-link.github:hover {
+  background-color: #555;
+  border-color: #888;
+}
+
+.project-link.demo:hover {
+  background-color: #16A34A;
+  border-color: #16A34A;
+}
+
+.back-button {
+  background: none;
+  border: 2px solid #F97316;
+  color: #F97316;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: auto;
+  transition: all 0.3s ease;
+  align-self: center;
+  font-weight: bold;
+}
+
+.back-button:hover {
+  background-color: #F97316;
+  color: white;
+  transform: scale(1.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .project-card-container {
+    width: 280px;
+    height: 380px;
+  }
+  
+  .project-card-front,
+  .project-card-back {
+    padding: 15px;
+  }
+  
+  .project-preview-image {
+    height: 120px;
+  }
+}
+
+/* Animation delays for staggered appearance */
+.project-card-container {
+  opacity: 0;
+  animation: slideInUp 0.6s ease forwards;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Tricolor Theme Integration */
+.project-card-front {
+  border: 2px solid #F97316; /* Saffron */
+}
+
+.project-card-back {
+  border: 2px solid #22C55E; /* Green */
+}
+
+/* Hover effects with tricolor accents */
+.project-card-container:hover .project-card-front {
+  box-shadow: 0 8px 25px rgba(249, 115, 22, 0.3);
+}
+
+.project-card-container:hover .project-card-back {
+  box-shadow: 0 8px 25px rgba(34, 197, 94, 0.3);
+}

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import ProjectCard from './ProjectCard';
+import './Projects.css';
 
 const Projects = () => {
   const [repos, setRepos] = useState([]);
@@ -242,7 +243,7 @@ const Projects = () => {
 
         {/* Projects Grid */}
         {!loading && !error && (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="projects-grid">
             {repos.length > 0 ? (
               repos.map((repo, index) => (
                 <ProjectCard 
