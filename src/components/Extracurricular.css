@@ -1,0 +1,21 @@
+/* Simple Extracurricular Section Styles */
+
+/* Uses existing animations from Journey.css - no need to duplicate */
+
+/* Performance Optimizations */
+.extracurricular-card {
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .extracurricular-card {
+    transform: none !important;
+  }
+  
+  .extracurricular-card:hover {
+    transform: scale(1.02) !important;
+  }
+}

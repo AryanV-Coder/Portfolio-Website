@@ -1,5 +1,5 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { FaGraduationCap, FaSchool, FaUniversity, FaTrophy, FaCode, FaRocket } from 'react-icons/fa';
+import React, { useState, useRef } from 'react';
+import { FaGraduationCap, FaSchool, FaUniversity, FaRocket } from 'react-icons/fa';
 import './Journey.css';
 
 const Journey = () => {
@@ -130,7 +130,6 @@ const Journey = () => {
           {/* Timeline Items with 3D Floating Cards */}
           <div className="space-y-16">
             {milestones.map((milestone, index) => {
-              const Icon = milestone.icon;
               const isActive = activeCard === milestone.id;
               const isLeft = index % 2 === 0;
 
