@@ -4,7 +4,6 @@ import './Journey.css';
 
 const Journey = () => {
   const [activeCard, setActiveCard] = useState(null);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const containerRef = useRef(null);
 
   const milestones = [
@@ -14,16 +13,9 @@ const Journey = () => {
       period: 'Class 10th',
       title: 'Seth Anandram Jaipuria School',
       percentage: '98.8%',
-      achievement: 'Outstanding Academic Excellence',
-      description: 'Achieved exceptional academic performance with 98.8% marks, establishing a strong foundation in mathematics and science.',
+      description: 'Achieved exceptional academic performance with strong foundation in mathematics and science, developing analytical thinking and problem-solving skills.',
       icon: FaSchool,
       color: 'saffron',
-      level: 'foundation',
-      stats: {
-        rank: '1st',
-        subjects: 5,
-        awards: 3
-      }
     },
     {
       id: 2,
@@ -31,54 +23,23 @@ const Journey = () => {
       period: 'Class 12th',
       title: 'Ahlcon Public School',
       percentage: '91.4%',
-      achievement: 'Science Excellence Award',
-      description: 'Specialized in PCM (Physics, Chemistry, Mathematics) stream with excellent performance in competitive preparation.',
+      description: 'Specialized in PCM (Physics, Chemistry, Mathematics) stream, building strong technical fundamentals and preparing for engineering studies.',
       icon: FaGraduationCap,
       color: 'green',
-      level: 'specialization',
-      stats: {
-        stream: 'PCM',
-        percentile: '95+',
-        competitions: 4
-      }
     },
     {
       id: 3,
       year: '2024-28',
       period: 'B.Tech CSE',
       title: 'JIIT Noida',
-      percentage: 'In Progress',
-      achievement: 'Future Tech Innovator',
-      description: 'Currently pursuing Computer Science Engineering with focus on AI, ML, and Full-Stack Development.',
+      percentage: 'Pursuing',
+      description: 'Currently pursuing Computer Science Engineering with focus on AI, ML, and Full-Stack Development, exploring cutting-edge technologies.',
       icon: FaUniversity,
       color: 'saffron',
-      level: 'transformation',
-      stats: {
-        cgpa: 'Pursuing',
-        projects: '10+',
-        skills: '25+'
-      }
     }
   ];
 
-  // Mouse tracking for interactive effects
-  useEffect(() => {
-    const handleMouseMove = (e) => {
-      if (containerRef.current) {
-        const rect = containerRef.current.getBoundingClientRect();
-        setMousePosition({
-          x: e.clientX - rect.left,
-          y: e.clientY - rect.top
-        });
-      }
-    };
 
-    const container = containerRef.current;
-    if (container) {
-      container.addEventListener('mousemove', handleMouseMove);
-      return () => container.removeEventListener('mousemove', handleMouseMove);
-    }
-  }, []);
 
   const getCardTransform = (index, isActive) => {
     const baseTransform = `perspective(1000px) rotateX(${isActive ? '0deg' : '5deg'}) rotateY(${isActive ? '0deg' : index % 2 === 0 ? '-5deg' : '5deg'})`;
@@ -90,31 +51,57 @@ const Journey = () => {
       id="journey" 
       className="min-h-screen py-20 px-6 md:px-12 bg-gradient-to-br from-gray-900 via-black to-gray-800 relative overflow-hidden"
       ref={containerRef}
+      style={{ isolation: 'isolate' }}
     >
-      {/* Animated background particles */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(50)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute w-2 h-2 bg-gradient-to-r from-orange-400 to-green-400 rounded-full opacity-20 animate-float"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 5}s`,
-              animationDuration: `${3 + Math.random() * 4}s`
-            }}
-          />
-        ))}
+      {/* Background particles contained within education section */}
+      <div 
+        className="absolute inset-0 overflow-hidden pointer-events-none" 
+        style={{ 
+          zIndex: 0, 
+          isolation: 'isolate'
+        }}
+      >
+        {[...Array(25)].map((_, i) => {
+          const size = i % 3 === 0 ? 'w-3 h-3' : i % 2 === 0 ? 'w-2 h-2' : 'w-1 h-1';
+          return (
+            <div
+              key={i}
+              className={`absolute ${size} bg-orange-400 rounded-full opacity-20`}
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+                animation: `float-smooth ${8 + (i % 4)}s ease-in-out ${i * 0.4}s infinite`,
+                willChange: 'transform',
+                pointerEvents: 'none'
+              }}
+            />
+          );
+        })}
+        {[...Array(20)].map((_, i) => {
+          const size = i % 3 === 0 ? 'w-3 h-3' : i % 2 === 0 ? 'w-2 h-2' : 'w-1 h-1';
+          return (
+            <div
+              key={`green-${i}`}
+              className={`absolute ${size} bg-green-400 rounded-full opacity-20`}
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+                animation: `float-smooth ${10 + (i % 3)}s ease-in-out ${i * 0.5}s infinite`,
+                willChange: 'transform',
+                pointerEvents: 'none'
+              }}
+            />
+          );
+        })}
       </div>
 
-      <div className="max-w-7xl mx-auto relative z-10">
+      <div className="max-w-7xl mx-auto relative z-10" style={{ isolation: 'isolate' }}>
         {/* Enhanced Header with 3D effects */}
         <div className="text-center mb-20 relative">
           <div className="absolute inset-0 bg-gradient-to-r from-orange-500/10 via-transparent to-green-500/10 blur-3xl transform -rotate-2"></div>
           <h2 className="text-5xl md:text-7xl font-bold mb-6 relative z-10">
-            My{' '}
             <span className="bg-gradient-to-r from-orange-400 via-orange-500 to-green-400 bg-clip-text text-transparent animate-gradient-shift">
-              Academic Journey
+              Education Journey
             </span>
           </h2>
           <div className="flex justify-center mb-6">
@@ -123,14 +110,14 @@ const Journey = () => {
             </div>
           </div>
           <p className="text-gray-300 text-xl max-w-3xl mx-auto leading-relaxed">
-            From academic excellence to technical mastery – a path of continuous learning and achievement 🎯
+            From academic excellence to technical mastery – a path of continuous learning and achievement
           </p>
         </div>
 
         {/* Revolutionary Timeline Design */}
-        <div className="relative">
+        <div className="relative z-10">
           {/* Animated central spine */}
-          <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-2 transform md:-translate-x-1/2 z-0">
+          <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-2 transform md:-translate-x-1/2 z-5">
             <div className="h-full bg-gradient-to-b from-orange-400 via-green-400 to-orange-400 rounded-full relative">
               <div className="absolute inset-0 bg-gradient-to-b from-orange-400 via-green-400 to-orange-400 rounded-full blur-sm opacity-60 animate-pulse"></div>
               {/* Flowing energy effect */}
@@ -156,58 +143,7 @@ const Journey = () => {
                   onMouseEnter={() => setActiveCard(milestone.id)}
                   onMouseLeave={() => setActiveCard(null)}
                 >
-                  {/* Floating Timeline Node */}
-                  <div className="absolute left-8 md:left-1/2 transform -translate-x-1/2 z-20">
-                    <div 
-                      className={`relative w-20 h-20 rounded-full transition-all duration-500 ${
-                        isActive ? 'scale-125' : 'scale-100'
-                      }`}
-                      style={{ 
-                        transform: `translate(-50%, 0) ${isActive ? 'scale(1.25)' : 'scale(1)'} rotateY(${isActive ? '360deg' : '0deg'})`,
-                        transition: 'all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275)'
-                      }}
-                    >
-                      {/* Glowing ring */}
-                      <div className={`absolute inset-0 rounded-full border-4 ${
-                        milestone.color === 'saffron' ? 'border-orange-400' : 'border-green-400'
-                      } ${isActive ? 'animate-spin-slow' : ''}`}>
-                        <div className={`absolute inset-0 rounded-full ${
-                          milestone.color === 'saffron' 
-                            ? 'shadow-lg shadow-orange-400/50' 
-                            : 'shadow-lg shadow-green-400/50'
-                        } ${isActive ? 'shadow-2xl' : ''} transition-all duration-500`}></div>
-                      </div>
-                      
-                      {/* Icon container */}
-                      <div className={`absolute inset-1 rounded-full flex items-center justify-center ${
-                        milestone.color === 'saffron' 
-                          ? 'bg-gradient-to-br from-orange-500 to-orange-600' 
-                          : 'bg-gradient-to-br from-green-500 to-green-600'
-                      }`}>
-                        <Icon className={`text-2xl text-white ${isActive ? 'animate-bounce' : ''}`} />
-                      </div>
-                      
-                      {/* Particle effect for active state */}
-                      {isActive && (
-                        <div className="absolute inset-0 rounded-full overflow-hidden">
-                          {[...Array(8)].map((_, i) => (
-                            <div
-                              key={i}
-                              className={`absolute w-1 h-1 ${
-                                milestone.color === 'saffron' ? 'bg-orange-300' : 'bg-green-300'
-                              } rounded-full animate-particle-burst`}
-                              style={{
-                                left: '50%',
-                                top: '50%',
-                                animationDelay: `${i * 0.1}s`,
-                                transform: `rotate(${i * 45}deg) translateY(-30px)`
-                              }}
-                            />
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                  </div>
+
 
                   {/* 3D Floating Card */}
                   <div className={`w-full md:w-5/12 ml-28 md:ml-0 ${
@@ -215,11 +151,12 @@ const Journey = () => {
                   }`}>
                     <div 
                       className={`group relative transition-all duration-700 ease-out ${
-                        isActive ? 'z-30' : 'z-10'
+                        isActive ? 'z-30' : 'z-20'
                       }`}
                       style={{
                         transform: getCardTransform(index, isActive),
-                        transformStyle: 'preserve-3d'
+                        transformStyle: 'preserve-3d',
+                        isolation: 'isolate'
                       }}
                     >
                       {/* Card glow effect */}
@@ -268,7 +205,7 @@ const Journey = () => {
                         </div>
 
                         {/* Title with gradient text */}
-                        <h3 className={`text-2xl md:text-3xl font-bold mb-2 transition-all duration-300 ${
+                        <h3 className={`text-2xl md:text-3xl font-bold mb-4 transition-all duration-300 ${
                           milestone.color === 'saffron' 
                             ? 'bg-gradient-to-r from-orange-400 to-orange-600' 
                             : 'bg-gradient-to-r from-green-400 to-green-600'
@@ -278,41 +215,10 @@ const Journey = () => {
                           {milestone.title}
                         </h3>
 
-                        {/* Achievement badge */}
-                        <div className={`inline-flex items-center gap-2 mb-4 px-3 py-1 rounded-lg ${
-                          milestone.color === 'saffron'
-                            ? 'bg-orange-500/10 text-orange-300'
-                            : 'bg-green-500/10 text-green-300'
-                        }`}>
-                          <FaTrophy className="text-sm" />
-                          <span className="text-sm font-semibold">{milestone.achievement}</span>
-                        </div>
-
                         {/* Description */}
-                        <p className="text-gray-300 leading-relaxed mb-6">
+                        <p className="text-gray-300 leading-relaxed">
                           {milestone.description}
                         </p>
-
-                        {/* Stats grid */}
-                        <div className="grid grid-cols-3 gap-4">
-                          {Object.entries(milestone.stats).map(([key, value]) => (
-                            <div 
-                              key={key}
-                              className={`text-center p-3 rounded-lg ${
-                                milestone.color === 'saffron'
-                                  ? 'bg-orange-500/5 border border-orange-500/20'
-                                  : 'bg-green-500/5 border border-green-500/20'
-                              }`}
-                            >
-                              <div className={`text-lg font-bold ${
-                                milestone.color === 'saffron' ? 'text-orange-400' : 'text-green-400'
-                              }`}>
-                                {value}
-                              </div>
-                              <div className="text-xs text-gray-400 capitalize">{key}</div>
-                            </div>
-                          ))}
-                        </div>
                       </div>
                     </div>
                   </div>
@@ -337,7 +243,7 @@ const Journey = () => {
                 The Journey Continues...
               </h3>
               <p className="text-gray-300 text-lg">
-                Building tomorrow's technology, creating infinite possibilities ∞
+                Building tomorrow's technology, creating infinite possibilities
               </p>
             </div>
           </div>
@@ -348,7 +254,7 @@ const Journey = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-orange-500/5 via-green-500/5 to-orange-500/5 blur-3xl rounded-3xl"></div>
           <div className="relative bg-gradient-to-br from-gray-900/50 to-black/50 backdrop-blur-lg border border-white/10 rounded-3xl p-8">
             <p className="text-gray-300 mb-6 text-xl">
-              Ready to be part of my next chapter? Let's build something amazing together! 🚀
+              Ready to be part of my next chapter? Let's build something amazing together!
             </p>
             <a 
               href="#contact"

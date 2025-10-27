@@ -52,6 +52,7 @@ module.exports = {
         'slide-in': 'slideIn 0.4s ease-out',
         'spin-slow': 'spin 3s linear infinite',
         'float': 'float 6s ease-in-out infinite',
+        'float-smooth': 'floatSmooth 8s ease-in-out infinite',
         'gradient-shift': 'gradientShift 3s ease infinite',
         'flow': 'flow 3s linear infinite',
         'particle-burst': 'particleBurst 1s ease-out forwards',
@@ -74,6 +75,13 @@ module.exports = {
         float: {
           '0%, 100%': { transform: 'translateY(0px) rotate(0deg)', opacity: '0.2' },
           '50%': { transform: 'translateY(-20px) rotate(180deg)', opacity: '0.8' },
+        },
+        floatSmooth: {
+          '0%': { transform: 'translateY(0px) translateX(0px)', opacity: '0.2' },
+          '25%': { transform: 'translateY(-15px) translateX(10px)', opacity: '0.4' },
+          '50%': { transform: 'translateY(-30px) translateX(-5px)', opacity: '0.2' },
+          '75%': { transform: 'translateY(-15px) translateX(-15px)', opacity: '0.4' },
+          '100%': { transform: 'translateY(0px) translateX(0px)', opacity: '0.2' },
         },
         gradientShift: {
           '0%': { backgroundPosition: '0% 50%' },
