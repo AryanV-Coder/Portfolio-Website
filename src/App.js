@@ -13,10 +13,10 @@ function App() {
   const [showChakra, setShowChakra] = useState(true);
 
   useEffect(() => {
-    // Chakra rotates for 2 seconds
+    // Chakra rotates for 1 second
     const rotationTimer = setTimeout(() => {
       setIsTransitioning(true);
-    }, 2000);
+    }, 1000);
 
     // After transition animation (1 second), hide splash completely
     const hideTimer = setTimeout(() => {

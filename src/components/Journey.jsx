@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
-import { FaGraduationCap, FaSchool, FaUniversity, FaRocket, FaPen, FaGuitar, FaFistRaised, FaMedal } from 'react-icons/fa';
+import { FaGraduationCap, FaSchool, FaUniversity, FaRocket, FaPen, FaGuitar, FaFistRaised, FaMedal, FaGoogle, FaRobot, FaBrain, FaLightbulb, FaUsers } from 'react-icons/fa';
 import { GiCricketBat } from 'react-icons/gi';
+import { SiIeee } from 'react-icons/si';
 import './Journey.css';
 
 const Journey = () => {
@@ -385,6 +386,137 @@ const Journey = () => {
                 A testament to years of dedicated training, discipline, and competitive spirit in martial arts
               </p>
             </div>
+          </div>
+        </div>
+
+        {/* Hubs & Societies Section - Part 3 with Compact Design */}
+        <div className="pt-20" id="societies">
+          {/* Header Section */}
+          <div className="text-center mb-16 relative">
+            <div className="absolute inset-0 bg-gradient-to-r from-orange-500/10 via-transparent to-green-500/10 blur-3xl transform rotate-2"></div>
+            <h2 className="text-5xl md:text-7xl font-bold mb-6 relative z-10">
+              <span className="bg-gradient-to-r from-green-400 via-green-500 to-orange-400 bg-clip-text text-transparent animate-gradient-shift">
+                Hubs & Societies
+              </span>
+            </h2>
+            <div className="flex justify-center mb-6">
+              <div className="w-32 h-2 bg-gradient-to-r from-green-400 to-orange-400 rounded-full relative">
+                <div className="absolute inset-0 bg-gradient-to-r from-green-400 to-orange-400 rounded-full blur-sm opacity-50"></div>
+              </div>
+            </div>
+            <p className="text-gray-300 text-xl max-w-3xl mx-auto leading-relaxed">
+              Active participation in college technical communities and professional organizations
+            </p>
+          </div>
+
+          {/* Compact Society Cards Grid */}
+          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-12">
+            {[
+              {
+                name: 'GDG',
+                fullName: "Google Developer's Group",
+                icon: FaGoogle,
+                description: 'Building with cutting-edge Google technologies',
+                color: 'from-blue-500 via-red-500 to-yellow-500',
+                bgColor: 'from-blue-500/10 to-red-500/10',
+                iconColor: 'text-blue-400'
+              },
+              {
+                name: 'IEEE',
+                fullName: 'IEEE Student Branch',
+                icon: SiIeee,
+                description: 'Advancing technology for humanity',
+                color: 'from-blue-600 via-cyan-500 to-blue-400',
+                bgColor: 'from-blue-600/10 to-cyan-500/10',
+                iconColor: 'text-cyan-400'
+              },
+              {
+                name: 'AI/ML Hub',
+                fullName: 'AI/ML Innovation Hub',
+                icon: FaBrain,
+                description: 'Exploring artificial intelligence frontiers',
+                color: 'from-purple-500 via-pink-500 to-purple-400',
+                bgColor: 'from-purple-500/10 to-pink-500/10',
+                iconColor: 'text-purple-400'
+              },
+              {
+                name: 'CICR',
+                fullName: 'Centre for Innovation & Creativity in Robotics',
+                icon: FaRobot,
+                description: 'Innovating in robotics and automation',
+                color: 'from-green-500 via-emerald-500 to-green-400',
+                bgColor: 'from-green-500/10 to-emerald-500/10',
+                iconColor: 'text-green-400'
+              }
+            ].map((society, index) => {
+              const Icon = society.icon;
+              const isActive = activeCard === `society-${index}`;
+
+              return (
+                <div
+                  key={society.name}
+                  className="group relative"
+                  onMouseEnter={() => setActiveCard(`society-${index}`)}
+                  onMouseLeave={() => setActiveCard(null)}
+                >
+                  <div 
+                    className={`relative bg-gradient-to-br ${society.bgColor} backdrop-blur-lg border border-white/10 rounded-2xl p-6 transition-all duration-500 ease-out transform ${
+                      isActive ? 'scale-105 shadow-2xl border-white/30' : 'hover:scale-102'
+                    }`}
+                    style={{
+                      transform: isActive ? 'perspective(1000px) rotateX(5deg) rotateY(-5deg)' : 'perspective(1000px) rotateX(0deg) rotateY(0deg)',
+                    }}
+                  >
+                    {/* Animated gradient border */}
+                    <div className={`absolute inset-0 bg-gradient-to-r ${society.color} rounded-2xl opacity-0 group-hover:opacity-20 transition-opacity duration-500 blur-sm`}></div>
+                    
+                    {/* Content */}
+                    <div className="relative z-10">
+                      {/* Icon and Name Header */}
+                      <div className="flex items-center gap-4 mb-4">
+                        <div className={`relative p-3 bg-gradient-to-br ${society.color} rounded-xl shadow-lg`}>
+                          <Icon className="text-2xl text-white" />
+                          <div className={`absolute inset-0 bg-gradient-to-br ${society.color} rounded-xl blur-lg opacity-50 group-hover:opacity-80 transition-opacity duration-300`}></div>
+                        </div>
+                        <div>
+                          <h3 className={`text-xl font-bold ${society.iconColor} group-hover:scale-105 transition-transform duration-300`}>
+                            {society.name}
+                          </h3>
+                          <p className="text-sm text-gray-400 leading-tight">
+                            {society.fullName}
+                          </p>
+                        </div>
+                      </div>
+
+                      {/* Description */}
+                      <p className="text-gray-300 text-sm leading-relaxed">
+                        {society.description}
+                      </p>
+
+                      {/* Active Indicator */}
+                      <div className={`mt-4 h-1 bg-gradient-to-r ${society.color} rounded-full transition-all duration-300 ${
+                        isActive ? 'opacity-100 scale-100' : 'opacity-0 scale-75'
+                      }`}></div>
+                    </div>
+
+                    {/* Floating particles */}
+                    <div className="absolute inset-0 pointer-events-none">
+                      {[...Array(3)].map((_, i) => (
+                        <div
+                          key={i}
+                          className={`absolute w-1 h-1 ${society.iconColor} rounded-full opacity-0 group-hover:opacity-60 transition-all duration-1000`}
+                          style={{
+                            left: `${20 + i * 30}%`,
+                            top: `${10 + i * 20}%`,
+                            animationDelay: `${i * 0.2}s`,
+                          }}
+                        ></div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>
