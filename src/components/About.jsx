@@ -8,32 +8,33 @@ const About = () => {
       className="min-h-screen py-20 px-6 md:px-12 bg-dark-secondary"
     >
       <div className="max-w-7xl mx-auto fade-in-section">
-        {/* Section Header */}
-        <div className="mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-text-primary">
-            About <span className="gradient-text">Me</span>
-          </h2>
-          <div className="w-24 h-1 bg-saffron rounded-full"></div>
-        </div>
+        {/* About Me Box Container */}
+        <div className="flex justify-center mb-16">
+          <div className="bg-dark-card border-2 border-saffron rounded-xl p-12 max-w-5xl hover:border-saffron/80 transition-all duration-300 shadow-lg">
+            {/* Section Header */}
+            <div className="mb-12 text-center">
+              <h2 className="text-4xl md:text-5xl font-bold mb-4 text-text-primary">
+                About <span className="gradient-text">Me</span>
+              </h2>
+              <div className="w-24 h-1 bg-saffron rounded-full mx-auto"></div>
+            </div>
 
-        {/* Story Content */}
-        <div className="flex justify-center mb-12">
-          <div className="bg-dark-card border-2 border-saffron/30 rounded-xl p-8 max-w-4xl hover:border-saffron transition-all duration-300 shadow-lg">
+            {/* Story Content */}
             <div className="space-y-6 text-text-secondary text-base leading-relaxed text-center">
               <p className="animate-fade-in-up">
                 My journey into software development started with a fascination for technology and its power 
-                to transform lives. As a Computer Science student at <strong className="text-saffron">JIIT Noida</strong> (2024–28), 
-                I'm not just learning to code—I'm learning to create systems that think, automate, and make a difference.
+                to transform lives. As a Computer Science student at <strong className="text-saffron">Jaypee Institute of Information Technology (JIIT), Noida</strong> (2024–28), 
+                I'm not just learning to code, I'm learning to create systems that think, automate, and make a difference.
               </p>
 
               <p className="animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
-                What drives me? <strong className="text-saffron">Building intelligent systems that interact, automate, and improve lives.</strong> 
+                What drives me? <strong className="text-saffron">Building intelligent systems that interact, automate, and improve lives. </strong> 
                 I'm constantly experimenting with AI agents, automation frameworks, and cutting-edge APIs. From FastAPI backends 
                 to Flutter mobile apps, I love crafting solutions that are both powerful and user-friendly.
               </p>
 
               <p className="animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-                I'm on a mission to leverage technology for <strong className="text-green">India's advancement</strong>—particularly 
+                I'm on a mission to leverage technology for <strong className="text-green">India's advancement</strong>, particularly 
                 in defense and wellness sectors. Every project I build is a step toward that vision: code that serves the nation, 
                 innovations that empower people, and systems that make the future brighter. 🇮🇳
               </p>
@@ -41,70 +42,57 @@ const About = () => {
           </div>
         </div>
 
+        {/* Separator Line */}
+        <div className="border-t border-dark-tertiary mb-16 max-w-5xl mx-auto"></div>
+
         {/* Core Philosophies */}
-        <div className="mt-16 pt-8 border-t border-dark-tertiary max-w-5xl">
-          <h3 className="text-2xl font-semibold text-text-primary mb-6">
-            My Core <span className="gradient-text">Philosophies</span>
-          </h3>
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-dark-card p-6 rounded-lg border-2 border-saffron/30 hover:border-saffron transition-all duration-300 shadow-lg">
-              <div className="flex items-start gap-4">
-                <div className="text-4xl">🧠</div>
-                <div>
-                  <h4 className="text-xl font-semibold text-text-primary mb-2">
-                    AI-First Thinking
-                  </h4>
-                  <p className="text-base text-text-secondary">
-                    Every problem is an opportunity to leverage AI. I build systems that learn, 
-                    adapt, and make intelligent decisions.
-                  </p>
-                </div>
+        <div className="max-w-5xl mx-auto mb-16">
+          <div className="text-center mb-8">
+            <h3 className="text-3xl font-bold text-text-primary mb-4">
+              My Core <span className="gradient-text">Philosophies</span>
+            </h3>
+            <div className="w-24 h-1 bg-saffron rounded-full mx-auto"></div>
+          </div>
+          
+          <div className="grid md:grid-cols-2 gap-4 max-w-4xl mx-auto">
+            <div className="group relative overflow-hidden rounded-xl bg-gradient-to-br from-saffron/10 via-transparent to-saffron/5 p-6 hover:from-saffron/20 hover:to-saffron/10 transition-all duration-300 border border-saffron/20 hover:border-saffron/40">
+              <div className="flex items-center gap-4 mb-3">
+                <div className="w-12 h-12 rounded-full bg-saffron/20 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform duration-300">🧠</div>
+                <h4 className="text-lg font-bold text-text-primary">AI-First Thinking</h4>
               </div>
+              <p className="text-sm text-text-secondary leading-relaxed">
+                Every problem is an opportunity to leverage AI. I build systems that learn, adapt, and make intelligent decisions.
+              </p>
             </div>
 
-            <div className="bg-dark-card p-6 rounded-lg border-2 border-saffron/30 hover:border-saffron transition-all duration-300 shadow-lg">
-              <div className="flex items-start gap-4">
-                <div className="text-4xl">🇮🇳</div>
-                <div>
-                  <h4 className="text-xl font-semibold text-text-primary mb-2">
-                    Code for the Nation
-                  </h4>
-                  <p className="text-base text-text-secondary">
-                    Technology for India's advancement. Building solutions that strengthen 
-                    defense capabilities and improve public wellness.
-                  </p>
-                </div>
+            <div className="group relative overflow-hidden rounded-xl bg-gradient-to-br from-green/10 via-transparent to-green/5 p-6 hover:from-green/20 hover:to-green/10 transition-all duration-300 border border-green/20 hover:border-green/40">
+              <div className="flex items-center gap-4 mb-3">
+                <div className="w-12 h-12 rounded-full bg-green/20 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform duration-300">🇮🇳</div>
+                <h4 className="text-lg font-bold text-text-primary">Code for the Nation</h4>
               </div>
+              <p className="text-sm text-text-secondary leading-relaxed">
+                Technology for India's advancement. Building solutions that strengthen defense capabilities and improve public wellness.
+              </p>
             </div>
 
-            <div className="bg-dark-card p-6 rounded-lg border-2 border-saffron/30 hover:border-saffron transition-all duration-300 shadow-lg">
-              <div className="flex items-start gap-4">
-                <div className="text-4xl">⚡</div>
-                <div>
-                  <h4 className="text-xl font-semibold text-text-primary mb-2">
-                    Automation First
-                  </h4>
-                  <p className="text-base text-text-secondary">
-                    Why do manually what can be automated? I create systems that work 
-                    smarter, not harder—freeing humans for creative work.
-                  </p>
-                </div>
+            <div className="group relative overflow-hidden rounded-xl bg-gradient-to-br from-yellow-500/10 via-transparent to-yellow-500/5 p-6 hover:from-yellow-500/20 hover:to-yellow-500/10 transition-all duration-300 border border-yellow-500/20 hover:border-yellow-500/40">
+              <div className="flex items-center gap-4 mb-3">
+                <div className="w-12 h-12 rounded-full bg-yellow-500/20 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform duration-300">⚡</div>
+                <h4 className="text-lg font-bold text-text-primary">Automation First</h4>
               </div>
+              <p className="text-sm text-text-secondary leading-relaxed">
+                Why do manually what can be automated? I create systems that work smarter, not harder—freeing humans for creative work.
+              </p>
             </div>
 
-            <div className="bg-dark-card p-6 rounded-lg border-2 border-saffron/30 hover:border-saffron transition-all duration-300 shadow-lg">
-              <div className="flex items-start gap-4">
-                <div className="text-4xl">🔬</div>
-                <div>
-                  <h4 className="text-xl font-semibold text-text-primary mb-2">
-                    Experiment & Innovate
-                  </h4>
-                  <p className="text-base text-text-secondary">
-                    Constantly experimenting with new technologies, APIs, and hardware 
-                    integrations to push the boundaries of what's possible.
-                  </p>
-                </div>
+            <div className="group relative overflow-hidden rounded-xl bg-gradient-to-br from-blue-500/10 via-transparent to-blue-500/5 p-6 hover:from-blue-500/20 hover:to-blue-500/10 transition-all duration-300 border border-blue-500/20 hover:border-blue-500/40">
+              <div className="flex items-center gap-4 mb-3">
+                <div className="w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform duration-300">🔬</div>
+                <h4 className="text-lg font-bold text-text-primary">Experiment & Innovate</h4>
               </div>
+              <p className="text-sm text-text-secondary leading-relaxed">
+                Constantly experimenting with new technologies, APIs, and hardware integrations to push the boundaries of what's possible.
+              </p>
             </div>
           </div>
         </div>
