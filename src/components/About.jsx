@@ -17,24 +17,28 @@ const About = () => {
         </div>
 
         {/* Story Content */}
-        <div className="space-y-8 text-text-secondary text-lg leading-relaxed max-w-5xl">
-          <p className="animate-fade-in-up">
-            My journey into software development started with a fascination for technology and its power 
-            to transform lives. As a Computer Science student at <strong className="text-saffron">JIIT Noida</strong> (2024–28), 
-            I'm not just learning to code—I'm learning to create systems that think, automate, and make a difference.
-          </p>
+        <div className="flex justify-center mb-12">
+          <div className="bg-dark-card border-2 border-saffron/30 rounded-xl p-8 max-w-4xl hover:border-saffron transition-all duration-300 shadow-lg">
+            <div className="space-y-6 text-text-secondary text-base leading-relaxed text-center">
+              <p className="animate-fade-in-up">
+                My journey into software development started with a fascination for technology and its power 
+                to transform lives. As a Computer Science student at <strong className="text-saffron">JIIT Noida</strong> (2024–28), 
+                I'm not just learning to code—I'm learning to create systems that think, automate, and make a difference.
+              </p>
 
-          <p className="animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
-            What drives me? <strong className="text-saffron">Building intelligent systems that interact, automate, and improve lives.</strong> 
-            I'm constantly experimenting with AI agents, automation frameworks, and cutting-edge APIs. From FastAPI backends 
-            to Flutter mobile apps, I love crafting solutions that are both powerful and user-friendly.
-          </p>
+              <p className="animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
+                What drives me? <strong className="text-saffron">Building intelligent systems that interact, automate, and improve lives.</strong> 
+                I'm constantly experimenting with AI agents, automation frameworks, and cutting-edge APIs. From FastAPI backends 
+                to Flutter mobile apps, I love crafting solutions that are both powerful and user-friendly.
+              </p>
 
-          <p className="animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-            I'm on a mission to leverage technology for <strong className="text-green">India's advancement</strong>—particularly 
-            in defense and wellness sectors. Every project I build is a step toward that vision: code that serves the nation, 
-            innovations that empower people, and systems that make the future brighter. 🇮🇳
-          </p>
+              <p className="animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+                I'm on a mission to leverage technology for <strong className="text-green">India's advancement</strong>—particularly 
+                in defense and wellness sectors. Every project I build is a step toward that vision: code that serves the nation, 
+                innovations that empower people, and systems that make the future brighter. 🇮🇳
+              </p>
+            </div>
+          </div>
         </div>
 
         {/* Core Philosophies */}
