@@ -8,36 +8,50 @@ const About = () => {
       className="min-h-screen py-20 px-6 md:px-12 bg-dark-secondary"
     >
       <div className="max-w-7xl mx-auto fade-in-section">
-        {/* About Me Box Container */}
-        <div className="flex justify-center mb-16">
-          <div className="bg-dark-card border-2 border-saffron rounded-xl p-12 max-w-5xl hover:border-saffron/80 transition-all duration-300 shadow-lg">
-            {/* Section Header */}
-            <div className="mb-12 text-center">
-              <h2 className="text-4xl md:text-5xl font-bold mb-4 text-text-primary">
-                About <span className="gradient-text">Me</span>
-              </h2>
-              <div className="w-24 h-1 bg-saffron rounded-full mx-auto"></div>
+        {/* About Me Enhanced Design */}
+        <div className="relative max-w-6xl mx-auto mb-16">
+          {/* Background Elements */}
+          <div className="absolute inset-0 bg-gradient-to-r from-saffron/5 via-green/5 to-saffron/5 rounded-3xl blur-3xl"></div>
+          
+          <div className="relative bg-gradient-to-br from-dark-card via-dark-secondary to-dark-card rounded-2xl p-8 border border-saffron/30 backdrop-blur-sm">
+            {/* Section Header with Enhanced Styling */}
+            <div className="text-center mb-10 mt-4">
+              <div className="inline-block relative">
+                <h2 className="text-4xl md:text-5xl font-bold text-text-primary mb-3">
+                  About <span className="gradient-text">Me</span>
+                </h2>
+                <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-gradient-to-r from-saffron to-green rounded-full"></div>
+              </div>
             </div>
 
-            {/* Story Content */}
-            <div className="space-y-6 text-text-secondary text-base leading-relaxed text-center">
-              <p className="animate-fade-in-up">
-                My journey into software development started with a fascination for technology and its power 
-                to transform lives. As a Computer Science student at <strong className="text-saffron">Jaypee Institute of Information Technology (JIIT), Noida</strong> (2024–28), 
-                I'm not just learning to code, I'm learning to create systems that think, automate, and make a difference.
-              </p>
+            {/* Story Content with Cards */}
+            <div className="grid gap-6 max-w-4xl mx-auto mt-12 mb-10">
+              {/* Journey Card */}
+              <div className="group relative overflow-hidden bg-gradient-to-r from-saffron/10 to-transparent p-6 rounded-xl border-l-4 border-saffron hover:from-saffron/20 transition-all duration-300">
+                <p className="text-text-secondary leading-relaxed animate-fade-in-up">
+                  My journey into software development started with a fascination for technology and its power 
+                  to transform lives. As a Computer Science student at <strong className="text-saffron">Jaypee Institute of Information Technology (JIIT), Noida</strong> (2024–28), 
+                  I'm not just learning to code, I'm learning to create systems that think, automate, and make a difference.
+                </p>
+              </div>
 
-              <p className="animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
-                What drives me? <strong className="text-saffron">Building intelligent systems that interact, automate, and improve lives. </strong> 
-                I'm constantly experimenting with AI agents, automation frameworks, and cutting-edge APIs. From FastAPI backends 
-                to Flutter mobile apps, I love crafting solutions that are both powerful and user-friendly.
-              </p>
+              {/* Passion Card */}
+              <div className="group relative overflow-hidden bg-gradient-to-r from-blue-500/10 to-transparent p-6 rounded-xl border-l-4 border-blue-500 hover:from-blue-500/20 transition-all duration-300">
+                <p className="text-text-secondary leading-relaxed animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
+                  What drives me? <strong className="text-saffron">Building intelligent systems that interact, automate, and improve lives. </strong> 
+                  I'm constantly experimenting with AI agents, automation frameworks, and cutting-edge APIs. From FastAPI backends 
+                  to Flutter mobile apps, I love crafting solutions that are both powerful and user-friendly.
+                </p>
+              </div>
 
-              <p className="animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-                I'm on a mission to leverage technology for <strong className="text-green">India's advancement</strong>, particularly 
-                in defense and wellness sectors. Every project I build is a step toward that vision: code that serves the nation, 
-                innovations that empower people, and systems that make the future brighter. 🇮🇳
-              </p>
+              {/* Mission Card */}
+              <div className="group relative overflow-hidden bg-gradient-to-r from-green/10 to-transparent p-6 rounded-xl border-l-4 border-green hover:from-green/20 transition-all duration-300">
+                <p className="text-text-secondary leading-relaxed animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+                  I'm on a mission to leverage technology for <strong className="text-green">India's advancement</strong>, particularly 
+                  in defense and wellness sectors. Every project I build is a step toward that vision: code that serves the nation, 
+                  innovations that empower people, and systems that make the future brighter.
+                </p>
+              </div>
             </div>
           </div>
         </div>
