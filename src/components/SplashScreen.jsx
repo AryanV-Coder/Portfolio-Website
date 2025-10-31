@@ -1,94 +1,95 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import ashokaChakra from '../assets/ashok_chakra.png';
 
-const SplashScreen = ({ isLoading, isTransitioning }) => {
+const SplashScreen = ({ isLoading, onComplete }) => {
+  const [animationStage, setAnimationStage] = useState('initial'); // 'initial', 'growing', 'rotating', 'shrinking', 'complete'
+
+  useEffect(() => {
+    if (!isLoading) return;
+
+    // Start the growing animation immediately
+    const startGrow = setTimeout(() => {
+      setAnimationStage('growing');
+    }, 100);
+
+    // Stage 1: Growing phase (1 second for visible scaling)
+    const growTimer = setTimeout(() => {
+      setAnimationStage('rotating');
+    }, 1100);
+
+    // Stage 2: Stable rotation for 1.5 seconds (starts at 1.1s, ends at 2.6s)
+    const rotationTimer = setTimeout(() => {
+      setAnimationStage('shrinking');
+    }, 2600);
+
+    // Stage 3: Shrinking phase (1 second for visible scaling, ends at 3.6s)
+    const shrinkTimer = setTimeout(() => {
+      setAnimationStage('complete');
+      if (onComplete) onComplete();
+    }, 3600);
+
+    return () => {
+      clearTimeout(startGrow);
+      clearTimeout(growTimer);
+      clearTimeout(rotationTimer);
+      clearTimeout(shrinkTimer);
+    };
+  }, [isLoading, onComplete]);
+
+  if (!isLoading) return null;
+
   return (
-    <div 
-      className={`fixed inset-0 z-50 flex items-center justify-center transition-opacity duration-1000 ${
-        !isLoading ? 'opacity-0 pointer-events-none' : 'opacity-100'
-      }`}
-      style={{
-        background: 'radial-gradient(circle at center, #1a1a2e 0%, #0a0a0a 100%)',
-      }}
-    >
+    <>
+      {/* Main Splash Screen */}
       <div 
-        className={`relative transition-all duration-1000 ease-in-out ${
-          isTransitioning 
-            ? 'scale-[0.15] translate-x-[calc(50vw-120px)] translate-y-[calc(-50vh+120px)]' 
-            : 'scale-100'
+        className={`fixed inset-0 z-50 flex items-center justify-center transition-opacity duration-500 ${
+          animationStage === 'complete' ? 'opacity-0 pointer-events-none' : 'opacity-100'
         }`}
+        style={{
+          background: 'radial-gradient(circle at center, #1a1a2e 0%, #0f0f1a 50%, #000000 100%)',
+        }}
       >
-        {/* Ashoka Chakra - Larger Size */}
-        <div className={`${!isTransitioning ? 'animate-spin-slow' : ''}`}>
-          <svg
-            width="400"
-            height="400"
-            viewBox="0 0 400 400"
-            xmlns="http://www.w3.org/2000/svg"
-            className="drop-shadow-[0_0_50px_rgba(255,153,51,0.5)]"
-          >
-            {/* Outer glow circle */}
-            <circle
-              cx="200"
-              cy="200"
-              r="195"
-              fill="none"
-              stroke="url(#gradient1)"
-              strokeWidth="2"
-              opacity="0.3"
-            />
+        {/* Ashoka Chakra with Minimal White Background */}
+        <div 
+          className={`relative animate-spin-slower transition-all ${
+            animationStage === 'initial' 
+              ? 'scale-0 opacity-100' 
+              : animationStage === 'growing'
+              ? 'scale-100 opacity-100 duration-1000 ease-out'
+              : animationStage === 'rotating'
+              ? 'scale-100 opacity-100 duration-300'
+              : animationStage === 'shrinking'
+              ? 'scale-0 opacity-100 duration-1000 ease-in'
+              : 'scale-0 opacity-0'
+          }`}
+        >
+          <div className="relative w-64 h-64 md:w-80 md:h-80">
+            {/* Subtle White Background Circle - Smaller to stay within chakra */}
+            <div className="absolute inset-2 rounded-full bg-white/85"></div>
             
-            {/* Outer circle */}
-            <circle
-              cx="200"
-              cy="200"
-              r="180"
-              fill="none"
-              stroke="#FF9933"
-              strokeWidth="6"
-            />
+            {/* Strong White Glow for Clear Visibility */}
+            <div className="absolute -inset-4 w-[calc(100%+2rem)] h-[calc(100%+2rem)] rounded-full bg-white/40 blur-2xl"></div>
             
-            {/* Inner circle */}
-            <circle
-              cx="200"
-              cy="200"
-              r="30"
-              fill="#FF9933"
+            {/* Main Chakra Image */}
+            <img
+              src={ashokaChakra}
+              alt="Ashoka Chakra"
+              className="w-full h-full object-contain relative z-10"
             />
-
-            {/* 24 spokes */}
-            {[...Array(24)].map((_, i) => {
-              const angle = (i * 360) / 24;
-              const rad = (angle * Math.PI) / 180;
-              const x1 = 200 + 30 * Math.cos(rad);
-              const y1 = 200 + 30 * Math.sin(rad);
-              const x2 = 200 + 180 * Math.cos(rad);
-              const y2 = 200 + 180 * Math.sin(rad);
-              
-              return (
-                <line
-                  key={i}
-                  x1={x1}
-                  y1={y1}
-                  x2={x2}
-                  y2={y2}
-                  stroke="#FF9933"
-                  strokeWidth="5"
-                  strokeLinecap="round"
-                />
-              );
-            })}
-
-            {/* Gradient definitions */}
-            <defs>
-              <radialGradient id="gradient1">
-                <stop offset="0%" stopColor="#FF9933" stopOpacity="0.8" />
-                <stop offset="100%" stopColor="#138808" stopOpacity="0.2" />
-              </radialGradient>
-            </defs>
-          </svg>
+          </div>
         </div>
       </div>
-    </div>
+
+      {/* Content Fade-In Overlay */}
+      <div 
+        className={`fixed inset-0 z-40 transition-opacity duration-300 ${
+          animationStage === 'complete' ? 'opacity-100' : 'opacity-0 pointer-events-none'
+        }`}
+        style={{
+          background: 'transparent',
+        }}
+      />
+    </>
   );
 };
 

@@ -9,31 +9,15 @@ import Contact from './components/Contact';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
-  const [isTransitioning, setIsTransitioning] = useState(false);
-  const [showChakra, setShowChakra] = useState(true);
+  const [showMainContent, setShowMainContent] = useState(false);
 
-  useEffect(() => {
-    // Chakra rotates for 1 second
-    const rotationTimer = setTimeout(() => {
-      setIsTransitioning(true);
-    }, 1000);
-
-    // After transition animation (1 second), hide splash completely
-    const hideTimer = setTimeout(() => {
-      setIsLoading(false);
-    }, 3000);
-
-    // Keep mini chakra visible for a bit longer, then fade it out
-    const chakraTimer = setTimeout(() => {
-      setShowChakra(false);
-    }, 5000);
-
-    return () => {
-      clearTimeout(rotationTimer);
-      clearTimeout(hideTimer);
-      clearTimeout(chakraTimer);
-    };
-  }, []);
+  const handleSplashComplete = () => {
+    setIsLoading(false);
+    // Delay showing main content for smooth fade-in
+    setTimeout(() => {
+      setShowMainContent(true);
+    }, 100);
+  };
 
   useEffect(() => {
     // Fade-in animation on scroll
@@ -61,8 +45,8 @@ function App() {
 
   return (
     <>
-      {showChakra && <SplashScreen isLoading={isLoading} isTransitioning={isTransitioning} />}
-      <div className={`min-h-screen bg-dark-primary transition-opacity duration-1000 ${isTransitioning ? 'opacity-100' : 'opacity-0'}`}>
+      <SplashScreen isLoading={isLoading} onComplete={handleSplashComplete} />
+      <div className={`min-h-screen bg-dark-primary transition-opacity duration-500 ${showMainContent ? 'opacity-100' : 'opacity-0'}`}>
         <Hero />
         <About />
         <Projects />
