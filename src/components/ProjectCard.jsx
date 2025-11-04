@@ -9,6 +9,15 @@ const ProjectCard = ({ name, description, language, stars, forks, url, homepage,
     setFlipped(!flipped);
   };
 
+  // Handle card click - flip only if not clicking on buttons or links
+  const handleCardClick = (e) => {
+    // Don't flip if clicking on buttons or links
+    if (e.target.closest('button, a')) {
+      return;
+    }
+    handleFlip();
+  };
+
   // Language colors mapping
   const languageColors = {
     JavaScript: '#f1e05a',
@@ -135,7 +144,10 @@ const ProjectCard = ({ name, description, language, stars, forks, url, homepage,
     <div className="project-card-container group" style={{ animationDelay: `${index * 0.1}s` }}>
       <div className={`project-card-inner ${flipped ? 'flipped' : ''}`}>
         {/* Front of Card */}
-        <div className={`project-card-face project-card-front bg-gradient-to-br ${theme.gradient} border ${theme.border}`}>
+        <div 
+          className={`project-card-face project-card-front bg-gradient-to-br ${theme.gradient} border ${theme.border} cursor-pointer`}
+          onClick={handleCardClick}
+        >
           {/* Language Icon & Badge */}
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-3">
@@ -241,7 +253,10 @@ const ProjectCard = ({ name, description, language, stars, forks, url, homepage,
         </div>
 
         {/* Back of Card */}
-        <div className={`project-card-face project-card-back bg-gradient-to-br ${theme.gradient} border ${theme.border}`}>
+        <div 
+          className={`project-card-face project-card-back bg-gradient-to-br ${theme.gradient} border ${theme.border} cursor-pointer`}
+          onClick={handleCardClick}
+        >
           {/* Header */}
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-3">

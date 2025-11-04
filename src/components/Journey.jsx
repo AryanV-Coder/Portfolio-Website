@@ -99,19 +99,19 @@ const Journey = () => {
 
       <div className="max-w-7xl mx-auto relative z-10" style={{ isolation: 'isolate' }}>
         {/* Enhanced Header with 3D effects */}
-        <div className="text-center mb-20 relative">
+        <div className="text-center mb-12 md:mb-20 relative px-4">
           <div className="absolute inset-0 bg-gradient-to-r from-orange-500/10 via-transparent to-green-500/10 blur-3xl transform -rotate-2"></div>
-          <h2 className="text-5xl md:text-7xl font-bold mb-6 relative z-10">
+          <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold mb-4 md:mb-6 relative z-10">
             <span className="bg-gradient-to-r from-orange-400 via-orange-500 to-green-400 bg-clip-text text-transparent animate-gradient-shift">
               Education Journey
             </span>
           </h2>
-          <div className="flex justify-center mb-6">
-            <div className="w-32 h-2 bg-gradient-to-r from-orange-400 to-green-400 rounded-full relative">
+          <div className="flex justify-center mb-4 md:mb-6">
+            <div className="w-24 md:w-32 h-2 bg-gradient-to-r from-orange-400 to-green-400 rounded-full relative">
               <div className="absolute inset-0 bg-gradient-to-r from-orange-400 to-green-400 rounded-full blur-sm opacity-50"></div>
             </div>
           </div>
-          <p className="text-gray-300 text-xl max-w-3xl mx-auto leading-relaxed">
+          <p className="text-gray-300 text-base md:text-xl max-w-3xl mx-auto leading-relaxed px-4">
             From academic excellence to technical mastery – a path of continuous learning and achievement
           </p>
         </div>
@@ -119,7 +119,7 @@ const Journey = () => {
         {/* Revolutionary Timeline Design */}
         <div className="relative z-10">
           {/* Animated central spine */}
-          <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-2 transform md:-translate-x-1/2 z-5">
+          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-1 md:w-2 transform md:-translate-x-1/2 z-5">
             <div className="h-full bg-gradient-to-b from-orange-400 via-green-400 to-orange-400 rounded-full relative">
               <div className="absolute inset-0 bg-gradient-to-b from-orange-400 via-green-400 to-orange-400 rounded-full blur-sm opacity-60 animate-pulse"></div>
               {/* Flowing energy effect */}
@@ -130,7 +130,7 @@ const Journey = () => {
           </div>
 
           {/* Timeline Items with 3D Floating Cards */}
-          <div className="space-y-16">
+          <div className="space-y-12 md:space-y-16">
             {milestones.map((milestone, index) => {
               const isActive = activeCard === milestone.id;
               const isLeft = index % 2 === 0;
@@ -138,7 +138,7 @@ const Journey = () => {
               return (
                 <div 
                   key={milestone.id}
-                  className={`relative flex flex-col md:flex-row items-start md:items-center gap-12 ${
+                  className={`relative flex flex-col md:flex-row items-start md:items-center gap-8 md:gap-12 ${
                     isLeft ? 'md:flex-row' : 'md:flex-row-reverse'
                   }`}
                   onMouseEnter={() => setActiveCard(milestone.id)}
@@ -147,7 +147,7 @@ const Journey = () => {
 
 
                   {/* 3D Floating Card */}
-                  <div className={`w-full md:w-5/12 ml-28 md:ml-0 ${
+                  <div className={`w-full md:w-5/12 pl-10 md:pl-0 ${
                     isLeft ? 'md:text-right md:pr-20' : 'md:pl-20'
                   }`}>
                     <div 
@@ -155,7 +155,7 @@ const Journey = () => {
                         isActive ? 'z-30' : 'z-20'
                       }`}
                       style={{
-                        transform: getCardTransform(index, isActive),
+                        transform: window.innerWidth < 768 ? 'none' : getCardTransform(index, isActive),
                         transformStyle: 'preserve-3d',
                         isolation: 'isolate'
                       }}
@@ -170,7 +170,7 @@ const Journey = () => {
                       }`}></div>
                       
                       {/* Main card */}
-                      <div className={`relative bg-gradient-to-br from-gray-900/95 to-black/95 p-8 rounded-2xl border-2 transition-all duration-500 backdrop-blur-lg ${
+                      <div className={`relative bg-gradient-to-br from-gray-900/95 to-black/95 p-5 md:p-8 rounded-2xl border-2 transition-all duration-500 backdrop-blur-lg ${
                         milestone.color === 'saffron' 
                           ? 'border-orange-500/30 hover:border-orange-400/60' 
                           : 'border-green-500/30 hover:border-green-400/60'
@@ -179,15 +179,15 @@ const Journey = () => {
                       }`}>
                         
                         {/* Header with enhanced styling */}
-                        <div className="flex items-center justify-between mb-4">
-                          <div className={`px-4 py-2 rounded-full text-sm font-bold ${
+                        <div className="flex items-center justify-between mb-3 md:mb-4">
+                          <div className={`px-3 md:px-4 py-1.5 md:py-2 rounded-full text-xs md:text-sm font-bold ${
                             milestone.color === 'saffron' 
                               ? 'bg-gradient-to-r from-orange-500/20 to-orange-600/20 text-orange-300 border border-orange-500/40' 
                               : 'bg-gradient-to-r from-green-500/20 to-green-600/20 text-green-300 border border-green-500/40'
                           }`}>
                             {milestone.year}
                           </div>
-                          <div className={`text-2xl font-black ${
+                          <div className={`text-xl md:text-2xl font-black ${
                             milestone.color === 'saffron' ? 'text-orange-400' : 'text-green-400'
                           } ${isActive ? 'animate-pulse' : ''}`}>
                             {milestone.percentage}
@@ -195,8 +195,8 @@ const Journey = () => {
                         </div>
 
                         {/* Period badge */}
-                        <div className="mb-3">
-                          <span className={`text-sm px-3 py-1 rounded-full ${
+                        <div className="mb-2 md:mb-3">
+                          <span className={`text-xs md:text-sm px-2 md:px-3 py-1 rounded-full ${
                             milestone.color === 'saffron'
                               ? 'bg-orange-500/10 text-orange-200 border border-orange-500/20'
                               : 'bg-green-500/10 text-green-200 border border-green-500/20'
@@ -206,7 +206,7 @@ const Journey = () => {
                         </div>
 
                         {/* Title with gradient text */}
-                        <h3 className={`text-2xl md:text-3xl font-bold mb-4 transition-all duration-300 ${
+                        <h3 className={`text-xl md:text-2xl lg:text-3xl font-bold mb-3 md:mb-4 transition-all duration-300 ${
                           milestone.color === 'saffron' 
                             ? 'bg-gradient-to-r from-orange-400 to-orange-600' 
                             : 'bg-gradient-to-r from-green-400 to-green-600'
@@ -217,7 +217,7 @@ const Journey = () => {
                         </h3>
 
                         {/* Description */}
-                        <p className="text-gray-300 leading-relaxed">
+                        <p className="text-gray-300 leading-relaxed text-sm md:text-base">
                           {milestone.description}
                         </p>
                       </div>
@@ -234,27 +234,27 @@ const Journey = () => {
         </div>
 
         {/* Beyond Code Section - Part 2 */}
-        <div className="pt-20" id="extracurricular">
+        <div className="pt-16 md:pt-20" id="extracurricular">
           {/* Header Section */}
-          <div className="text-center mb-16 relative">
+          <div className="text-center mb-12 md:mb-16 relative px-4">
             <div className="absolute inset-0 bg-gradient-to-r from-orange-500/10 via-transparent to-green-500/10 blur-3xl transform -rotate-2"></div>
-            <h2 className="text-5xl md:text-7xl font-bold mb-6 relative z-10">
+            <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold mb-4 md:mb-6 relative z-10">
               <span className="bg-gradient-to-r from-orange-400 via-orange-500 to-green-400 bg-clip-text text-transparent animate-gradient-shift">
                 Beyond Code
               </span>
             </h2>
-            <div className="flex justify-center mb-6">
-              <div className="w-32 h-2 bg-gradient-to-r from-orange-400 to-green-400 rounded-full relative">
+            <div className="flex justify-center mb-4 md:mb-6">
+              <div className="w-24 md:w-32 h-2 bg-gradient-to-r from-orange-400 to-green-400 rounded-full relative">
                 <div className="absolute inset-0 bg-gradient-to-r from-orange-400 to-green-400 rounded-full blur-sm opacity-50"></div>
               </div>
             </div>
-            <p className="text-gray-300 text-xl max-w-3xl mx-auto leading-relaxed">
+            <p className="text-gray-300 text-base md:text-xl max-w-3xl mx-auto leading-relaxed px-4">
               Exploring diverse interests and personal passions outside the world of technology
             </p>
           </div>
 
           {/* Activities Grid */}
-          <div className="grid md:grid-cols-2 gap-8 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mb-12 md:mb-16 px-4 md:px-0">
             {[
               {
                 id: 1,
@@ -301,7 +301,7 @@ const Journey = () => {
                       isActive ? 'z-30' : 'z-20'
                     }`}
                     style={{
-                      transform: getCardTransform(index, isActive),
+                      transform: window.innerWidth < 768 ? 'none' : getCardTransform(index, isActive),
                       transformStyle: 'preserve-3d',
                       isolation: 'isolate'
                     }}
@@ -316,7 +316,7 @@ const Journey = () => {
                     }`}></div>
                     
                     {/* Main card */}
-                    <div className={`relative bg-gradient-to-br from-gray-900/95 to-black/95 p-8 rounded-2xl border-2 transition-all duration-500 backdrop-blur-lg ${
+                    <div className={`relative bg-gradient-to-br from-gray-900/95 to-black/95 p-6 md:p-8 rounded-2xl border-2 transition-all duration-500 backdrop-blur-lg ${
                       activity.color === 'orange' 
                         ? 'border-orange-500/30 hover:border-orange-400/60' 
                         : 'border-green-500/30 hover:border-green-400/60'
@@ -334,20 +334,20 @@ const Journey = () => {
                       )}
 
                       {/* Icon */}
-                      <div className="flex items-center justify-center mb-6">
-                        <div className={`p-6 rounded-full ${
+                      <div className="flex items-center justify-center mb-4 md:mb-6">
+                        <div className={`p-4 md:p-6 rounded-full ${
                           activity.color === 'orange' 
                             ? 'bg-gradient-to-br from-orange-500/20 to-orange-600/20 border border-orange-500/40' 
                             : 'bg-gradient-to-br from-green-500/20 to-green-600/20 border border-green-500/40'
                         }`}>
-                          <Icon className={`text-4xl ${
+                          <Icon className={`text-3xl md:text-4xl ${
                             activity.color === 'orange' ? 'text-orange-400' : 'text-green-400'
                           } ${isActive ? 'animate-pulse' : ''}`} />
                         </div>
                       </div>
 
                       {/* Title */}
-                      <h3 className={`text-2xl md:text-3xl font-bold mb-4 text-center transition-all duration-300 ${
+                      <h3 className={`text-xl md:text-2xl lg:text-3xl font-bold mb-3 md:mb-4 text-center transition-all duration-300 ${
                         activity.color === 'orange' 
                           ? 'bg-gradient-to-r from-orange-400 to-orange-600' 
                           : 'bg-gradient-to-r from-green-400 to-green-600'
@@ -358,7 +358,7 @@ const Journey = () => {
                       </h3>
 
                       {/* Description */}
-                      <p className="text-gray-300 leading-relaxed text-center">
+                      <p className="text-gray-300 leading-relaxed text-center text-sm md:text-base">
                         {activity.description}
                       </p>
                     </div>
@@ -369,20 +369,20 @@ const Journey = () => {
           </div>
 
           {/* Achievement Highlight */}
-          <div className="text-center relative">
+          <div className="text-center relative px-4">
             <div className="absolute inset-0 bg-gradient-to-r from-orange-500/5 via-green-500/5 to-orange-500/5 blur-3xl rounded-3xl"></div>
-            <div className="relative bg-gradient-to-br from-gray-900/50 to-black/50 backdrop-blur-lg border border-white/10 rounded-3xl p-8">
-              <div className="flex items-center justify-center gap-3 mb-4">
-                <FaMedal className="text-2xl text-yellow-400" />
-                <h3 className="text-2xl font-bold text-white">
+            <div className="relative bg-gradient-to-br from-gray-900/50 to-black/50 backdrop-blur-lg border border-white/10 rounded-3xl p-6 md:p-8">
+              <div className="flex items-center justify-center gap-2 md:gap-3 mb-3 md:mb-4">
+                <FaMedal className="text-xl md:text-2xl text-yellow-400" />
+                <h3 className="text-lg md:text-2xl font-bold text-white">
                   Achievement Highlight
                 </h3>
-                <FaMedal className="text-2xl text-yellow-400" />
+                <FaMedal className="text-xl md:text-2xl text-yellow-400" />
               </div>
-              <p className="text-lg text-yellow-300 mb-2 font-semibold">
+              <p className="text-base md:text-lg text-yellow-300 mb-2 font-semibold">
                 🥈 All India Karate Championship Silver Medalist
               </p>
-              <p className="text-gray-400 max-w-2xl mx-auto leading-relaxed">
+              <p className="text-gray-400 max-w-2xl mx-auto leading-relaxed text-sm md:text-base">
                 A testament to years of dedicated training, discipline, and competitive spirit in martial arts
               </p>
             </div>
@@ -390,27 +390,27 @@ const Journey = () => {
         </div>
 
         {/* Hubs & Societies Section - Part 3 with Compact Design */}
-        <div className="pt-20" id="societies">
+        <div className="pt-16 md:pt-20" id="societies">
           {/* Header Section */}
-          <div className="text-center mb-16 relative">
+          <div className="text-center mb-12 md:mb-16 relative px-4">
             <div className="absolute inset-0 bg-gradient-to-r from-orange-500/10 via-transparent to-green-500/10 blur-3xl transform rotate-2"></div>
-            <h2 className="text-5xl md:text-7xl font-bold mb-6 relative z-10">
+            <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold mb-4 md:mb-6 relative z-10">
               <span className="bg-gradient-to-r from-green-400 via-green-500 to-orange-400 bg-clip-text text-transparent animate-gradient-shift">
                 Hubs & Societies
               </span>
             </h2>
-            <div className="flex justify-center mb-6">
-              <div className="w-32 h-2 bg-gradient-to-r from-green-400 to-orange-400 rounded-full relative">
+            <div className="flex justify-center mb-4 md:mb-6">
+              <div className="w-24 md:w-32 h-2 bg-gradient-to-r from-green-400 to-orange-400 rounded-full relative">
                 <div className="absolute inset-0 bg-gradient-to-r from-green-400 to-orange-400 rounded-full blur-sm opacity-50"></div>
               </div>
             </div>
-            <p className="text-gray-300 text-xl max-w-3xl mx-auto leading-relaxed">
+            <p className="text-gray-300 text-base md:text-xl max-w-3xl mx-auto leading-relaxed px-4">
               Active participation in college technical communities and professional organizations
             </p>
           </div>
 
           {/* Compact Society Cards Grid */}
-          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 max-w-4xl mx-auto mb-12 px-4 md:px-0">
             {[
               {
                 name: 'GDG',
@@ -460,11 +460,11 @@ const Journey = () => {
                   onMouseLeave={() => setActiveCard(null)}
                 >
                   <div 
-                    className={`relative bg-gradient-to-br ${society.bgColor} backdrop-blur-lg border border-white/10 rounded-2xl p-6 transition-all duration-500 ease-out transform ${
+                    className={`relative bg-gradient-to-br ${society.bgColor} backdrop-blur-lg border border-white/10 rounded-2xl p-5 md:p-6 transition-all duration-500 ease-out transform ${
                       isActive ? 'scale-105 shadow-2xl border-white/30' : 'hover:scale-102'
                     }`}
                     style={{
-                      transform: isActive ? 'perspective(1000px) rotateX(5deg) rotateY(-5deg)' : 'perspective(1000px) rotateX(0deg) rotateY(0deg)',
+                      transform: window.innerWidth < 768 ? 'none' : (isActive ? 'perspective(1000px) rotateX(5deg) rotateY(-5deg)' : 'perspective(1000px) rotateX(0deg) rotateY(0deg)'),
                     }}
                   >
                     {/* Animated gradient border */}
@@ -473,28 +473,28 @@ const Journey = () => {
                     {/* Content */}
                     <div className="relative z-10">
                       {/* Icon and Name Header */}
-                      <div className="flex items-center gap-4 mb-4">
-                        <div className={`relative p-3 bg-gradient-to-br ${society.color} rounded-xl shadow-lg`}>
-                          <Icon className="text-2xl text-white" />
+                      <div className="flex items-center gap-3 md:gap-4 mb-3 md:mb-4">
+                        <div className={`relative p-2.5 md:p-3 bg-gradient-to-br ${society.color} rounded-xl shadow-lg flex-shrink-0`}>
+                          <Icon className="text-xl md:text-2xl text-white" />
                           <div className={`absolute inset-0 bg-gradient-to-br ${society.color} rounded-xl blur-lg opacity-50 group-hover:opacity-80 transition-opacity duration-300`}></div>
                         </div>
-                        <div>
-                          <h3 className={`text-xl font-bold ${society.iconColor} group-hover:scale-105 transition-transform duration-300`}>
+                        <div className="min-w-0">
+                          <h3 className={`text-lg md:text-xl font-bold ${society.iconColor} group-hover:scale-105 transition-transform duration-300 truncate`}>
                             {society.name}
                           </h3>
-                          <p className="text-sm text-gray-400 leading-tight">
+                          <p className="text-xs md:text-sm text-gray-400 leading-tight truncate">
                             {society.fullName}
                           </p>
                         </div>
                       </div>
 
                       {/* Description */}
-                      <p className="text-gray-300 text-sm leading-relaxed">
+                      <p className="text-gray-300 text-sm md:text-sm leading-relaxed">
                         {society.description}
                       </p>
 
                       {/* Active Indicator */}
-                      <div className={`mt-4 h-1 bg-gradient-to-r ${society.color} rounded-full transition-all duration-300 ${
+                      <div className={`mt-3 md:mt-4 h-1 bg-gradient-to-r ${society.color} rounded-full transition-all duration-300 ${
                         isActive ? 'opacity-100 scale-100' : 'opacity-0 scale-75'
                       }`}></div>
                     </div>
