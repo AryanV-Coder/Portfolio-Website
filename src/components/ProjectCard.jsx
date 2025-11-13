@@ -18,26 +18,6 @@ const ProjectCard = ({ name, description, language, stars, forks, url, homepage,
     handleFlip();
   };
 
-  // Language colors mapping
-  const languageColors = {
-    JavaScript: '#f1e05a',
-    TypeScript: '#3178c6',
-    Python: '#3572A5',
-    Java: '#b07219',
-    'C++': '#f34b7d',
-    C: '#555555',
-    Go: '#00ADD8',
-    Rust: '#dea584',
-    Ruby: '#701516',
-    PHP: '#4F5D95',
-    Swift: '#ffac45',
-    Kotlin: '#A97BFF',
-    HTML: '#e34c26',
-    CSS: '#563d7c',
-    Shell: '#89e051',
-    Default: '#8b949e'
-  };
-
   // Diverse color palette for random assignment
   const colorPalettes = [
     { gradient: 'from-purple-500/20 via-purple-600/10 to-purple-700/5', border: 'border-purple-500/30 hover:border-purple-400/50', accent: '#8B5CF6' },
