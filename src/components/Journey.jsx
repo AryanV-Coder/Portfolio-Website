@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { FaGraduationCap, FaSchool, FaUniversity, FaRocket, FaPen, FaGuitar, FaFistRaised, FaMedal, FaGoogle, FaRobot, FaBrain, FaLightbulb, FaUsers } from 'react-icons/fa';
+import { FaGraduationCap, FaSchool, FaUniversity, FaPen, FaGuitar, FaFistRaised, FaMedal, FaGoogle, FaRobot, FaBrain } from 'react-icons/fa';
 import { GiCricketBat } from 'react-icons/gi';
 import { SiIeee } from 'react-icons/si';
 import './Journey.css';

@@ -135,7 +135,6 @@ const ProjectCard = ({ name, description, language, stars, forks, url, homepage,
   };
 
   const theme = getGradientTheme();
-  const languageColor = languageColors[language] || languageColors.Default;
 
   // Auto-load GitHub Open Graph image
   const imagePath = `https://opengraph.githubassets.com/1/AryanV-Coder/${name}`;
