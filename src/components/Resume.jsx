@@ -3,8 +3,8 @@ import React, { useState } from 'react';
 const Resume = () => {
   const [isHovering, setIsHovering] = useState(false);
 
-  // You'll add your resume PDF to /public/resume.pdf
-  const resumePath = '/resume.pdf';
+  // Resume PDF path from public folder
+  const resumePath = '/Aryan_Varshney_Resume.pdf';
 
   const handleDownload = () => {
     // Create a temporary link element to trigger download

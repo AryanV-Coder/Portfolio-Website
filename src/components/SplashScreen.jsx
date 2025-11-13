@@ -12,21 +12,21 @@ const SplashScreen = ({ isLoading, onComplete }) => {
       setAnimationStage('growing');
     }, 100);
 
-    // Stage 1: Growing phase (1 second for visible scaling)
+    // Stage 1: Growing phase (0.7 second for visible scaling)
     const growTimer = setTimeout(() => {
       setAnimationStage('rotating');
-    }, 1100);
+    }, 800);
 
-    // Stage 2: Stable rotation for 1.5 seconds (starts at 1.1s, ends at 2.6s)
+    // Stage 2: Stable rotation for 0.5 seconds (starts at 0.8s, ends at 1.3s)
     const rotationTimer = setTimeout(() => {
       setAnimationStage('shrinking');
-    }, 2600);
+    }, 1300);
 
-    // Stage 3: Shrinking phase (1 second for visible scaling, ends at 3.6s)
+    // Stage 3: Shrinking phase (0.7 second for visible scaling, ends at 2s)
     const shrinkTimer = setTimeout(() => {
       setAnimationStage('complete');
       if (onComplete) onComplete();
-    }, 3600);
+    }, 2000);
 
     return () => {
       clearTimeout(startGrow);
@@ -55,11 +55,11 @@ const SplashScreen = ({ isLoading, onComplete }) => {
             animationStage === 'initial' 
               ? 'scale-0 opacity-100' 
               : animationStage === 'growing'
-              ? 'scale-100 opacity-100 duration-1000 ease-out'
+              ? 'scale-100 opacity-100 duration-700 ease-out'
               : animationStage === 'rotating'
               ? 'scale-100 opacity-100 duration-300'
               : animationStage === 'shrinking'
-              ? 'scale-0 opacity-100 duration-1000 ease-in'
+              ? 'scale-0 opacity-100 duration-700 ease-in'
               : 'scale-0 opacity-0'
           }`}
         >
