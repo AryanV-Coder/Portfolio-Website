@@ -121,6 +121,38 @@ const Projects = () => {
     }
   };
 
+  // Define featured projects with custom descriptions and live demo links
+  const FEATURED_PROJECTS = {
+    'SpyAI': {
+      description: 'Intelligent surveillance system capturing and transcribing audio with AI-powered multi-language analysis and natural language querying! 🕵️‍♂️🤖',
+      liveDemo: null
+    },
+    'AICalling': {
+      description: 'AI phone bot that talks to you over calls using Twilio and Gemini - make instant voice calls, get AI responses, and have continuous conversations! 📞🤖',
+      liveDemo: null
+    },
+    'Moodify-1.0': {
+      description: 'AI-powered mood-based music recommendation system that analyzes your facial expressions and recommends personalized songs matching your emotional state! 🎧😊',
+      liveDemo: 'https://moodify-aat.vercel.app/'
+    },
+    'AI-Powered-Commenter': {
+      description: 'Select your mood, upload a photo, and get AI-generated witty comments instantly - built with Streamlit and Gemini API for fun social interactions! 💬📸',
+      liveDemo: 'https://ai-powered-commenter.streamlit.app/'
+    },
+    'MoodGenie': {
+      description: 'Your emotional AI companion Flutter app with AI-generated mood responses, auto-generated summaries, and local Hive storage for private journaling! 🌈💭',
+      liveDemo: 'https://drive.google.com/file/d/1bS43TN5nnJhanVEdiFTTMrBMrcnqcFUS/view?usp=sharing'
+    },
+    'FlavorMatch': {
+      description: 'Family food recommendation system tracking preferences and suggesting personalized dishes - solving "What\'s for dinner?" with smart database insights! 🍽️👨‍👩‍👧‍👦',
+      liveDemo: 'https://flavor-match-aat.vercel.app'
+    },
+    'SleepDebtPredictor': {
+      description: 'Web system using Linear Regression and Gemini AI to analyze facial fatigue indicators and predict sleep hours needed to recover from sleep debt! 😴📊',
+      liveDemo: 'https://sleep-debt-predictor.vercel.app/'
+    }
+  };
+
   useEffect(() => {
     const fetchRepos = async () => {
       try {
@@ -145,25 +177,23 @@ const Projects = () => {
           }
         );
 
-        // Filter out forked repos, AryanV-Coder repo, and sort by stars
+        // Filter to show only featured projects in the specified order
+        const featuredProjectNames = Object.keys(FEATURED_PROJECTS);
         const filteredRepos = response.data
-          .filter(repo => !repo.fork && repo.name !== 'AryanV-Coder')
-          .sort((a, b) => b.stargazers_count - a.stargazers_count);
+          .filter(repo => featuredProjectNames.includes(repo.name))
+          .sort((a, b) => featuredProjectNames.indexOf(a.name) - featuredProjectNames.indexOf(b.name));
 
-        // Fetch README for each repository and generate catchy descriptions
-        const reposWithReadme = await Promise.all(
-          filteredRepos.map(async (repo) => {
-            const readmeContent = await fetchReadmeContent(repo.name);
-            const catchyDescription = generateCatchyDescription(readmeContent, repo.name, repo.language);
-            
-            return {
-              ...repo,
-              catchyDescription: catchyDescription
-            };
-          })
-        );
+        // Enhance repos with custom descriptions and live demo links
+        const reposWithCustomData = filteredRepos.map((repo) => {
+          const projectData = FEATURED_PROJECTS[repo.name];
+          return {
+            ...repo,
+            catchyDescription: projectData.description,
+            homepage: projectData.liveDemo || repo.homepage
+          };
+        });
 
-        setRepos(reposWithReadme);
+        setRepos(reposWithCustomData);
         setLoading(false);
       } catch (err) {
         console.error('Error fetching repositories:', err);
@@ -173,7 +203,7 @@ const Projects = () => {
     };
 
     fetchRepos();
-  }, [GITHUB_USERNAME, GITHUB_TOKEN, fetchReadmeContent]);
+  }, [GITHUB_USERNAME, GITHUB_TOKEN]);
 
   // Generate description with priority: catchy description from README > repo description > generic fallback
   const generateDescription = (repo) => {

@@ -165,12 +165,8 @@ const ProjectCard = ({ name, description, language, stars, forks, url, homepage,
             </div>
           </div>
 
-          <p className="text-text-secondary leading-relaxed mb-6 text-sm">
-            {description
-              ? description.length > 120
-                ? `${description.substring(0, 120)}...`
-                : description
-              : "An innovative project showcasing modern development practices."}
+          <p className="text-text-secondary leading-relaxed mb-6 text-sm line-clamp-3 overflow-hidden">
+            {description || "An innovative project showcasing modern development practices."}
           </p>
 
           {/* Stats Row */}
@@ -259,7 +255,7 @@ const ProjectCard = ({ name, description, language, stars, forks, url, homepage,
           </div>
 
           {/* Full Description */}
-          <p className="text-text-secondary leading-relaxed mb-4 text-sm flex-grow overflow-y-auto custom-scrollbar">
+          <p className="text-text-secondary leading-relaxed mb-4 text-sm overflow-y-auto custom-scrollbar max-h-32">
             {description || "This project demonstrates advanced development skills and modern technology implementation."}
           </p>
 
