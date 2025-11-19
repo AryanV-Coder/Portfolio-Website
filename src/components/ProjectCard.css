@@ -37,6 +37,15 @@
   flex-direction: column;
   transition: all 0.3s ease;
   overflow: hidden;
+  box-shadow: 0 0 0 0 transparent;
+}
+
+/* Hover glow effect with card's accent color */
+.project-card-container:hover .project-card-face {
+  box-shadow: 0 0 30px var(--accent-color),
+              0 0 60px var(--accent-color),
+              0 0 90px var(--accent-color),
+              0 0 120px rgba(var(--accent-color-rgb), 0.4);
 }
 
 /* Line clamp utility for text truncation */

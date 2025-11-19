@@ -120,8 +120,16 @@ const ProjectCard = ({ name, description, language, stars, forks, url, homepage,
   const imagePath = `https://opengraph.githubassets.com/1/AryanV-Coder/${name}`;
 
   return (
-    <div className="project-card-container group" style={{ animationDelay: `${index * 0.1}s` }}>
-      <div className={`project-card-inner ${flipped ? 'flipped' : ''}`}>
+    <div 
+      className="project-card-container group" 
+      style={{ animationDelay: `${index * 0.1}s` }}
+    >
+      <div 
+        className={`project-card-inner ${flipped ? 'flipped' : ''}`}
+        style={{
+          '--accent-color': theme.accent
+        }}
+      >
         {/* Front of Card */}
         <div 
           className={`project-card-face project-card-front bg-gradient-to-br ${theme.gradient} border ${theme.border} cursor-pointer`}
