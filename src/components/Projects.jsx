@@ -27,7 +27,7 @@ const Projects = () => {
       description: 'AI-powered mood-based music recommendation system that analyzes your facial expressions and recommends personalized songs matching your emotional state! 🎧😊',
       liveDemo: 'https://moodify-aat.vercel.app/'
     },
-    'AI-Powered-Commenter': {
+    'AI-Powered-Commentor': {
       description: 'Select your mood, upload a photo, and get AI-generated witty comments instantly - built with Streamlit and Gemini API for fun social interactions! 💬📸',
       liveDemo: 'https://ai-powered-commenter.streamlit.app/'
     },
