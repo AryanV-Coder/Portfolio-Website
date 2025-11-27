@@ -47,7 +47,7 @@
 .brand-icon {
   width: 48px;
   height: 48px;
-  background: linear-gradient(135deg, #FF9933 0%, #1e3a8a 45%, #138808 100%);
+  background: #0a0a0a;
   border-radius: 14px;
   display: flex;
   align-items: center;
@@ -55,16 +55,63 @@
   font-weight: 800;
   font-size: 1.25rem;
   color: white;
-  box-shadow: 0 8px 20px rgba(255, 153, 51, 0.35),
-              0 4px 10px rgba(19, 136, 8, 0.2);
-  transition: all 0.3s ease;
+  box-shadow: 
+    0 0 0 2px rgba(255, 153, 51, 0.3),
+    0 0 0 4px rgba(19, 136, 8, 0.2),
+    0 8px 24px rgba(0, 0, 0, 0.4);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   letter-spacing: -1px;
+  position: relative;
+  overflow: visible;
+}
+
+.brand-icon::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 14px;
+  padding: 2px;
+  background: linear-gradient(135deg, #FF9933, #138808);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.brand-icon::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 14px;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 153, 51, 0.15), transparent 60%);
+  pointer-events: none;
 }
 
 .navbar-brand:hover .brand-icon {
-  box-shadow: 0 10px 30px rgba(255, 153, 51, 0.45),
-              0 5px 15px rgba(19, 136, 8, 0.3);
-  transform: translateY(-2px);
+  box-shadow: 
+    0 0 0 2px rgba(255, 153, 51, 0.6),
+    0 0 0 4px rgba(19, 136, 8, 0.4),
+    0 12px 32px rgba(0, 0, 0, 0.5),
+    0 0 30px rgba(255, 153, 51, 0.3);
+  transform: translateY(-2px) scale(1.02);
+}
+
+.navbar-brand:hover .brand-icon::before {
+  opacity: 1;
+  animation: rotateBorder 3s linear infinite;
+}
+
+@keyframes rotateBorder {
+  0% {
+    background: linear-gradient(135deg, #FF9933, #138808);
+  }
+  50% {
+    background: linear-gradient(135deg, #138808, #FF9933);
+  }
+  100% {
+    background: linear-gradient(135deg, #FF9933, #138808);
+  }
 }
 
 .brand-text {
