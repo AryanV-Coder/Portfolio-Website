@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import SplashScreen from './components/SplashScreen';
+import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
 import Projects from './components/Projects';
@@ -46,6 +47,7 @@ function App() {
   return (
     <>
       <SplashScreen isLoading={isLoading} onComplete={handleSplashComplete} />
+      {showMainContent && <Navbar />}
       <div className={`min-h-screen bg-dark-primary transition-opacity duration-500 ${showMainContent ? 'opacity-100' : 'opacity-0'}`}>
         <Hero />
         <About />
