@@ -11,6 +11,7 @@ const Navbar = () => {
     { id: 'about', label: 'About' },
     { id: 'projects', label: 'Projects' },
     { id: 'journey', label: 'Journey' },
+    { id: 'certifications', label: 'Certifications' },
     { id: 'resume', label: 'Resume' },
     { id: 'contact', label: 'Contact' }
   ], []);
@@ -78,7 +79,7 @@ const Navbar = () => {
           </div>
 
           {/* Mobile Menu Toggle */}
-          <button 
+          <button
             className="mobile-menu-toggle"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle menu"
