@@ -1,0 +1,325 @@
+/* Certifications Section Styles */
+
+/* Carousel Stage */
+.cert-carousel-stage {
+  position: relative;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 2000px;
+  overflow: hidden;
+}
+
+/* Carousel Container */
+.cert-carousel-container {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Certificate Card Wrapper */
+.cert-card-wrapper {
+  position: absolute;
+  width: 100%;
+  max-width: 600px;
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+/* Active Card (Center) */
+.cert-card-wrapper.active {
+  transform: translateX(0) scale(1) rotateY(0deg);
+  z-index: 10;
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* Next Card (Right) */
+.cert-card-wrapper.next {
+  transform: translateX(60%) scale(0.85) rotateY(-15deg);
+  z-index: 5;
+  opacity: 0.6;
+  filter: blur(1px);
+}
+
+/* Previous Card (Left) */
+.cert-card-wrapper.prev {
+  transform: translateX(-60%) scale(0.85) rotateY(15deg);
+  z-index: 5;
+  opacity: 0.6;
+  filter: blur(1px);
+}
+
+/* Hidden Cards */
+.cert-card-wrapper.hidden {
+  transform: translateX(0) scale(0.7);
+  z-index: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Certificate Card */
+.cert-card {
+  background: linear-gradient(
+    135deg,
+    rgba(26, 26, 26, 0.95) 0%,
+    rgba(10, 10, 10, 0.98) 100%
+  );
+  border: 2px solid rgba(249, 115, 22, 0.3);
+  border-radius: 20px;
+  padding: 2rem;
+  backdrop-filter: blur(10px);
+  box-shadow: 
+    0 20px 60px rgba(0, 0, 0, 0.5),
+    0 0 40px rgba(249, 115, 22, 0.1);
+  transition: all 0.4s ease;
+  height: 100%;
+}
+
+.cert-card-wrapper.active .cert-card {
+  border-color: rgba(249, 115, 22, 0.5);
+  box-shadow: 
+    0 25px 80px rgba(0, 0, 0, 0.6),
+    0 0 60px rgba(249, 115, 22, 0.2);
+}
+
+.cert-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(249, 115, 22, 0.6);
+}
+
+/* Card Content */
+.cert-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  height: 100%;
+}
+
+/* Certificate Image/Preview */
+.cert-image-container {
+  width: 100%;
+  height: 200px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: linear-gradient(
+    135deg,
+    rgba(249, 115, 22, 0.1) 0%,
+    rgba(34, 197, 94, 0.1) 100%
+  );
+  border: 1px solid rgba(249, 115, 22, 0.2);
+}
+
+.cert-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(
+    135deg,
+    rgba(26, 26, 26, 0.8) 0%,
+    rgba(42, 42, 42, 0.8) 100%
+  );
+}
+
+/* Certificate Details */
+.cert-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Navigation Controls */
+.cert-carousel-controls {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  padding: 0 2rem;
+  pointer-events: none;
+  z-index: 20;
+}
+
+.cert-nav-btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(
+    135deg,
+    rgba(249, 115, 22, 0.2) 0%,
+    rgba(249, 115, 22, 0.1) 100%
+  );
+  border: 2px solid rgba(249, 115, 22, 0.4);
+  color: #F97316;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  pointer-events: all;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  font-size: 1.25rem;
+}
+
+.cert-nav-btn:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(249, 115, 22, 0.4) 0%,
+    rgba(249, 115, 22, 0.3) 100%
+  );
+  border-color: rgba(249, 115, 22, 0.6);
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(249, 115, 22, 0.3);
+}
+
+.cert-nav-btn:active {
+  transform: scale(0.95);
+}
+
+/* Carousel Indicators */
+.cert-indicators {
+  position: absolute;
+  bottom: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 12px;
+  z-index: 20;
+}
+
+.cert-indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(176, 176, 176, 0.3);
+  border: 2px solid rgba(176, 176, 176, 0.5);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cert-indicator:hover {
+  background: rgba(249, 115, 22, 0.5);
+  border-color: rgba(249, 115, 22, 0.7);
+}
+
+.cert-indicator.active {
+  background: linear-gradient(135deg, #F97316 0%, #22C55E 100%);
+  border-color: #F97316;
+  width: 32px;
+  border-radius: 6px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .cert-carousel-stage {
+    min-height: 550px;
+  }
+
+  .cert-carousel-container {
+    height: 480px;
+  }
+
+  .cert-card-wrapper.active {
+    max-width: 90%;
+  }
+
+  .cert-card-wrapper.next,
+  .cert-card-wrapper.prev {
+    transform: scale(0.6);
+    opacity: 0.3;
+  }
+
+  .cert-card-wrapper.next {
+    transform: translateX(80%) scale(0.6);
+  }
+
+  .cert-card-wrapper.prev {
+    transform: translateX(-80%) scale(0.6);
+  }
+
+  .cert-card {
+    padding: 1.5rem;
+  }
+
+  .cert-image-container {
+    height: 150px;
+  }
+
+  .cert-carousel-controls {
+    padding: 0 0.5rem;
+  }
+
+  .cert-nav-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+
+  .cert-indicators {
+    bottom: -50px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cert-carousel-stage {
+    min-height: 500px;
+  }
+
+  .cert-carousel-container {
+    height: 420px;
+  }
+
+  .cert-card-wrapper.next,
+  .cert-card-wrapper.prev {
+    display: none;
+  }
+
+  .cert-nav-btn {
+    background: rgba(249, 115, 22, 0.3);
+  }
+}
+
+/* Smooth Animations */
+@keyframes certFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.cert-card-content {
+  animation: certFadeIn 0.5s ease-out;
+}
+
+/* Custom Scrollbar for Description */
+.cert-details p {
+  scrollbar-width: thin;
+  scrollbar-color: #F97316 rgba(26, 26, 26, 0.3);
+}
+
+.cert-details p::-webkit-scrollbar {
+  width: 4px;
+}
+
+.cert-details p::-webkit-scrollbar-track {
+  background: rgba(26, 26, 26, 0.3);
+  border-radius: 2px;
+}
+
+.cert-details p::-webkit-scrollbar-thumb {
+  background: #F97316;
+  border-radius: 2px;
+}
