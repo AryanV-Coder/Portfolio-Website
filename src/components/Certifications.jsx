@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FaCertificate, FaChevronLeft, FaChevronRight, FaExternalLinkAlt } from 'react-icons/fa';
 import './Certifications.css';
 
 const Certifications = () => {
     const [activeIndex, setActiveIndex] = useState(0);
+    const [isPaused, setIsPaused] = useState(false);
 
     // Placeholder certificates - will be replaced with actual data
     const certificates = [
@@ -39,6 +40,17 @@ const Certifications = () => {
         },
     ];
 
+    // Auto-advance carousel every 5 seconds
+    useEffect(() => {
+        if (isPaused || certificates.length <= 1) return;
+
+        const intervalId = setInterval(() => {
+            setActiveIndex((prev) => (prev + 1) % certificates.length);
+        }, 5000); // Change certificate every 5 seconds
+
+        return () => clearInterval(intervalId);
+    }, [isPaused, certificates.length]);
+
     const nextCertificate = () => {
         setActiveIndex((prev) => (prev + 1) % certificates.length);
     };
@@ -73,7 +85,11 @@ const Certifications = () => {
                 </div>
 
                 {/* 3D Carousel Container */}
-                <div className="relative">
+                <div
+                    className="relative"
+                    onMouseEnter={() => setIsPaused(true)}
+                    onMouseLeave={() => setIsPaused(false)}
+                >
                     {/* Carousel Stage */}
                     <div className="cert-carousel-stage">
                         {/* Decorative Background Elements */}
