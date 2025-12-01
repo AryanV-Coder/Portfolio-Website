@@ -229,21 +229,21 @@
   }
 
   .cert-card-wrapper.active {
-    max-width: 90%;
+    max-width: 85%;
   }
 
   .cert-card-wrapper.next,
   .cert-card-wrapper.prev {
-    transform: scale(0.6);
-    opacity: 0.3;
+    transform: scale(0.55);
+    opacity: 0.4;
   }
 
   .cert-card-wrapper.next {
-    transform: translateX(80%) scale(0.6);
+    transform: translateX(75%) scale(0.55) rotateY(-20deg);
   }
 
   .cert-card-wrapper.prev {
-    transform: translateX(-80%) scale(0.6);
+    transform: translateX(-75%) scale(0.55) rotateY(20deg);
   }
 
   .cert-card {
@@ -251,7 +251,7 @@
   }
 
   .cert-image-container {
-    height: 150px;
+    height: 120px;
   }
 
   .cert-carousel-controls {
@@ -278,13 +278,37 @@
     height: 420px;
   }
 
+  .cert-card-wrapper.active {
+    max-width: 80%;
+  }
+
   .cert-card-wrapper.next,
   .cert-card-wrapper.prev {
-    display: none;
+    transform: scale(0.45);
+    opacity: 0.3;
+  }
+
+  .cert-card-wrapper.next {
+    transform: translateX(85%) scale(0.45) rotateY(-25deg);
+  }
+
+  .cert-card-wrapper.prev {
+    transform: translateX(-85%) scale(0.45) rotateY(25deg);
+  }
+
+  .cert-card {
+    padding: 1.25rem;
+  }
+
+  .cert-image-container {
+    height: 100px;
   }
 
   .cert-nav-btn {
-    background: rgba(249, 115, 22, 0.3);
+    width: 36px;
+    height: 36px;
+    background: rgba(249, 115, 22, 0.4);
+    font-size: 0.9rem;
   }
 }
 
