@@ -40,13 +40,13 @@ const Certifications = () => {
         },
     ];
 
-    // Auto-advance carousel every 5 seconds
+    // Auto-advance carousel every 2 seconds
     useEffect(() => {
         if (isPaused || certificates.length <= 1) return;
 
         const intervalId = setInterval(() => {
             setActiveIndex((prev) => (prev + 1) % certificates.length);
-        }, 5000); // Change certificate every 5 seconds
+        }, 2000); // Change certificate every 2 seconds
 
         return () => clearInterval(intervalId);
     }, [isPaused, certificates.length]);
