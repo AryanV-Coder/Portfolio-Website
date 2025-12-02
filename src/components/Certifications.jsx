@@ -1,44 +1,36 @@
-import React, { useState, useEffect } from 'react';
-import { FaCertificate, FaChevronLeft, FaChevronRight, FaExternalLinkAlt } from 'react-icons/fa';
+import React, { useState, useEffect, useMemo } from 'react';
+import { FaCertificate, FaChevronLeft, FaChevronRight, FaTimes } from 'react-icons/fa';
+import getCertificateImages from '../assets/certificates/certificateLoader';
+import certificateMetadata from '../assets/certificates/certificateData';
 import './Certifications.css';
 
 const Certifications = () => {
     const [activeIndex, setActiveIndex] = useState(0);
     const [isPaused, setIsPaused] = useState(false);
+    const [modalOpen, setModalOpen] = useState(false);
+    const [modalImage, setModalImage] = useState(null);
 
-    // Placeholder certificates - will be replaced with actual data
-    const certificates = [
-        {
-            id: 1,
-            title: 'Certificate Name 1',
-            issuer: 'Issuing Organization',
-            date: 'Month Year',
-            description: 'Brief description of the certification and what skills it validates.',
-            image: null, // Will be replaced with actual certificate image
-            credentialUrl: '#',
-            skills: ['Skill 1', 'Skill 2', 'Skill 3']
-        },
-        {
-            id: 2,
-            title: 'Certificate Name 2',
-            issuer: 'Issuing Organization',
-            date: 'Month Year',
-            description: 'Brief description of the certification and what skills it validates.',
-            image: null,
-            credentialUrl: '#',
-            skills: ['Skill 1', 'Skill 2']
-        },
-        {
-            id: 3,
-            title: 'Certificate Name 3',
-            issuer: 'Issuing Organization',
-            date: 'Month Year',
-            description: 'Brief description of the certification and what skills it validates.',
-            image: null,
-            credentialUrl: '#',
-            skills: ['Skill 1', 'Skill 2', 'Skill 3', 'Skill 4']
-        },
-    ];
+    // Automatically load certificates from assets folder
+    const certificates = useMemo(() => {
+        const certificateImages = getCertificateImages();
+
+        return certificateImages.map(cert => {
+            const metadata = certificateMetadata[cert.id] || {
+                title: `Certificate ${cert.id}`,
+                issuer: 'Organization',
+                date: 'Year',
+                description: 'Certificate details to be added.',
+                credentialUrl: '#',
+                skills: []
+            };
+
+            return {
+                id: cert.id,
+                image: cert.image,
+                ...metadata
+            };
+        });
+    }, []);
 
     // Auto-advance carousel every 2 seconds
     useEffect(() => {
@@ -65,6 +57,16 @@ const Certifications = () => {
         if (diff === 1 || diff === -(certificates.length - 1)) return 'next';
         if (diff === -1 || diff === certificates.length - 1) return 'prev';
         return 'hidden';
+    };
+
+    const handleImageClick = (image) => {
+        setModalImage(image);
+        setModalOpen(true);
+    };
+
+    const closeModal = () => {
+        setModalOpen(false);
+        setModalImage(null);
     };
 
     return (
@@ -115,13 +117,23 @@ const Certifications = () => {
                                             {/* Card Front */}
                                             <div className="cert-card-content">
                                                 {/* Certificate Icon/Image */}
-                                                <div className="cert-image-container">
+                                                <div
+                                                    className="cert-image-container cursor-pointer relative group"
+                                                    onClick={() => handleImageClick(cert.image)}
+                                                >
                                                     {cert.image ? (
-                                                        <img
-                                                            src={cert.image}
-                                                            alt={cert.title}
-                                                            className="w-full h-full object-cover rounded-lg"
-                                                        />
+                                                        <>
+                                                            <img
+                                                                src={cert.image}
+                                                                alt={cert.title}
+                                                                className="w-full h-full object-cover rounded-lg"
+                                                            />
+                                                            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-all duration-300 flex items-center justify-center rounded-lg">
+                                                                <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-saffron text-text-dark px-4 py-2 rounded-lg font-semibold">
+                                                                    🔍 View Certificate
+                                                                </div>
+                                                            </div>
+                                                        </>
                                                     ) : (
                                                         <div className="cert-placeholder">
                                                             <FaCertificate className="text-6xl text-saffron mb-4" />
@@ -151,7 +163,7 @@ const Certifications = () => {
 
                                                     {/* Skills Tags */}
                                                     {cert.skills && cert.skills.length > 0 && (
-                                                        <div className="flex flex-wrap gap-2 mb-4">
+                                                        <div className="flex flex-wrap gap-2">
                                                             {cert.skills.map((skill, idx) => (
                                                                 <span
                                                                     key={idx}
@@ -162,17 +174,6 @@ const Certifications = () => {
                                                             ))}
                                                         </div>
                                                     )}
-
-                                                    {/* View Credential Button */}
-                                                    <a
-                                                        href={cert.credentialUrl}
-                                                        target="_blank"
-                                                        rel="noopener noreferrer"
-                                                        className="inline-flex items-center gap-2 px-6 py-2 bg-saffron text-text-dark font-semibold rounded-lg hover:bg-saffron/90 transition-all duration-300 btn-glow"
-                                                    >
-                                                        <span>View Credential</span>
-                                                        <FaExternalLinkAlt className="w-3 h-3" />
-                                                    </a>
                                                 </div>
                                             </div>
                                         </div>
@@ -234,6 +235,29 @@ const Certifications = () => {
                     </div>
                 </div>
             </div>
+
+            {/* Certificate Modal Lightbox */}
+            {modalOpen && modalImage && (
+                <div
+                    className="cert-modal-overlay"
+                    onClick={closeModal}
+                >
+                    <div className="cert-modal-content" onClick={(e) => e.stopPropagation()}>
+                        <button
+                            className="cert-modal-close"
+                            onClick={closeModal}
+                            aria-label="Close modal"
+                        >
+                            <FaTimes />
+                        </button>
+                        <img
+                            src={modalImage}
+                            alt="Certificate enlarged view"
+                            className="cert-modal-image"
+                        />
+                    </div>
+                </div>
+            )}
         </section>
     );
 };

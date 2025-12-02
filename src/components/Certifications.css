@@ -101,13 +101,102 @@
 /* Certificate Image/Preview */
 .cert-image-container {
   width: 100%;
-  height: 200px;
+  height: 140px;
   border-radius: 12px;
   overflow: hidden;
   background: linear-gradient(135deg,
       rgba(249, 115, 22, 0.1) 0%,
       rgba(34, 197, 94, 0.1) 100%);
   border: 1px solid rgba(249, 115, 22, 0.2);
+  transition: all 0.3s ease;
+}
+
+.cert-image-container:hover {
+  border-color: rgba(249, 115, 22, 0.5);
+  transform: scale(1.02);
+}
+
+/* Modal Lightbox Styles */
+.cert-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  animation: fadeIn 0.3s ease;
+  padding: 2rem;
+}
+
+.cert-modal-content {
+  position: relative;
+  max-width: 90vw;
+  max-height: 85vh;
+  background: #1a1a1a;
+  border-radius: 16px;
+  padding: 1rem;
+  box-shadow: 0 25px 100px rgba(249, 115, 22, 0.3);
+  border: 2px solid rgba(249, 115, 22, 0.4);
+  animation: scaleIn 0.3s ease;
+}
+
+.cert-modal-image {
+  max-width: 100%;
+  max-height: 80vh;
+  border-radius: 12px;
+  display: block;
+  object-fit: contain;
+}
+
+.cert-modal-close {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #F97316 0%, #FB923C 100%);
+  border: 2px solid #fff;
+  color: white;
+  font-size: 1.25rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 10000;
+}
+
+.cert-modal-close:hover {
+  transform: scale(1.1) rotate(90deg);
+  background: linear-gradient(135deg, #EA580C 0%, #F97316 100%);
+  box-shadow: 0 0 20px rgba(249, 115, 22, 0.6);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 .cert-placeholder {
@@ -308,8 +397,8 @@
   }
 
   .cert-image-container {
-    height: 60px;
-    min-height: 60px;
+    height: 80px;
+    min-height: 80px;
   }
 
   .cert-details h3 {
@@ -405,8 +494,8 @@
   }
 
   .cert-image-container {
-    height: 55px;
-    min-height: 55px;
+    height: 70px;
+    min-height: 70px;
   }
 
   .cert-details h3 {
