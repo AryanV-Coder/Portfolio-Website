@@ -15,8 +15,16 @@ const certificateMetadata = {
         description: '5-day intensive bootcamp on Unmanned Aircraft Systems (UAS/Drone Technology) and its applications, organized by Centre for Development of Advanced Computing, Noida in collaboration with JIIT, Noida.',
         credentialUrl: '#',
         skills: ['UAS', 'Drone Technology', 'Unmanned Aircraft', 'Aerospace', 'C-DAC']
+    },
+    2: {
+        title: 'Flutter & Dart - The Complete Guide [2025 Edition]',
+        issuer: 'Udemy',
+        date: 'July 2025',
+        description: 'Comprehensive 30-hour Flutter and Dart development course by Academind. Covers cross-platform mobile app development from fundamentals to advanced concepts.',
+        credentialUrl: 'https://ude.my/UC-0b2eacbd-a380-4a38-85ce-6c6b7c4a8c4e',
+        skills: ['Flutter', 'Dart', 'Mobile Development', 'Cross-Platform', 'App Development']
     }
-    // Add more certificates as Certificate_2, Certificate_3, etc.
+    // Add more certificates as Certificate_3, Certificate_4, etc.
 };
 
 export default certificateMetadata;
