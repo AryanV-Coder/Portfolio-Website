@@ -23,8 +23,16 @@ const certificateMetadata = {
         description: 'Comprehensive 30-hour Flutter and Dart development course by Academind. Covers cross-platform mobile app development from fundamentals to advanced concepts.',
         credentialUrl: 'https://ude.my/UC-0b2eacbd-a380-4a38-85ce-6c6b7c4a8c4e',
         skills: ['Flutter', 'Dart', 'Mobile Development', 'Cross-Platform', 'App Development']
+    },
+    3: {
+        title: 'Keploy API Fellowship Program',
+        issuer: 'Keploy',
+        date: '2024',
+        description: 'Certificate of participation in Keploy API Fellowship Program, focused on API testing and development. Recognized by Neha Gupta, CEO of Keploy.io.',
+        credentialUrl: '#',
+        skills: ['API Development', 'API Testing', 'Keploy', 'Software Testing', 'Backend Development']
     }
-    // Add more certificates as Certificate_3, Certificate_4, etc.
+    // Add more certificates as Certificate_4, Certificate_5, etc.
 };
 
 export default certificateMetadata;
