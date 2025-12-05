@@ -6,12 +6,17 @@ A modern, responsive, and visually stunning personal portfolio website built wit
 
 ## ✨ Features
 
-- **�🇳 Indian Tricolor Theme**: Unique design using the colors of the Indian flag (Saffron, White, Green)
+- **��🇳 Indian Tricolor Theme**: Unique design using the colors of the Indian flag (Saffron, White, Green)
 - **⚙️ Rotating Ashoka Chakra Splash Screen**: Beautiful loading animation with navy blue chakra
 - **📱 Fully Responsive**: Seamless experience across desktop, tablet, and mobile devices
 - **🚀 Dynamic Project Showcase**: Automatically fetches and displays GitHub repositories via API
 - **📖 README-Based Descriptions**: Parses README files to generate concise project summaries
 - **✍️ Catchy Fallback Descriptions**: Engaging, rhyming descriptions when README is unavailable
+- **🎓 Auto-Loading Certifications Carousel**: 3D rotating carousel with modal lightbox view
+- **🔄 Smart Auto-Rotation**: Certificates auto-advance every 2 seconds with pause-on-hover
+- **🖼️ Click-to-Enlarge**: Modal lightbox for viewing certificate details in full size
+- **📂 Zero-Config Certificate System**: Simply add images, auto-detected and displayed
+- **📱 Vertical Mobile Layout**: Optimized stack layout for portrait mode viewing
 - **🎭 Smooth Animations**: Subtle fade-in effects on scroll and hover animations
 - **⚡ Fast Performance**: Optimized for speed with React and Tailwind CSS
 - **🎯 SEO Friendly**: Proper meta tags and semantic HTML structure
@@ -32,18 +37,34 @@ A modern, responsive, and visually stunning personal portfolio website built wit
 portfolio-website/
 ├── public/
 │   ├── index.html
+│   ├── Aryan_Varshney_Resume.pdf
 │   └── manifest.json
 ├── src/
 │   ├── components/
-│   │   ├── Hero.jsx          # Hero section with intro
-│   │   ├── About.jsx          # About section with story
-│   │   ├── Projects.jsx       # Projects section with GitHub API
-│   │   ├── ProjectCard.jsx    # Individual project card component
-│   │   └── Contact.jsx        # Contact section with social links
-│   ├── assets/                # Images and static files (create this folder)
-│   ├── App.js                 # Main app component
-│   ├── index.js               # Entry point
-│   └── index.css              # Global styles with Tailwind
+│   │   ├── SplashScreen.jsx   # Ashoka Chakra loading screen
+│   │   ├── Navbar.jsx          # Sticky navigation bar
+│   │   ├── Hero.jsx            # Hero section with intro
+│   │   ├── About.jsx           # About section with story
+│   │   ├── SkillsOrbit.jsx     # Rotating skills orbit visualization
+│   │   ├── Projects.jsx        # Projects section with GitHub API
+│   │   ├── ProjectCard.jsx     # Individual project card component
+│   │   ├── Journey.jsx         # Education timeline & activities
+│   │   ├── Certifications.jsx  # Auto-loading certificates carousel
+│   │   ├── Certifications.css  # Carousel & modal styles
+│   │   ├── Resume.jsx          # Resume download section
+│   │   └── Contact.jsx         # Contact section with social links
+│   ├── assets/
+│   │   ├── certificates/       # Certificate images & auto-loader
+│   │   │   ├── Certificate_1.jpg
+│   │   │   ├── Certificate_2.jpg
+│   │   │   ├── certificateLoader.js
+│   │   │   ├── certificateData.js
+│   │   │   └── README.md       # Instructions for adding certificates
+│   │   ├── ashok_chakra.png
+│   │   └── profile_pic.jpg
+│   ├── App.js                  # Main app component
+│   ├── index.js                # Entry point
+│   └── index.css               # Global styles with Tailwind
 ├── package.json
 ├── tailwind.config.js
 ├── postcss.config.js
@@ -172,7 +193,78 @@ Edit `src/components/Projects.jsx`:
 
 The projects will automatically fetch from your GitHub repositories with README-based descriptions!
 
-### 4. Contact Section
+### 4. Certifications Section (Auto-Loading System) 🎓
+
+#### **How the Auto-Loading System Works**
+
+Your portfolio includes a smart certificate management system that automatically detects and displays certificates!
+
+**Simply:**
+1. Add certificate images to `/src/assets/certificates/`
+2. Update certificate details in `certificateData.js`
+3. That's it! They appear automatically 🎉
+
+#### **Adding New Certificates** (Step-by-Step)
+
+**Step 1: Add Certificate Image**
+
+Add your certificate image to `/src/assets/certificates/` with this naming pattern:
+```
+Certificate_1.jpg
+Certificate_2.jpg
+Certificate_3.jpg
+Certificate_4.png   (supports .jpg, .jpeg, .png, .webp)
+```
+
+**Important:**
+- Use `Certificate_` prefix (capital C)
+- Use underscore `_` before the number
+- Sequential numbers (1, 2, 3, ...)
+
+**Step 2: Add Certificate Details**
+
+Edit `/src/assets/certificates/certificateData.js`:
+
+```javascript
+const certificateMetadata = {
+  1: {
+    title: 'Certificate Name',
+    issuer: 'Issuing Organization',
+    date: 'Month Year',
+    description: 'Brief description of what this certifies...',
+    credentialUrl: 'https://verify-link.com',  // or '#' if none
+    skills: ['Skill 1', 'Skill 2', 'Skill 3']
+  },
+  2: {
+    title: 'Another Certificate',
+    issuer: 'Organization Name',
+    date: 'January 2024',
+    description: 'Description here...',
+    credentialUrl: '#',
+    skills: ['React', 'JavaScript']
+  }
+  // Add more following the same pattern
+};
+```
+
+**That's it!** The certificate automatically appears in the carousel.
+
+#### **Certificate Features**
+
+- **🔄 Auto-Rotation**: Certificates rotate every 2 seconds
+- **⏸️ Pause on Hover**: Auto-rotation pauses when you hover over carousel
+- **🖱️ Click to Enlarge**: Click any certificate to view full-size in modal
+- **📱 Mobile Optimized**: Vertical stack layout on mobile devices
+- **🎨 3D Effects**: Desktop shows 3 certificates with depth (prev, active, next)
+- **⬆️⬇️ Vertical Mobile**: Mobile uses up/down positioning instead of left/right
+- **✨ Smooth Transitions**: 1-second smooth animations between certificates
+
+#### **See Full Instructions**
+
+For detailed information, check:
+- `/src/assets/certificates/README.md` - Complete guide with examples
+
+### 5. Contact Section
 
 Edit `src/components/Contact.jsx`:
 
@@ -344,10 +436,13 @@ This project is open source and available under the [MIT License](LICENSE).
 - [ ] Clone the repository
 - [ ] Run `npm install`
 - [ ] Update GitHub username in `Projects.jsx`
+- [ ] Generate GitHub token and add to `.env`
 - [ ] Update personal info in `Hero.jsx`
 - [ ] Add your profile photo
 - [ ] Update social links in `Contact.jsx`
 - [ ] Customize the About section
+- [ ] Add your certificates to `/src/assets/certificates/`
+- [ ] Update certificate details in `certificateData.js`
 - [ ] Update page title in `public/index.html`
 - [ ] Test locally with `npm start`
 - [ ] Build for production with `npm run build`
