@@ -1,7 +1,8 @@
-import React from 'react';
-import { FaDownload, FaEye, FaFilePdf } from 'react-icons/fa';
+import React, { useState } from 'react';
+import { FaDownload, FaEye, FaExpand, FaTimes } from 'react-icons/fa';
 
 const Resume = () => {
+  const [showModal, setShowModal] = useState(false);
   const resumePath = '/Aryan_Varshney_Resume.pdf';
 
   const handleDownload = () => {
@@ -17,6 +18,14 @@ const Resume = () => {
     window.open(resumePath, '_blank');
   };
 
+  const openPreviewModal = () => {
+    setShowModal(true);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+  };
+
   return (
     <section
       id="resume"
@@ -30,23 +39,41 @@ const Resume = () => {
           </h2>
           <div className="w-24 h-1 bg-saffron rounded-full mx-auto mb-6"></div>
           <p className="text-text-secondary text-lg max-w-2xl mx-auto">
-            Download my resume to learn more about my professional journey 📄
+            Preview, view, or download my professional resume 📄
           </p>
         </div>
 
-        {/* Compact Resume Card */}
+        {/* Compact Resume Card with PDF Preview */}
         <div className="bg-dark-card border-2 border-saffron/30 rounded-2xl p-8 md:p-10 shadow-2xl hover:shadow-saffron/10 transition-all duration-500">
 
           {/* Resume Preview & Info */}
           <div className="flex flex-col md:flex-row items-center gap-8 mb-8">
 
-            {/* PDF Icon Preview */}
+            {/* Interactive PDF Preview */}
             <div className="flex-shrink-0">
-              <div className="relative">
-                <div className="w-40 h-48 bg-gradient-to-br from-saffron/10 to-green/10 rounded-xl border-2 border-saffron/40 flex items-center justify-center shadow-lg">
-                  <FaFilePdf className="text-7xl text-saffron" />
+              <div
+                className="relative group cursor-pointer"
+                onClick={openPreviewModal}
+              >
+                {/* Mini PDF Viewer */}
+                <div className="w-40 h-56 bg-white rounded-xl border-2 border-saffron/40 overflow-hidden shadow-lg hover:border-saffron transition-all duration-300">
+                  <iframe
+                    src={`${resumePath}#toolbar=0&navpanes=0&scrollbar=0&page=1&view=FitH`}
+                    className="w-full h-full pointer-events-none"
+                    title="Resume Preview"
+                  />
                 </div>
-                <div className="absolute -top-2 -right-2 bg-saffron text-text-dark px-3 py-1 rounded-full text-xs font-bold shadow-lg">
+
+                {/* Hover Overlay */}
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/60 rounded-xl transition-all duration-300 flex items-center justify-center">
+                  <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center gap-2">
+                    <FaExpand className="text-3xl text-saffron" />
+                    <p className="text-white text-sm font-semibold">Click to Expand</p>
+                  </div>
+                </div>
+
+                {/* PDF Badge */}
+                <div className="absolute -top-2 -right-2 bg-saffron text-text-dark px-3 py-1 rounded-full text-xs font-bold shadow-lg z-10">
                   PDF
                 </div>
               </div>
@@ -63,9 +90,22 @@ const Resume = () => {
               <p className="text-text-secondary mb-4">
                 AI/ML Engineer | FastAPI & Flutter Developer
               </p>
-              <p className="text-text-secondary text-sm">
+              <p className="text-text-secondary text-sm mb-4">
                 B.Tech CSE @ JIIT Noida (2024-28)
               </p>
+
+              {/* Quick Stats */}
+              <div className="flex flex-wrap gap-2 justify-center md:justify-start">
+                <span className="px-3 py-1 bg-saffron/10 border border-saffron/30 rounded-full text-saffron text-xs font-semibold">
+                  8+ Projects
+                </span>
+                <span className="px-3 py-1 bg-green/10 border border-green/30 rounded-full text-green text-xs font-semibold">
+                  3 Certifications
+                </span>
+                <span className="px-3 py-1 bg-white/10 border border-white/30 rounded-full text-white text-xs font-semibold">
+                  Multiple Skills
+                </span>
+              </div>
             </div>
           </div>
 
@@ -91,12 +131,54 @@ const Resume = () => {
           {/* File Info */}
           <div className="mt-6 text-center">
             <p className="text-text-secondary text-sm">
-              📄 Format: PDF • 📏 Size: ~1MB • 🔄 Updated: December 2024
+              📄 PDF • 📏 ~1MB • 🔄 Dec 2024 • 🖱️ Click preview to expand
             </p>
           </div>
         </div>
 
       </div>
+
+      {/* Full-Screen Preview Modal */}
+      {showModal && (
+        <div
+          className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4 animate-fadeIn"
+          onClick={closeModal}
+        >
+          <div
+            className="relative w-full max-w-5xl h-[90vh] bg-dark-card rounded-2xl overflow-hidden border-2 border-saffron/50 shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Modal Header */}
+            <div className="bg-dark-tertiary border-b-2 border-saffron/30 p-4 flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 bg-saffron rounded-full flex items-center justify-center">
+                  <FaEye className="text-text-dark" />
+                </div>
+                <div>
+                  <h3 className="text-text-primary font-bold">Resume Preview</h3>
+                  <p className="text-text-secondary text-sm">Aryan Varshney</p>
+                </div>
+              </div>
+
+              <button
+                onClick={closeModal}
+                className="w-10 h-10 bg-saffron/20 hover:bg-saffron rounded-full flex items-center justify-center text-saffron hover:text-text-dark transition-all duration-300"
+              >
+                <FaTimes className="w-5 h-5" />
+              </button>
+            </div>
+
+            {/* Full PDF Viewer */}
+            <div className="h-[calc(100%-80px)]">
+              <iframe
+                src={`${resumePath}#toolbar=0&navpanes=0&scrollbar=1`}
+                className="w-full h-full"
+                title="Resume Full View"
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 };
