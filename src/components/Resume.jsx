@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { FaDownload, FaEye, FaExpand, FaTimes } from 'react-icons/fa';
+import { FaDownload, FaEye, FaTimes } from 'react-icons/fa';
 
 const Resume = () => {
   const [showModal, setShowModal] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
   const resumePath = '/Aryan_Varshney_Resume.pdf';
 
   const handleDownload = () => {
@@ -31,108 +32,108 @@ const Resume = () => {
       id="resume"
       className="min-h-screen py-20 px-6 md:px-12 bg-dark-primary flex items-center"
     >
-      <div className="max-w-4xl mx-auto w-full fade-in-section">
+      <div className="max-w-5xl mx-auto w-full fade-in-section">
         {/* Section Header */}
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-text-primary">
             My <span className="gradient-text">Resume</span>
           </h2>
-          <div className="w-24 h-1 bg-saffron rounded-full mx-auto mb-6"></div>
-          <p className="text-text-secondary text-lg max-w-2xl mx-auto">
-            Preview, view, or download my professional resume 📄
-          </p>
+          <div className="w-24 h-1 bg-saffron rounded-full mx-auto"></div>
         </div>
 
-        {/* Compact Resume Card with PDF Preview */}
-        <div className="bg-dark-card border-2 border-saffron/30 rounded-2xl p-8 md:p-10 shadow-2xl hover:shadow-saffron/10 transition-all duration-500">
+        {/* Innovative Split-Panel Resume Card */}
+        <div
+          className="relative bg-dark-card border-2 border-saffron/30 rounded-2xl overflow-hidden shadow-2xl hover:shadow-saffron/20 transition-all duration-500"
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+        >
+          <div className="grid md:grid-cols-2 gap-0">
 
-          {/* Resume Preview & Info */}
-          <div className="flex flex-col md:flex-row items-center gap-8 mb-8">
+            {/* Left Panel - Interactive PDF Preview */}
+            <div
+              className="relative bg-gradient-to-br from-saffron/5 to-green/5 p-8 flex items-center justify-center cursor-pointer group"
+              onClick={openPreviewModal}
+            >
+              {/* Animated Background Pattern */}
+              <div className="absolute inset-0 opacity-10">
+                <div className={`absolute top-10 left-10 w-32 h-32 border-4 border-saffron rounded-full transition-transform duration-700 ${isHovered ? 'scale-110 rotate-45' : 'scale-100'}`}></div>
+                <div className={`absolute bottom-10 right-10 w-24 h-24 border-4 border-green rounded-full transition-transform duration-700 ${isHovered ? 'scale-110 -rotate-45' : 'scale-100'}`}></div>
+              </div>
 
-            {/* Interactive PDF Preview */}
-            <div className="flex-shrink-0">
-              <div
-                className="relative group cursor-pointer"
-                onClick={openPreviewModal}
-              >
-                {/* Mini PDF Viewer */}
-                <div className="w-40 h-56 bg-white rounded-xl border-2 border-saffron/40 overflow-hidden shadow-lg hover:border-saffron transition-all duration-300">
-                  <iframe
-                    src={`${resumePath}#toolbar=0&navpanes=0&scrollbar=0&page=1&view=FitH`}
-                    className="w-full h-full pointer-events-none"
-                    title="Resume Preview"
-                  />
-                </div>
+              {/* PDF Preview Card */}
+              <div className="relative z-10">
+                <div className={`transition-all duration-500 ${isHovered ? 'scale-105 -rotate-2' : 'scale-100'}`}>
+                  {/* PDF Document Preview */}
+                  <div className="w-64 h-80 bg-white rounded-xl shadow-2xl overflow-hidden border-4 border-saffron/50 relative">
+                    <iframe
+                      src={`${resumePath}#toolbar=0&navpanes=0&scrollbar=0&page=1&view=FitH`}
+                      className="w-full h-full pointer-events-none"
+                      title="Resume Preview"
+                    />
 
-                {/* Hover Overlay */}
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/60 rounded-xl transition-all duration-300 flex items-center justify-center">
-                  <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center gap-2">
-                    <FaExpand className="text-3xl text-saffron" />
-                    <p className="text-white text-sm font-semibold">Click to Expand</p>
+                    {/* Shine Effect */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+                  </div>
+
+                  {/* Floating PDF Badge */}
+                  <div className="absolute -top-3 -right-3 bg-gradient-to-r from-saffron to-saffron-light text-text-dark px-4 py-2 rounded-full text-sm font-bold shadow-lg z-20 animate-bounce">
+                    📄 PDF
                   </div>
                 </div>
 
-                {/* PDF Badge */}
-                <div className="absolute -top-2 -right-2 bg-saffron text-text-dark px-3 py-1 rounded-full text-xs font-bold shadow-lg z-10">
-                  PDF
+                {/* Click Indicator */}
+                <div className="text-center mt-6">
+                  <div className="inline-flex items-center gap-2 px-6 py-3 bg-saffron/20 border-2 border-saffron/50 rounded-full text-saffron font-semibold backdrop-blur-sm group-hover:bg-saffron group-hover:text-text-dark transition-all duration-300">
+                    <span>🔍</span>
+                    <span>Click to Expand</span>
+                  </div>
                 </div>
               </div>
             </div>
 
-            {/* Resume Details */}
-            <div className="flex-1 text-center md:text-left">
-              <h3 className="text-2xl font-bold text-text-primary mb-2">
-                Aryan Varshney
-              </h3>
-              <p className="text-saffron font-semibold mb-3 text-lg">
-                Professional Resume
-              </p>
-              <p className="text-text-secondary mb-4">
-                AI/ML Engineer | FastAPI & Flutter Developer
-              </p>
-              <p className="text-text-secondary text-sm mb-4">
-                B.Tech CSE @ JIIT Noida (2024-28)
-              </p>
+            {/* Right Panel - Name & Actions */}
+            <div className="bg-dark-card p-8 flex flex-col justify-center">
 
-              {/* Quick Stats */}
-              <div className="flex flex-wrap gap-2 justify-center md:justify-start">
-                <span className="px-3 py-1 bg-saffron/10 border border-saffron/30 rounded-full text-saffron text-xs font-semibold">
-                  8+ Projects
-                </span>
-                <span className="px-3 py-1 bg-green/10 border border-green/30 rounded-full text-green text-xs font-semibold">
-                  3 Certifications
-                </span>
-                <span className="px-3 py-1 bg-white/10 border border-white/30 rounded-full text-white text-xs font-semibold">
-                  Multiple Skills
-                </span>
+              {/* Name with Gradient Animation */}
+              <div className="mb-8">
+                <h3 className="text-4xl md:text-5xl font-bold mb-2 bg-gradient-to-r from-saffron via-saffron-light to-green bg-clip-text text-transparent animate-gradient">
+                  Aryan Varshney
+                </h3>
+                <div className="w-20 h-1 bg-gradient-to-r from-saffron to-green rounded-full"></div>
+              </div>
+
+              {/* Action Buttons Stack */}
+              <div className="space-y-4">
+                <button
+                  onClick={handleView}
+                  className="w-full group relative px-8 py-5 bg-dark-secondary border-2 border-saffron text-saffron font-bold rounded-xl hover:bg-saffron hover:text-text-dark transition-all duration-300 shadow-lg overflow-hidden"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-saffron/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+                  <div className="relative flex items-center justify-center gap-3 text-lg">
+                    <FaEye className="w-6 h-6" />
+                    <span>View Resume</span>
+                  </div>
+                </button>
+
+                <button
+                  onClick={handleDownload}
+                  className="w-full group relative px-8 py-5 bg-gradient-to-r from-saffron to-saffron-light text-text-dark font-bold rounded-xl hover:from-green hover:to-green-light transition-all duration-300 btn-glow shadow-lg overflow-hidden"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+                  <div className="relative flex items-center justify-center gap-3 text-lg">
+                    <FaDownload className="w-6 h-6" />
+                    <span>Download PDF</span>
+                  </div>
+                </button>
+              </div>
+
+              {/* Decorative Element */}
+              <div className="mt-8 flex items-center justify-center gap-2 text-text-secondary text-sm">
+                <div className="w-2 h-2 rounded-full bg-saffron animate-pulse"></div>
+                <span>Updated Dec 2024</span>
+                <div className="w-2 h-2 rounded-full bg-green animate-pulse"></div>
               </div>
             </div>
-          </div>
-
-          {/* Action Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button
-              onClick={handleView}
-              className="group px-8 py-4 bg-dark-secondary border-2 border-saffron text-saffron font-semibold rounded-lg hover:bg-saffron hover:text-text-dark transition-all duration-300 shadow-lg flex items-center justify-center gap-3"
-            >
-              <FaEye className="w-5 h-5" />
-              View Resume
-            </button>
-
-            <button
-              onClick={handleDownload}
-              className="group px-8 py-4 bg-saffron text-text-dark font-semibold rounded-lg hover:bg-green transition-all duration-300 btn-glow shadow-lg flex items-center justify-center gap-3"
-            >
-              <FaDownload className="w-5 h-5" />
-              Download PDF
-            </button>
-          </div>
-
-          {/* File Info */}
-          <div className="mt-6 text-center">
-            <p className="text-text-secondary text-sm">
-              📄 PDF • 📏 ~1MB • 🔄 Dec 2024 • 🖱️ Click preview to expand
-            </p>
           </div>
         </div>
 
@@ -141,28 +142,28 @@ const Resume = () => {
       {/* Full-Screen Preview Modal */}
       {showModal && (
         <div
-          className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4 animate-fadeIn"
+          className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
           onClick={closeModal}
         >
           <div
-            className="relative w-full max-w-5xl h-[90vh] bg-dark-card rounded-2xl overflow-hidden border-2 border-saffron/50 shadow-2xl"
+            className="relative w-full max-w-5xl h-[90vh] bg-dark-card rounded-2xl overflow-hidden border-2 border-saffron/50 shadow-2xl animate-scaleIn"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Modal Header */}
-            <div className="bg-dark-tertiary border-b-2 border-saffron/30 p-4 flex items-center justify-between">
+            <div className="bg-gradient-to-r from-dark-tertiary to-dark-secondary border-b-2 border-saffron/30 p-4 flex items-center justify-between">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-saffron rounded-full flex items-center justify-center">
+                <div className="w-10 h-10 bg-gradient-to-r from-saffron to-saffron-light rounded-full flex items-center justify-center">
                   <FaEye className="text-text-dark" />
                 </div>
                 <div>
                   <h3 className="text-text-primary font-bold">Resume Preview</h3>
-                  <p className="text-text-secondary text-sm">Aryan Varshney</p>
+                  <p className="text-text-secondary text-sm">Full View</p>
                 </div>
               </div>
 
               <button
                 onClick={closeModal}
-                className="w-10 h-10 bg-saffron/20 hover:bg-saffron rounded-full flex items-center justify-center text-saffron hover:text-text-dark transition-all duration-300"
+                className="w-10 h-10 bg-saffron/20 hover:bg-saffron rounded-full flex items-center justify-center text-saffron hover:text-text-dark transition-all duration-300 hover:rotate-90"
               >
                 <FaTimes className="w-5 h-5" />
               </button>
@@ -179,6 +180,30 @@ const Resume = () => {
           </div>
         </div>
       )}
+
+      <style jsx>{`
+        @keyframes gradient {
+          0%, 100% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+        }
+        .animate-gradient {
+          background-size: 200% 200%;
+          animation: gradient 3s ease infinite;
+        }
+        @keyframes scaleIn {
+          from {
+            opacity: 0;
+            transform: scale(0.9);
+          }
+          to {
+            opacity: 1;
+            transform: scale(1);
+          }
+        }
+        .animate-scaleIn {
+          animation: scaleIn 0.3s ease;
+        }
+      `}</style>
     </section>
   );
 };
