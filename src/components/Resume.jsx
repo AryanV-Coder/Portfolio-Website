@@ -95,42 +95,42 @@ const Resume = () => {
             <div className="bg-dark-card p-8 flex flex-col justify-center">
 
               {/* Name with Gradient Animation */}
-              <div className="mb-8">
-                <h3 className="text-4xl md:text-5xl font-bold mb-2 bg-gradient-to-r from-saffron via-saffron-light to-green bg-clip-text text-transparent animate-gradient">
+              <div className="mb-6">
+                <h3 className="text-2xl md:text-3xl font-bold mb-2 bg-gradient-to-r from-saffron via-saffron-light to-green bg-clip-text text-transparent animate-gradient">
                   Aryan Varshney
                 </h3>
-                <div className="w-20 h-1 bg-gradient-to-r from-saffron to-green rounded-full"></div>
+                <div className="w-16 h-1 bg-gradient-to-r from-saffron to-green rounded-full"></div>
               </div>
 
               {/* Action Buttons Stack */}
-              <div className="space-y-4">
+              <div className="space-y-3">
                 <button
                   onClick={handleView}
-                  className="w-full group relative px-8 py-5 bg-dark-secondary border-2 border-saffron text-saffron font-bold rounded-xl hover:bg-saffron hover:text-text-dark transition-all duration-300 shadow-lg overflow-hidden"
+                  className="w-full group relative px-6 py-3 bg-dark-secondary border-2 border-saffron text-saffron font-semibold rounded-xl hover:bg-saffron hover:text-text-dark transition-all duration-300 shadow-lg overflow-hidden"
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-saffron/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
-                  <div className="relative flex items-center justify-center gap-3 text-lg">
-                    <FaEye className="w-6 h-6" />
+                  <div className="relative flex items-center justify-center gap-2">
+                    <FaEye className="w-5 h-5" />
                     <span>View Resume</span>
                   </div>
                 </button>
 
                 <button
                   onClick={handleDownload}
-                  className="w-full group relative px-8 py-5 bg-gradient-to-r from-saffron to-saffron-light text-text-dark font-bold rounded-xl hover:from-green hover:to-green-light transition-all duration-300 btn-glow shadow-lg overflow-hidden"
+                  className="w-full group relative px-6 py-3 bg-gradient-to-r from-saffron to-saffron-light text-text-dark font-semibold rounded-xl hover:from-green hover:to-green-light transition-all duration-300 btn-glow shadow-lg overflow-hidden"
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
-                  <div className="relative flex items-center justify-center gap-3 text-lg">
-                    <FaDownload className="w-6 h-6" />
+                  <div className="relative flex items-center justify-center gap-2">
+                    <FaDownload className="w-5 h-5" />
                     <span>Download PDF</span>
                   </div>
                 </button>
               </div>
 
               {/* Decorative Element */}
-              <div className="mt-8 flex items-center justify-center gap-2 text-text-secondary text-sm">
+              <div className="mt-6 flex items-center justify-center gap-2 text-text-secondary text-sm">
                 <div className="w-2 h-2 rounded-full bg-saffron animate-pulse"></div>
-                <span>Updated Dec 2024</span>
+                <span>Updated Dec 2025</span>
                 <div className="w-2 h-2 rounded-full bg-green animate-pulse"></div>
               </div>
             </div>
