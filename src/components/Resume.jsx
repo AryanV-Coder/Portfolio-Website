@@ -51,7 +51,7 @@ const Resume = () => {
 
             {/* Left Panel - Interactive PDF Preview */}
             <div
-              className="relative bg-gradient-to-br from-saffron/5 to-green/5 p-8 flex items-center justify-center cursor-pointer group"
+              className="relative bg-gradient-to-br from-saffron/5 to-green/5 p-6 md:p-8 flex items-center justify-center cursor-pointer group"
               onClick={openPreviewModal}
             >
               {/* Animated Background Pattern */}
@@ -63,8 +63,8 @@ const Resume = () => {
               {/* PDF Preview Card */}
               <div className="relative z-10">
                 <div className={`transition-all duration-500 ${isHovered ? 'scale-105 -rotate-2' : 'scale-100'}`}>
-                  {/* PDF Document Preview */}
-                  <div className="w-64 h-80 bg-white rounded-xl shadow-2xl overflow-hidden border-4 border-saffron/50 relative">
+                  {/* PDF Document Preview - Responsive Size */}
+                  <div className="w-48 h-64 sm:w-56 sm:h-72 md:w-64 md:h-80 bg-white rounded-xl shadow-2xl overflow-hidden border-4 border-saffron/50 relative">
                     <iframe
                       src={`${resumePath}#toolbar=0&navpanes=0&scrollbar=0&page=1&view=FitH`}
                       className="w-full h-full pointer-events-none"
@@ -76,59 +76,60 @@ const Resume = () => {
                   </div>
 
                   {/* Floating PDF Badge */}
-                  <div className="absolute -top-3 -right-3 bg-gradient-to-r from-saffron to-saffron-light text-text-dark px-4 py-2 rounded-full text-sm font-bold shadow-lg z-20 animate-bounce">
+                  <div className="absolute -top-3 -right-3 bg-gradient-to-r from-saffron to-saffron-light text-text-dark px-3 py-1.5 md:px-4 md:py-2 rounded-full text-xs md:text-sm font-bold shadow-lg z-20 animate-bounce">
                     📄 PDF
                   </div>
                 </div>
 
                 {/* Click Indicator */}
-                <div className="text-center mt-6">
-                  <div className="inline-flex items-center gap-2 px-6 py-3 bg-saffron/20 border-2 border-saffron/50 rounded-full text-saffron font-semibold backdrop-blur-sm group-hover:bg-saffron group-hover:text-text-dark transition-all duration-300">
+                <div className="text-center mt-4 md:mt-6">
+                  <div className="inline-flex items-center gap-2 px-4 py-2 md:px-6 md:py-3 bg-saffron/20 border-2 border-saffron/50 rounded-full text-saffron text-sm md:text-base font-semibold backdrop-blur-sm group-hover:bg-saffron group-hover:text-text-dark transition-all duration-300">
                     <span>🔍</span>
-                    <span>Click to Expand</span>
+                    <span className="hidden sm:inline">Click to Expand</span>
+                    <span className="sm:hidden">Tap to View</span>
                   </div>
                 </div>
               </div>
             </div>
 
             {/* Right Panel - Name & Actions */}
-            <div className="bg-dark-card p-8 flex flex-col justify-center">
+            <div className="bg-dark-card p-6 md:p-8 flex flex-col justify-center">
 
               {/* Name with Gradient Animation */}
               <div className="mb-6">
-                <h3 className="text-2xl md:text-3xl font-bold mb-2 bg-gradient-to-r from-saffron via-saffron-light to-green bg-clip-text text-transparent animate-gradient">
+                <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-2 bg-gradient-to-r from-saffron via-saffron-light to-green bg-clip-text text-transparent animate-gradient">
                   Aryan Varshney
                 </h3>
-                <div className="w-16 h-1 bg-gradient-to-r from-saffron to-green rounded-full"></div>
+                <div className="w-12 sm:w-16 h-1 bg-gradient-to-r from-saffron to-green rounded-full"></div>
               </div>
 
               {/* Action Buttons Stack */}
               <div className="space-y-3">
                 <button
                   onClick={handleView}
-                  className="w-full group relative px-6 py-3 bg-dark-secondary border-2 border-saffron text-saffron font-semibold rounded-xl hover:bg-saffron hover:text-text-dark transition-all duration-300 shadow-lg overflow-hidden"
+                  className="w-full group relative px-6 py-3 bg-dark-secondary border-2 border-saffron text-saffron font-semibold rounded-xl hover:bg-saffron hover:text-text-dark transition-all duration-300 shadow-lg overflow-hidden text-sm sm:text-base"
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-saffron/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
                   <div className="relative flex items-center justify-center gap-2">
-                    <FaEye className="w-5 h-5" />
+                    <FaEye className="w-4 h-4 sm:w-5 sm:h-5" />
                     <span>View Resume</span>
                   </div>
                 </button>
 
                 <button
                   onClick={handleDownload}
-                  className="w-full group relative px-6 py-3 bg-gradient-to-r from-saffron to-saffron-light text-text-dark font-semibold rounded-xl hover:from-green hover:to-green-light transition-all duration-300 btn-glow shadow-lg overflow-hidden"
+                  className="w-full group relative px-6 py-3 bg-gradient-to-r from-saffron to-saffron-light text-text-dark font-semibold rounded-xl hover:from-green hover:to-green-light transition-all duration-300 btn-glow shadow-lg overflow-hidden text-sm sm:text-base"
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
                   <div className="relative flex items-center justify-center gap-2">
-                    <FaDownload className="w-5 h-5" />
+                    <FaDownload className="w-4 h-4 sm:w-5 sm:h-5" />
                     <span>Download PDF</span>
                   </div>
                 </button>
               </div>
 
               {/* Decorative Element */}
-              <div className="mt-6 flex items-center justify-center gap-2 text-text-secondary text-sm">
+              <div className="mt-6 flex items-center justify-center gap-2 text-text-secondary text-xs sm:text-sm">
                 <div className="w-2 h-2 rounded-full bg-saffron animate-pulse"></div>
                 <span>Updated Dec 2025</span>
                 <div className="w-2 h-2 rounded-full bg-green animate-pulse"></div>
@@ -142,11 +143,11 @@ const Resume = () => {
       {/* Full-Screen Preview Modal */}
       {showModal && (
         <div
-          className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
+          className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4 pt-20"
           onClick={closeModal}
         >
           <div
-            className="relative w-full max-w-5xl h-[90vh] bg-dark-card rounded-2xl overflow-hidden border-2 border-saffron/50 shadow-2xl animate-scaleIn"
+            className="relative w-full max-w-5xl h-[85vh] bg-dark-card rounded-2xl overflow-hidden border-2 border-saffron/50 shadow-2xl animate-scaleIn"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Modal Header */}
@@ -169,13 +170,15 @@ const Resume = () => {
               </button>
             </div>
 
-            {/* Full PDF Viewer */}
-            <div className="h-[calc(100%-80px)]">
-              <iframe
-                src={`${resumePath}#toolbar=0&navpanes=0&scrollbar=1`}
-                className="w-full h-full"
-                title="Resume Full View"
-              />
+            {/* Full PDF Viewer with padding */}
+            <div className="h-[calc(100%-80px)] p-4">
+              <div className="w-full h-full bg-white rounded-lg overflow-hidden">
+                <iframe
+                  src={`${resumePath}#toolbar=0&navpanes=0&scrollbar=1`}
+                  className="w-full h-full"
+                  title="Resume Full View"
+                />
+              </div>
             </div>
           </div>
         </div>
