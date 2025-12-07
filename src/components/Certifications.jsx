@@ -75,17 +75,11 @@ const Certifications = () => {
             className="min-h-screen py-16 px-6 md:px-12 bg-dark-secondary flex items-center"
         >
             <div className="max-w-7xl mx-auto w-full fade-in-section">
-                {/* Section Header with Counter */}
+                {/* Section Header */}
                 <div className="text-center mb-10">
-                    <div className="flex items-center justify-center gap-3 mb-4">
-                        <h2 className="text-4xl md:text-5xl font-bold text-text-primary">
-                            Certifications & <span className="gradient-text">Credentials</span>
-                        </h2>
-                        {/* Dynamic Certificate Counter Badge */}
-                        <div className="px-4 py-2 bg-saffron text-text-dark rounded-full font-bold text-lg shadow-lg">
-                            {certificates.length}
-                        </div>
-                    </div>
+                    <h2 className="text-4xl md:text-5xl font-bold mb-4 text-text-primary">
+                        Certifications & <span className="gradient-text">Credentials</span>
+                    </h2>
                     <div className="w-24 h-1 bg-saffron rounded-full mx-auto mb-6"></div>
                     <p className="text-text-secondary text-lg max-w-2xl mx-auto">
                         Professional certifications validating expertise and continuous learning journey 📜
@@ -218,6 +212,17 @@ const Certifications = () => {
                                 aria-label={`Go to certificate ${index + 1}`}
                             />
                         ))}
+                    </div>
+
+                    {/* Enhanced Certificate Counter Card */}
+                    <div className="flex justify-center mt-8">
+                        <div className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-dark-card to-dark-tertiary border-2 border-saffron/30 rounded-full shadow-lg hover:border-saffron transition-all duration-300">
+                            <span className="text-text-secondary text-sm font-medium">Certifications</span>
+                            <div className="w-px h-6 bg-saffron/30"></div>
+                            <div className="text-2xl font-bold gradient-text">
+                                {certificates.length}
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
