@@ -72,14 +72,20 @@ const Certifications = () => {
     return (
         <section
             id="certifications"
-            className="min-h-screen py-20 px-6 md:px-12 bg-dark-secondary flex items-center"
+            className="min-h-screen py-16 px-6 md:px-12 bg-dark-secondary flex items-center"
         >
             <div className="max-w-7xl mx-auto w-full fade-in-section">
-                {/* Section Header */}
-                <div className="text-center mb-16">
-                    <h2 className="text-4xl md:text-5xl font-bold mb-4 text-text-primary">
-                        Certifications & <span className="gradient-text">Credentials</span>
-                    </h2>
+                {/* Section Header with Counter */}
+                <div className="text-center mb-10">
+                    <div className="flex items-center justify-center gap-3 mb-4">
+                        <h2 className="text-4xl md:text-5xl font-bold text-text-primary">
+                            Certifications & <span className="gradient-text">Credentials</span>
+                        </h2>
+                        {/* Dynamic Certificate Counter Badge */}
+                        <div className="px-4 py-2 bg-saffron text-text-dark rounded-full font-bold text-lg shadow-lg">
+                            {certificates.length}
+                        </div>
+                    </div>
                     <div className="w-24 h-1 bg-saffron rounded-full mx-auto mb-6"></div>
                     <p className="text-text-secondary text-lg max-w-2xl mx-auto">
                         Professional certifications validating expertise and continuous learning journey 📜
@@ -212,26 +218,6 @@ const Certifications = () => {
                                 aria-label={`Go to certificate ${index + 1}`}
                             />
                         ))}
-                    </div>
-                </div>
-
-                {/* Stats Section */}
-                <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
-                    <div className="bg-dark-card border-2 border-saffron/30 rounded-xl p-6 text-center hover:border-saffron transition-all duration-300">
-                        <div className="text-4xl font-bold gradient-text mb-2">{certificates.length}</div>
-                        <div className="text-sm text-text-secondary">Certifications</div>
-                    </div>
-                    <div className="bg-dark-card border-2 border-green/30 rounded-xl p-6 text-center hover:border-green transition-all duration-300">
-                        <div className="text-4xl font-bold text-green mb-2">∞</div>
-                        <div className="text-sm text-text-secondary">Learning</div>
-                    </div>
-                    <div className="bg-dark-card border-2 border-white/30 rounded-xl p-6 text-center hover:border-white transition-all duration-300">
-                        <div className="text-4xl font-bold text-white mb-2">100%</div>
-                        <div className="text-sm text-text-secondary">Verified</div>
-                    </div>
-                    <div className="bg-dark-card border-2 border-saffron/30 rounded-xl p-6 text-center hover:border-saffron transition-all duration-300">
-                        <div className="text-4xl font-bold gradient-text mb-2">🎯</div>
-                        <div className="text-sm text-text-secondary">Goal-Driven</div>
                     </div>
                 </div>
             </div>
