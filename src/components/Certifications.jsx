@@ -203,7 +203,7 @@ const Certifications = () => {
                     </div>
 
                     {/* Carousel Indicators */}
-                    <div className="cert-indicators">
+                    <div className="cert-indicators" style={{ marginTop: '1.5rem' }}>
                         {certificates.map((_, index) => (
                             <button
                                 key={index}
@@ -215,7 +215,7 @@ const Certifications = () => {
                     </div>
 
                     {/* Enhanced Certificate Counter Card */}
-                    <div className="flex justify-center mt-8">
+                    <div className="flex justify-center mt-4">
                         <div className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-dark-card to-dark-tertiary border-2 border-saffron/30 rounded-full shadow-lg hover:border-saffron transition-all duration-300">
                             <span className="text-text-secondary text-sm font-medium">Certifications</span>
                             <div className="w-px h-6 bg-saffron/30"></div>
@@ -224,6 +224,7 @@ const Certifications = () => {
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
 
