@@ -6,7 +6,7 @@ Portfolio - https://aryan-varshney.vercel.app/
 
 ## ✨ Features
 
-- **��🇳 Indian Tricolor Theme**: Unique design using the colors of the Indian flag (Saffron, White, Green)
+- **🇮🇳 Indian Tricolor Theme**: Unique design using the colors of the Indian flag (Saffron, White, Green)
 - **⚙️ Rotating Ashoka Chakra Splash Screen**: Beautiful loading animation with navy blue chakra
 - **📱 Fully Responsive**: Seamless experience across desktop, tablet, and mobile devices
 - **🚀 Dynamic Project Showcase**: Automatically fetches and displays GitHub repositories via API
