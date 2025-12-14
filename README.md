@@ -2,7 +2,7 @@
 
 A modern, responsive, and visually stunning personal portfolio website built with **React** and **Tailwind CSS**. This portfolio showcases your projects, skills, and professional journey with a clean, minimalist dark-mode design and subtle animations.
 
-![Portfolio](https://aryan-varshney.vercel.app/)
+Portfolio - https://aryan-varshney.vercel.app/
 
 ## ✨ Features
 
