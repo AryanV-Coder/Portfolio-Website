@@ -236,14 +236,14 @@ const About = () => {
                 <div className="group">
                   <div className="flex items-center gap-3 mb-5">
                     <div className="flex items-center gap-3 flex-1">
-                      <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-green/20 to-green/5 border border-green/40 flex items-center justify-center">
-                        <svg className="w-5 h-5 text-green" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-white/20 to-white/5 border border-white/40 flex items-center justify-center">
+                        <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                         </svg>
                       </div>
-                      <h4 className="text-xl font-bold text-green tracking-wide">AI</h4>
+                      <h4 className="text-xl font-bold text-white tracking-wide">AI</h4>
                     </div>
-                    <div className="flex-1 h-px bg-gradient-to-r from-green/30 to-transparent"></div>
+                    <div className="flex-1 h-px bg-gradient-to-r from-white/30 to-transparent"></div>
                   </div>
                   <div className="flex flex-wrap gap-3">
                     {[
@@ -258,8 +258,8 @@ const About = () => {
                         key={index}
                         className="group/card relative"
                       >
-                        <div className="absolute inset-0 bg-gradient-to-r from-green/20 to-green/10 opacity-0 group-hover/card:opacity-100 rounded-lg blur transition-opacity duration-300"></div>
-                        <span className="relative block px-5 py-2.5 bg-dark-card border border-green/30 rounded-lg text-text-primary font-medium hover:border-green hover:text-green hover:shadow-lg hover:shadow-green/10 transition-all duration-300 cursor-default hover:-translate-y-1">
+                        <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-white/10 opacity-0 group-hover/card:opacity-100 rounded-lg blur transition-opacity duration-300"></div>
+                        <span className="relative block px-5 py-2.5 bg-dark-card border border-white/30 rounded-lg text-text-primary font-medium hover:border-white hover:text-white hover:shadow-lg hover:shadow-white/10 transition-all duration-300 cursor-default hover:-translate-y-1">
                           {skill.name}
                         </span>
                       </div>
@@ -271,55 +271,31 @@ const About = () => {
                 <div className="group">
                   <div className="flex items-center gap-3 mb-5">
                     <div className="flex items-center gap-3 flex-1">
-                      <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-purple-400/20 to-purple-400/5 border border-purple-400/40 flex items-center justify-center">
-                        <svg className="w-5 h-5 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-green/20 to-green/5 border border-green/40 flex items-center justify-center">
+                        <svg className="w-5 h-5 text-green" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                         </svg>
                       </div>
-                      <h4 className="text-xl font-bold text-purple-400 tracking-wide">TOOLS</h4>
+                      <h4 className="text-xl font-bold text-green tracking-wide">TOOLS</h4>
                     </div>
-                    <div className="flex-1 h-px bg-gradient-to-r from-purple-400/30 to-transparent"></div>
+                    <div className="flex-1 h-px bg-gradient-to-r from-green/30 to-transparent"></div>
                   </div>
                   <div className="flex flex-wrap gap-3">
                     {[
+                      { name: 'GitHub' },
                       { name: 'n8n' }
                     ].map((skill, index) => (
                       <div
                         key={index}
                         className="group/card relative"
                       >
-                        <div className="absolute inset-0 bg-gradient-to-r from-purple-400/20 to-purple-400/10 opacity-0 group-hover/card:opacity-100 rounded-lg blur transition-opacity duration-300"></div>
-                        <span className="relative block px-5 py-2.5 bg-dark-card border border-purple-400/30 rounded-lg text-text-primary font-medium hover:border-purple-400 hover:text-purple-400 hover:shadow-lg hover:shadow-purple-400/10 transition-all duration-300 cursor-default hover:-translate-y-1">
+                        <div className="absolute inset-0 bg-gradient-to-r from-green/20 to-green/10 opacity-0 group-hover/card:opacity-100 rounded-lg blur transition-opacity duration-300"></div>
+                        <span className="relative block px-5 py-2.5 bg-dark-card border border-green/30 rounded-lg text-text-primary font-medium hover:border-green hover:text-green hover:shadow-lg hover:shadow-green/10 transition-all duration-300 cursor-default hover:-translate-y-1">
                           {skill.name}
                         </span>
                       </div>
                     ))}
-                  </div>
-                </div>
-              </div>
-
-              {/* Stats Cards - Redesigned */}
-              <div className="grid grid-cols-3 gap-4 mt-10">
-                <div className="relative group">
-                  <div className="absolute inset-0 bg-gradient-to-br from-saffron/20 to-transparent opacity-0 group-hover:opacity-100 rounded-xl transition-opacity duration-300"></div>
-                  <div className="relative bg-dark-card border border-saffron/30 rounded-xl p-5 text-center hover:border-saffron transition-all duration-300">
-                    <div className="text-4xl font-bold bg-gradient-to-r from-saffron to-saffron-light bg-clip-text text-transparent mb-2">5+</div>
-                    <div className="text-xs uppercase tracking-wider text-text-secondary font-semibold">Languages</div>
-                  </div>
-                </div>
-                <div className="relative group">
-                  <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent opacity-0 group-hover:opacity-100 rounded-xl transition-opacity duration-300"></div>
-                  <div className="relative bg-dark-card border border-white/30 rounded-xl p-5 text-center hover:border-white transition-all duration-300">
-                    <div className="text-4xl font-bold text-white mb-2">5+</div>
-                    <div className="text-xs uppercase tracking-wider text-text-secondary font-semibold">Frameworks</div>
-                  </div>
-                </div>
-                <div className="relative group">
-                  <div className="absolute inset-0 bg-gradient-to-br from-green/20 to-transparent opacity-0 group-hover:opacity-100 rounded-xl transition-opacity duration-300"></div>
-                  <div className="relative bg-dark-card border border-green/30 rounded-xl p-5 text-center hover:border-green transition-all duration-300">
-                    <div className="text-4xl font-bold text-green mb-2">6+</div>
-                    <div className="text-xs uppercase tracking-wider text-text-secondary font-semibold">AI Tools</div>
                   </div>
                 </div>
               </div>

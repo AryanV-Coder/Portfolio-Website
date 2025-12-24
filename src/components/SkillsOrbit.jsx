@@ -1,29 +1,33 @@
 import React, { useEffect, useState } from "react";
 import { FaPython, FaJava, FaGithub } from "react-icons/fa";
 import {
-    SiCplusplus, SiDart, SiFastapi, SiFlutter, SiSpringboot, SiMysql, SiGooglegemini
+    SiCplusplus, SiDart, SiFastapi, SiFlutter, SiSpringboot, SiMysql, SiDjango, SiFlask,
+    SiPostgresql, SiMongodb, SiLangchain
 } from "react-icons/si";
-import { TbLetterC, TbBrandOpenai } from "react-icons/tb";
+import { TbLetterC } from "react-icons/tb";
 import "./SkillsOrbit.css";
 
-// Inner orbit skills - Your Languages (Original Brand Colors)
+// Inner orbit skills - Languages & Databases
 const skills = [
-    { icon: <TbLetterC color="#A8B9CC" />, name: "C" }, 
-    { icon: <SiCplusplus color="#00599C" />, name: "C++" },
     { icon: <FaPython color="#3776AB" />, name: "Python" },
-    { icon: <FaJava color="#007396" />, name: "Java" }, // Java official color
+    { icon: <FaJava color="#007396" />, name: "Java" },
     { icon: <SiDart color="#0175C2" />, name: "Dart" },
-    { icon: <FaGithub color="#FFFFFF" />, name: "GitHub" }, // Added GitHub
+    { icon: <TbLetterC color="#A8B9CC" />, name: "C" },
+    { icon: <SiCplusplus color="#00599C" />, name: "C++" },
+    { icon: <SiPostgresql color="#4169E1" />, name: "PostgreSQL" },
+    { icon: <SiMongodb color="#47A248" />, name: "MongoDB" },
+    { icon: <SiMysql color="#4479A1" />, name: "MySQL" },
 ];
 
-// Outer orbit skills - Your Frameworks & APIs (Original Brand Colors)
+// Outer orbit skills - Frameworks, AI & Tools
 const skill2 = [
-    { icon: <SiFastapi color="#009688" />, name: "FastAPI" }, // FastAPI teal
+    { icon: <SiDjango color="#092E20" />, name: "Django" },
+    { icon: <SiFastapi color="#009688" />, name: "FastAPI" },
+    { icon: <SiFlask color="#000000" />, name: "Flask" },
     { icon: <SiFlutter color="#02569B" />, name: "Flutter" },
     { icon: <SiSpringboot color="#6DB33F" />, name: "Spring Boot" },
-    { icon: <SiMysql color="#4479A1" />, name: "MySQL" },
-    { icon: <TbBrandOpenai color="#412991" />, name: "OpenAI" }, // OpenAI purple
-    { icon: <SiGooglegemini color="#8E75B2" />, name: "Gemini" }, // Google Gemini purple
+    { icon: <SiLangchain color="#1C3C3C" />, name: "LangChain" },
+    { icon: <FaGithub color="#FFFFFF" />, name: "GitHub" },
 ];
 
 const SkillsOrbit = () => {
@@ -96,7 +100,7 @@ const SkillsOrbit = () => {
     return (
         <div ref={containerRef} className={`orbit-container ${isLoaded ? 'loaded' : ''}`}>
             <div className="center-text">Skills</div>
-            
+
             {/* Inner Orbit */}
             <div className="orbit" style={{ transform: `rotate(${-rotation}deg)` }}>
                 {skills.map((skill, index) => {
