@@ -3,8 +3,8 @@ import SkillsOrbit from './SkillsOrbit';
 
 const About = () => {
   return (
-    <section 
-      id="about" 
+    <section
+      id="about"
       className="min-h-screen py-20 px-6 md:px-12 bg-dark-secondary"
     >
       <div className="max-w-7xl mx-auto fade-in-section">
@@ -12,7 +12,7 @@ const About = () => {
         <div className="relative max-w-6xl mx-auto mb-16">
           {/* Background Elements */}
           <div className="absolute inset-0 bg-gradient-to-r from-saffron/5 via-green/5 to-saffron/5 rounded-3xl blur-3xl"></div>
-          
+
           <div className="relative bg-gradient-to-br from-dark-card via-dark-secondary to-dark-card rounded-2xl p-8 border border-saffron/30 backdrop-blur-sm">
             {/* Section Header with Enhanced Styling */}
             <div className="text-center mb-10 mt-4">
@@ -29,8 +29,8 @@ const About = () => {
               {/* Journey Card */}
               <div className="group relative overflow-hidden bg-gradient-to-r from-saffron/10 to-transparent p-6 rounded-xl border-l-4 border-saffron hover:from-saffron/20 transition-all duration-300">
                 <p className="text-text-secondary leading-relaxed animate-fade-in-up">
-                  My journey into software development started with a fascination for technology and its power 
-                  to transform lives. As a Computer Science student at <strong className="text-saffron">Jaypee Institute of Information Technology (JIIT), Noida</strong> (2024–28), 
+                  My journey into software development started with a fascination for technology and its power
+                  to transform lives. As a Computer Science student at <strong className="text-saffron">Jaypee Institute of Information Technology (JIIT), Noida</strong> (2024–28),
                   I'm not just learning to code, I'm learning to create systems that think, automate, and make a difference.
                 </p>
               </div>
@@ -38,8 +38,8 @@ const About = () => {
               {/* Passion Card */}
               <div className="group relative overflow-hidden bg-gradient-to-r from-blue-500/10 to-transparent p-6 rounded-xl border-l-4 border-blue-500 hover:from-blue-500/20 transition-all duration-300">
                 <p className="text-text-secondary leading-relaxed animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
-                  What drives me? <strong className="text-saffron">Building intelligent systems that interact, automate, and improve lives. </strong> 
-                  I'm constantly experimenting with AI agents, automation frameworks, and cutting-edge APIs. From FastAPI backends 
+                  What drives me? <strong className="text-saffron">Building intelligent systems that interact, automate, and improve lives. </strong>
+                  I'm constantly experimenting with AI agents, automation frameworks, and cutting-edge APIs. From FastAPI backends
                   to Flutter mobile apps, I love crafting solutions that are both powerful and user-friendly.
                 </p>
               </div>
@@ -47,8 +47,8 @@ const About = () => {
               {/* Mission Card */}
               <div className="group relative overflow-hidden bg-gradient-to-r from-green/10 to-transparent p-6 rounded-xl border-l-4 border-green hover:from-green/20 transition-all duration-300">
                 <p className="text-text-secondary leading-relaxed animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-                  I'm on a mission to leverage technology for <strong className="text-green">India's advancement</strong>, particularly 
-                  in defense and wellness sectors. Every project I build is a step toward that vision: code that serves the nation, 
+                  I'm on a mission to leverage technology for <strong className="text-green">India's advancement</strong>, particularly
+                  in defense and wellness sectors. Every project I build is a step toward that vision: code that serves the nation,
                   innovations that empower people, and systems that make the future brighter.
                 </p>
               </div>
@@ -67,7 +67,7 @@ const About = () => {
             </h3>
             <div className="w-24 h-1 bg-saffron rounded-full mx-auto"></div>
           </div>
-          
+
           <div className="grid md:grid-cols-2 gap-4 max-w-4xl mx-auto">
             <div className="group relative overflow-hidden rounded-xl bg-gradient-to-br from-saffron/10 via-transparent to-saffron/5 p-6 hover:from-saffron/20 hover:to-saffron/10 transition-all duration-300 border border-saffron/20 hover:border-saffron/40">
               <div className="flex items-center gap-4 mb-3">
@@ -121,7 +121,7 @@ const About = () => {
               Tools and technologies I use to bring ideas to life
             </p>
           </div>
-          
+
           <div className="flex flex-col lg:flex-row gap-16 items-center justify-center">
             {/* Left - Rotating Skills Orbit */}
             <div className="flex-shrink-0 relative">
@@ -134,27 +134,32 @@ const About = () => {
               <div className="space-y-8">
                 {/* Languages */}
                 <div className="group">
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="w-1 h-8 bg-gradient-to-b from-saffron to-saffron/50 rounded-full"></div>
-                    <h4 className="text-xl font-bold text-saffron">Languages</h4>
+                  <div className="flex items-center gap-3 mb-5">
+                    <div className="flex items-center gap-3 flex-1">
+                      <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-saffron/20 to-saffron/5 border border-saffron/40 flex items-center justify-center">
+                        <svg className="w-5 h-5 text-saffron" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                        </svg>
+                      </div>
+                      <h4 className="text-xl font-bold text-saffron tracking-wide">LANGUAGES</h4>
+                    </div>
                     <div className="flex-1 h-px bg-gradient-to-r from-saffron/30 to-transparent"></div>
                   </div>
                   <div className="flex flex-wrap gap-3">
                     {[
-                      { name: 'Python', icon: '🐍' },
-                      { name: 'Java', icon: '☕' },
-                      { name: 'Dart', icon: '🎯' },
-                      { name: 'C', icon: '©️' },
-                      { name: 'C++', icon: '⚡' }
+                      { name: 'Python' },
+                      { name: 'Java' },
+                      { name: 'Dart' },
+                      { name: 'C' },
+                      { name: 'C++' }
                     ].map((skill, index) => (
-                      <div 
+                      <div
                         key={index}
-                        className="group/card relative overflow-hidden"
+                        className="group/card relative"
                       >
-                        <div className="absolute inset-0 bg-gradient-to-r from-saffron/20 to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-300"></div>
-                        <span className="relative px-5 py-2.5 bg-dark-card border-2 border-saffron/40 rounded-xl text-saffron font-semibold hover:border-saffron hover:shadow-lg hover:shadow-saffron/20 transition-all duration-300 cursor-default flex items-center gap-2 hover:-translate-y-1">
-                          <span>{skill.icon}</span>
-                          <span>{skill.name}</span>
+                        <div className="absolute inset-0 bg-gradient-to-r from-saffron via-saffron-light to-saffron opacity-0 group-hover/card:opacity-20 rounded-lg blur transition-opacity duration-300"></div>
+                        <span className="relative block px-5 py-2.5 bg-dark-card border border-saffron/30 rounded-lg text-text-primary font-medium hover:border-saffron hover:text-saffron hover:shadow-lg hover:shadow-saffron/10 transition-all duration-300 cursor-default hover:-translate-y-1">
+                          {skill.name}
                         </span>
                       </div>
                     ))}
@@ -163,27 +168,32 @@ const About = () => {
 
                 {/* Frameworks & Tools */}
                 <div className="group">
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="w-1 h-8 bg-gradient-to-b from-white to-white/50 rounded-full"></div>
-                    <h4 className="text-xl font-bold text-white">Frameworks & Tools</h4>
+                  <div className="flex items-center gap-3 mb-5">
+                    <div className="flex items-center gap-3 flex-1">
+                      <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-white/20 to-white/5 border border-white/40 flex items-center justify-center">
+                        <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                        </svg>
+                      </div>
+                      <h4 className="text-xl font-bold text-white tracking-wide">FRAMEWORKS & TOOLS</h4>
+                    </div>
                     <div className="flex-1 h-px bg-gradient-to-r from-white/30 to-transparent"></div>
                   </div>
                   <div className="flex flex-wrap gap-3">
                     {[
-                      { name: 'FastAPI', icon: '⚡' },
-                      { name: 'Flutter', icon: '📱' },
-                      { name: 'Spring Boot', icon: '🍃' },
-                      { name: 'Streamlit', icon: '🎨' },
-                      { name: 'MySQL', icon: '🐬' }
+                      { name: 'FastAPI' },
+                      { name: 'Flutter' },
+                      { name: 'Spring Boot' },
+                      { name: 'Streamlit' },
+                      { name: 'MySQL' }
                     ].map((skill, index) => (
-                      <div 
+                      <div
                         key={index}
-                        className="group/card relative overflow-hidden"
+                        className="group/card relative"
                       >
-                        <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-300"></div>
-                        <span className="relative px-5 py-2.5 bg-dark-card border-2 border-white/40 rounded-xl text-white font-semibold hover:border-white hover:shadow-lg hover:shadow-white/20 transition-all duration-300 cursor-default flex items-center gap-2 hover:-translate-y-1">
-                          <span>{skill.icon}</span>
-                          <span>{skill.name}</span>
+                        <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-white/10 opacity-0 group-hover/card:opacity-100 rounded-lg blur transition-opacity duration-300"></div>
+                        <span className="relative block px-5 py-2.5 bg-dark-card border border-white/30 rounded-lg text-text-primary font-medium hover:border-white hover:text-white hover:shadow-lg hover:shadow-white/10 transition-all duration-300 cursor-default hover:-translate-y-1">
+                          {skill.name}
                         </span>
                       </div>
                     ))}
@@ -192,26 +202,31 @@ const About = () => {
 
                 {/* AI & APIs */}
                 <div className="group">
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="w-1 h-8 bg-gradient-to-b from-green to-green/50 rounded-full"></div>
-                    <h4 className="text-xl font-bold text-green">AI & APIs</h4>
+                  <div className="flex items-center gap-3 mb-5">
+                    <div className="flex items-center gap-3 flex-1">
+                      <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-green/20 to-green/5 border border-green/40 flex items-center justify-center">
+                        <svg className="w-5 h-5 text-green" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                      </div>
+                      <h4 className="text-xl font-bold text-green tracking-wide">AI & APIS</h4>
+                    </div>
                     <div className="flex-1 h-px bg-gradient-to-r from-green/30 to-transparent"></div>
                   </div>
                   <div className="flex flex-wrap gap-3">
                     {[
-                      { name: 'Google Gemini API', icon: '✨' },
-                      { name: 'OpenAI API', icon: '🤖' },
-                      { name: 'AI Agents', icon: '🧠' },
-                      { name: 'ML Models', icon: '🎯' }
+                      { name: 'Google Gemini API' },
+                      { name: 'OpenAI API' },
+                      { name: 'AI Agents' },
+                      { name: 'ML Models' }
                     ].map((skill, index) => (
-                      <div 
+                      <div
                         key={index}
-                        className="group/card relative overflow-hidden"
+                        className="group/card relative"
                       >
-                        <div className="absolute inset-0 bg-gradient-to-r from-green/20 to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-300"></div>
-                        <span className="relative px-5 py-2.5 bg-dark-card border-2 border-green/40 rounded-xl text-green font-semibold hover:border-green hover:shadow-lg hover:shadow-green/20 transition-all duration-300 cursor-default flex items-center gap-2 hover:-translate-y-1">
-                          <span>{skill.icon}</span>
-                          <span>{skill.name}</span>
+                        <div className="absolute inset-0 bg-gradient-to-r from-green/20 to-green/10 opacity-0 group-hover/card:opacity-100 rounded-lg blur transition-opacity duration-300"></div>
+                        <span className="relative block px-5 py-2.5 bg-dark-card border border-green/30 rounded-lg text-text-primary font-medium hover:border-green hover:text-green hover:shadow-lg hover:shadow-green/10 transition-all duration-300 cursor-default hover:-translate-y-1">
+                          {skill.name}
                         </span>
                       </div>
                     ))}
@@ -219,19 +234,28 @@ const About = () => {
                 </div>
               </div>
 
-              {/* Stats Cards */}
-              <div className="grid grid-cols-3 gap-4 mt-8">
-                <div className="bg-dark-card border-2 border-saffron/30 rounded-xl p-4 text-center hover:border-saffron transition-all duration-300 group">
-                  <div className="text-3xl font-bold gradient-text mb-1">5+</div>
-                  <div className="text-sm text-text-secondary">Languages</div>
+              {/* Stats Cards - Redesigned */}
+              <div className="grid grid-cols-3 gap-4 mt-10">
+                <div className="relative group">
+                  <div className="absolute inset-0 bg-gradient-to-br from-saffron/20 to-transparent opacity-0 group-hover:opacity-100 rounded-xl transition-opacity duration-300"></div>
+                  <div className="relative bg-dark-card border border-saffron/30 rounded-xl p-5 text-center hover:border-saffron transition-all duration-300">
+                    <div className="text-4xl font-bold bg-gradient-to-r from-saffron to-saffron-light bg-clip-text text-transparent mb-2">5+</div>
+                    <div className="text-xs uppercase tracking-wider text-text-secondary font-semibold">Languages</div>
+                  </div>
                 </div>
-                <div className="bg-dark-card border-2 border-white/30 rounded-xl p-4 text-center hover:border-white transition-all duration-300 group">
-                  <div className="text-3xl font-bold text-white mb-1">5+</div>
-                  <div className="text-sm text-text-secondary">Frameworks</div>
+                <div className="relative group">
+                  <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent opacity-0 group-hover:opacity-100 rounded-xl transition-opacity duration-300"></div>
+                  <div className="relative bg-dark-card border border-white/30 rounded-xl p-5 text-center hover:border-white transition-all duration-300">
+                    <div className="text-4xl font-bold text-white mb-2">5+</div>
+                    <div className="text-xs uppercase tracking-wider text-text-secondary font-semibold">Frameworks</div>
+                  </div>
                 </div>
-                <div className="bg-dark-card border-2 border-green/30 rounded-xl p-4 text-center hover:border-green transition-all duration-300 group">
-                  <div className="text-3xl font-bold text-green mb-1">4+</div>
-                  <div className="text-sm text-text-secondary">AI Tools</div>
+                <div className="relative group">
+                  <div className="absolute inset-0 bg-gradient-to-br from-green/20 to-transparent opacity-0 group-hover:opacity-100 rounded-xl transition-opacity duration-300"></div>
+                  <div className="relative bg-dark-card border border-green/30 rounded-xl p-5 text-center hover:border-green transition-all duration-300">
+                    <div className="text-4xl font-bold text-green mb-2">4+</div>
+                    <div className="text-xs uppercase tracking-wider text-text-secondary font-semibold">AI Tools</div>
+                  </div>
                 </div>
               </div>
             </div>
