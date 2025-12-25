@@ -10,13 +10,14 @@ const Journey = () => {
 
   const milestones = [
     {
-      id: 1,
-      year: '2021-22',
-      period: 'Class 10th',
-      title: 'Seth Anandram Jaipuria School',
-      percentage: '98.8%',
-      description: 'Achieved exceptional academic performance with strong foundation in mathematics and science, developing analytical thinking and problem-solving skills.',
-      icon: FaSchool,
+      id: 3,
+      year: '2024-28',
+      period: 'B.Tech CSE',
+      title: 'Jaypee Institute of Information Technology',
+      location: 'Noida, Uttar Pradesh, India',
+      percentage: 'Pursuing',
+      description: 'Currently pursuing Computer Science Engineering with focus on AI, ML, and Full-Stack Development, exploring cutting-edge technologies.',
+      icon: FaUniversity,
       color: 'saffron',
     },
     {
@@ -24,19 +25,21 @@ const Journey = () => {
       year: '2023-24',
       period: 'Class 12th',
       title: 'Ahlcon Public School',
+      location: 'Mayur Vihar Phase 1, Delhi, India',
       percentage: '91.4%',
       description: 'Specialized in PCM (Physics, Chemistry, Mathematics) stream, building strong technical fundamentals and preparing for engineering studies.',
       icon: FaGraduationCap,
       color: 'green',
     },
     {
-      id: 3,
-      year: '2024-28',
-      period: 'B.Tech CSE',
-      title: 'JIIT Noida',
-      percentage: 'Pursuing',
-      description: 'Currently pursuing Computer Science Engineering with focus on AI, ML, and Full-Stack Development, exploring cutting-edge technologies.',
-      icon: FaUniversity,
+      id: 1,
+      year: '2021-22',
+      period: 'Class 10th',
+      title: 'Seth Anandram Jaipuria School',
+      location: 'Vasundhara, Ghaziabad, Uttar Pradesh, India',
+      percentage: '98.8%',
+      description: 'Achieved exceptional academic performance with strong foundation in mathematics and science, developing analytical thinking and problem-solving skills.',
+      icon: FaSchool,
       color: 'saffron',
     }
   ];
@@ -49,17 +52,17 @@ const Journey = () => {
   };
 
   return (
-    <section 
-      id="journey" 
+    <section
+      id="journey"
       className="min-h-screen pt-20 pb-0 px-6 md:px-12 bg-gradient-to-br from-gray-900 via-black to-gray-800 relative overflow-hidden"
       ref={containerRef}
       style={{ isolation: 'isolate' }}
     >
       {/* Background particles contained within education section */}
-      <div 
-        className="absolute inset-0 overflow-hidden pointer-events-none" 
-        style={{ 
-          zIndex: 0, 
+      <div
+        className="absolute inset-0 overflow-hidden pointer-events-none"
+        style={{
+          zIndex: 0,
           isolation: 'isolate'
         }}
       >
@@ -136,24 +139,21 @@ const Journey = () => {
               const isLeft = index % 2 === 0;
 
               return (
-                <div 
+                <div
                   key={milestone.id}
-                  className={`relative flex flex-col md:flex-row items-start md:items-center gap-8 md:gap-12 ${
-                    isLeft ? 'md:flex-row' : 'md:flex-row-reverse'
-                  }`}
+                  className={`relative flex flex-col md:flex-row items-start md:items-center gap-8 md:gap-12 ${isLeft ? 'md:flex-row' : 'md:flex-row-reverse'
+                    }`}
                   onMouseEnter={() => setActiveCard(milestone.id)}
                   onMouseLeave={() => setActiveCard(null)}
                 >
 
 
                   {/* 3D Floating Card */}
-                  <div className={`w-full md:w-5/12 pl-10 md:pl-0 ${
-                    isLeft ? 'md:text-right md:pr-20' : 'md:pl-20'
-                  }`}>
-                    <div 
-                      className={`group relative transition-all duration-700 ease-out ${
-                        isActive ? 'z-30' : 'z-20'
-                      }`}
+                  <div className={`w-full md:w-5/12 pl-10 md:pl-0 ${isLeft ? 'md:text-right md:pr-3' : 'md:pl-3'
+                    }`}>
+                    <div
+                      className={`group relative transition-all duration-700 ease-out ${isActive ? 'z-30' : 'z-20'
+                        }`}
                       style={{
                         transform: window.innerWidth < 768 ? 'none' : getCardTransform(index, isActive),
                         transformStyle: 'preserve-3d',
@@ -161,60 +161,61 @@ const Journey = () => {
                       }}
                     >
                       {/* Card glow effect */}
-                      <div className={`absolute inset-0 rounded-2xl ${
-                        milestone.color === 'saffron' 
-                          ? 'bg-gradient-to-br from-orange-400/20 to-orange-600/20' 
-                          : 'bg-gradient-to-br from-green-400/20 to-green-600/20'
-                      } blur-xl transition-all duration-500 ${
-                        isActive ? 'scale-110 opacity-100' : 'scale-100 opacity-60'
-                      }`}></div>
-                      
+                      <div className={`absolute inset-0 rounded-2xl ${milestone.color === 'saffron'
+                        ? 'bg-gradient-to-br from-orange-400/20 to-orange-600/20'
+                        : 'bg-gradient-to-br from-green-400/20 to-green-600/20'
+                        } blur-xl transition-all duration-500 ${isActive ? 'scale-110 opacity-100' : 'scale-100 opacity-60'
+                        }`}></div>
+
                       {/* Main card */}
-                      <div className={`relative bg-gradient-to-br from-gray-900/95 to-black/95 p-5 md:p-8 rounded-2xl border-2 transition-all duration-500 backdrop-blur-lg ${
-                        milestone.color === 'saffron' 
-                          ? 'border-orange-500/30 hover:border-orange-400/60' 
-                          : 'border-green-500/30 hover:border-green-400/60'
-                      } ${
-                        isActive ? 'shadow-2xl' : 'shadow-lg'
-                      }`}>
-                        
+                      <div className={`relative bg-gradient-to-br from-gray-900/95 to-black/95 p-5 md:p-8 rounded-2xl border-2 transition-all duration-500 backdrop-blur-lg ${milestone.color === 'saffron'
+                        ? 'border-orange-500/30 hover:border-orange-400/60'
+                        : 'border-green-500/30 hover:border-green-400/60'
+                        } ${isActive ? 'shadow-2xl' : 'shadow-lg'
+                        }`}>
+
                         {/* Header with enhanced styling */}
                         <div className="flex items-center justify-between mb-3 md:mb-4">
-                          <div className={`px-3 md:px-4 py-1.5 md:py-2 rounded-full text-xs md:text-sm font-bold ${
-                            milestone.color === 'saffron' 
-                              ? 'bg-gradient-to-r from-orange-500/20 to-orange-600/20 text-orange-300 border border-orange-500/40' 
-                              : 'bg-gradient-to-r from-green-500/20 to-green-600/20 text-green-300 border border-green-500/40'
-                          }`}>
+                          <div className={`px-3 md:px-4 py-1.5 md:py-2 rounded-full text-xs md:text-sm font-bold ${milestone.color === 'saffron'
+                            ? 'bg-gradient-to-r from-orange-500/20 to-orange-600/20 text-orange-300 border border-orange-500/40'
+                            : 'bg-gradient-to-r from-green-500/20 to-green-600/20 text-green-300 border border-green-500/40'
+                            }`}>
                             {milestone.year}
                           </div>
-                          <div className={`text-xl md:text-2xl font-black ${
-                            milestone.color === 'saffron' ? 'text-orange-400' : 'text-green-400'
-                          } ${isActive ? 'animate-pulse' : ''}`}>
+                          <div className={`text-xl md:text-2xl font-black ${milestone.color === 'saffron' ? 'text-orange-400' : 'text-green-400'
+                            } ${isActive ? 'animate-pulse' : ''}`}>
                             {milestone.percentage}
                           </div>
                         </div>
 
                         {/* Period badge */}
                         <div className="mb-2 md:mb-3">
-                          <span className={`text-xs md:text-sm px-2 md:px-3 py-1 rounded-full ${
-                            milestone.color === 'saffron'
-                              ? 'bg-orange-500/10 text-orange-200 border border-orange-500/20'
-                              : 'bg-green-500/10 text-green-200 border border-green-500/20'
-                          }`}>
+                          <span className={`text-xs md:text-sm px-2 md:px-3 py-1 rounded-full ${milestone.color === 'saffron'
+                            ? 'bg-orange-500/10 text-orange-200 border border-orange-500/20'
+                            : 'bg-green-500/10 text-green-200 border border-green-500/20'
+                            }`}>
                             {milestone.period}
                           </span>
                         </div>
 
                         {/* Title with gradient text */}
-                        <h3 className={`text-xl md:text-2xl lg:text-3xl font-bold mb-3 md:mb-4 transition-all duration-300 ${
-                          milestone.color === 'saffron' 
-                            ? 'bg-gradient-to-r from-orange-400 to-orange-600' 
-                            : 'bg-gradient-to-r from-green-400 to-green-600'
-                        } bg-clip-text text-transparent ${
-                          isActive ? 'scale-105' : ''
-                        }`}>
+                        <h3 className={`text-xl md:text-2xl lg:text-3xl font-bold mb-2 md:mb-3 transition-all duration-300 ${milestone.color === 'saffron'
+                          ? 'bg-gradient-to-r from-orange-400 to-orange-600'
+                          : 'bg-gradient-to-r from-green-400 to-green-600'
+                          } bg-clip-text text-transparent ${isActive ? 'scale-105' : ''
+                          }`}>
                           {milestone.title}
                         </h3>
+
+                        {/* Location */}
+                        <p className={`text-xs md:text-sm mb-3 md:mb-4 flex items-center gap-1 ${milestone.color === 'saffron' ? 'text-orange-300/80' : 'text-green-300/80'
+                          }`}>
+                          <svg className="w-3 h-3 md:w-4 md:h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                          </svg>
+                          {milestone.location}
+                        </p>
 
                         {/* Description */}
                         <p className="text-gray-300 leading-relaxed text-sm md:text-base">
@@ -296,10 +297,9 @@ const Journey = () => {
                   onMouseEnter={() => setActiveCard(`beyond-${activity.id}`)}
                   onMouseLeave={() => setActiveCard(null)}
                 >
-                  <div 
-                    className={`group relative transition-all duration-700 ease-out ${
-                      isActive ? 'z-30' : 'z-20'
-                    }`}
+                  <div
+                    className={`group relative transition-all duration-700 ease-out ${isActive ? 'z-30' : 'z-20'
+                      }`}
                     style={{
                       transform: window.innerWidth < 768 ? 'none' : getCardTransform(index, isActive),
                       transformStyle: 'preserve-3d',
@@ -307,23 +307,19 @@ const Journey = () => {
                     }}
                   >
                     {/* Card glow effect */}
-                    <div className={`absolute inset-0 rounded-2xl ${
-                      activity.color === 'orange' 
-                        ? 'bg-gradient-to-br from-orange-400/20 to-orange-600/20' 
-                        : 'bg-gradient-to-br from-green-400/20 to-green-600/20'
-                    } blur-xl transition-all duration-500 ${
-                      isActive ? 'scale-110 opacity-100' : 'scale-100 opacity-60'
-                    }`}></div>
-                    
+                    <div className={`absolute inset-0 rounded-2xl ${activity.color === 'orange'
+                      ? 'bg-gradient-to-br from-orange-400/20 to-orange-600/20'
+                      : 'bg-gradient-to-br from-green-400/20 to-green-600/20'
+                      } blur-xl transition-all duration-500 ${isActive ? 'scale-110 opacity-100' : 'scale-100 opacity-60'
+                      }`}></div>
+
                     {/* Main card */}
-                    <div className={`relative bg-gradient-to-br from-gray-900/95 to-black/95 p-6 md:p-8 rounded-2xl border-2 transition-all duration-500 backdrop-blur-lg ${
-                      activity.color === 'orange' 
-                        ? 'border-orange-500/30 hover:border-orange-400/60' 
-                        : 'border-green-500/30 hover:border-green-400/60'
-                    } ${
-                      isActive ? 'shadow-2xl' : 'shadow-lg'
-                    }`}>
-                      
+                    <div className={`relative bg-gradient-to-br from-gray-900/95 to-black/95 p-6 md:p-8 rounded-2xl border-2 transition-all duration-500 backdrop-blur-lg ${activity.color === 'orange'
+                      ? 'border-orange-500/30 hover:border-orange-400/60'
+                      : 'border-green-500/30 hover:border-green-400/60'
+                      } ${isActive ? 'shadow-2xl' : 'shadow-lg'
+                      }`}>
+
                       {/* Special Badge for Karate */}
                       {activity.special && (
                         <div className="absolute -top-3 -right-3">
@@ -335,25 +331,21 @@ const Journey = () => {
 
                       {/* Icon */}
                       <div className="flex items-center justify-center mb-4 md:mb-6">
-                        <div className={`p-4 md:p-6 rounded-full ${
-                          activity.color === 'orange' 
-                            ? 'bg-gradient-to-br from-orange-500/20 to-orange-600/20 border border-orange-500/40' 
-                            : 'bg-gradient-to-br from-green-500/20 to-green-600/20 border border-green-500/40'
-                        }`}>
-                          <Icon className={`text-3xl md:text-4xl ${
-                            activity.color === 'orange' ? 'text-orange-400' : 'text-green-400'
-                          } ${isActive ? 'animate-pulse' : ''}`} />
+                        <div className={`p-4 md:p-6 rounded-full ${activity.color === 'orange'
+                          ? 'bg-gradient-to-br from-orange-500/20 to-orange-600/20 border border-orange-500/40'
+                          : 'bg-gradient-to-br from-green-500/20 to-green-600/20 border border-green-500/40'
+                          }`}>
+                          <Icon className={`text-3xl md:text-4xl ${activity.color === 'orange' ? 'text-orange-400' : 'text-green-400'
+                            } ${isActive ? 'animate-pulse' : ''}`} />
                         </div>
                       </div>
 
                       {/* Title */}
-                      <h3 className={`text-xl md:text-2xl lg:text-3xl font-bold mb-3 md:mb-4 text-center transition-all duration-300 ${
-                        activity.color === 'orange' 
-                          ? 'bg-gradient-to-r from-orange-400 to-orange-600' 
-                          : 'bg-gradient-to-r from-green-400 to-green-600'
-                      } bg-clip-text text-transparent ${
-                        isActive ? 'scale-105' : ''
-                      }`}>
+                      <h3 className={`text-xl md:text-2xl lg:text-3xl font-bold mb-3 md:mb-4 text-center transition-all duration-300 ${activity.color === 'orange'
+                        ? 'bg-gradient-to-r from-orange-400 to-orange-600'
+                        : 'bg-gradient-to-r from-green-400 to-green-600'
+                        } bg-clip-text text-transparent ${isActive ? 'scale-105' : ''
+                        }`}>
                         {activity.title}
                       </h3>
 
@@ -459,17 +451,16 @@ const Journey = () => {
                   onMouseEnter={() => setActiveCard(`society-${index}`)}
                   onMouseLeave={() => setActiveCard(null)}
                 >
-                  <div 
-                    className={`relative bg-gradient-to-br ${society.bgColor} backdrop-blur-lg border border-white/10 rounded-2xl p-5 md:p-6 transition-all duration-500 ease-out transform ${
-                      isActive ? 'scale-105 shadow-2xl border-white/30' : 'hover:scale-102'
-                    }`}
+                  <div
+                    className={`relative bg-gradient-to-br ${society.bgColor} backdrop-blur-lg border border-white/10 rounded-2xl p-5 md:p-6 transition-all duration-500 ease-out transform ${isActive ? 'scale-105 shadow-2xl border-white/30' : 'hover:scale-102'
+                      }`}
                     style={{
                       transform: window.innerWidth < 768 ? 'none' : (isActive ? 'perspective(1000px) rotateX(5deg) rotateY(-5deg)' : 'perspective(1000px) rotateX(0deg) rotateY(0deg)'),
                     }}
                   >
                     {/* Animated gradient border */}
                     <div className={`absolute inset-0 bg-gradient-to-r ${society.color} rounded-2xl opacity-0 group-hover:opacity-20 transition-opacity duration-500 blur-sm`}></div>
-                    
+
                     {/* Content */}
                     <div className="relative z-10">
                       {/* Icon and Name Header */}
@@ -494,9 +485,8 @@ const Journey = () => {
                       </p>
 
                       {/* Active Indicator */}
-                      <div className={`mt-3 md:mt-4 h-1 bg-gradient-to-r ${society.color} rounded-full transition-all duration-300 ${
-                        isActive ? 'opacity-100 scale-100' : 'opacity-0 scale-75'
-                      }`}></div>
+                      <div className={`mt-3 md:mt-4 h-1 bg-gradient-to-r ${society.color} rounded-full transition-all duration-300 ${isActive ? 'opacity-100 scale-100' : 'opacity-0 scale-75'
+                        }`}></div>
                     </div>
 
                     {/* Floating particles */}
@@ -520,7 +510,7 @@ const Journey = () => {
           </div>
         </div>
       </div>
-      
+
     </section>
   );
 };
