@@ -131,7 +131,7 @@ const Resume = () => {
               {/* Decorative Element */}
               <div className="mt-6 flex items-center justify-center gap-2 text-text-secondary text-xs sm:text-sm">
                 <div className="w-2 h-2 rounded-full bg-saffron animate-pulse"></div>
-                <span>Updated Dec 2025</span>
+                <span>Updated Jan 2026</span>
                 <div className="w-2 h-2 rounded-full bg-green animate-pulse"></div>
               </div>
             </div>
