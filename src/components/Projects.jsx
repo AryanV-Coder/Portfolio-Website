@@ -1,20 +1,187 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import axios from 'axios';
 import ProjectCard from './ProjectCard';
+import { FaGithub, FaInfoCircle } from 'react-icons/fa';
 import './Projects.css';
 
+// Static metadata for the Vayu spotlight card
+const VAYU_META = {
+  displayName: 'Vayu',
+  tagline: 'Interactive Face Recognition Bot',
+  catchyDescription: 'Vayu recognizes faces via FAISS embeddings and runs a personalized, streaming voice conversation pipeline (STT → LLM → TTS) with ultra-low-latency audio playback!',
+  highlights: [
+    'Live multi-threaded pipeline with VAD-based listening & personalized prompting for known identities',
+    'Full face database workflow: embedding extraction → FAISS index → SQLite metadata with similarity-threshold recognition',
+    'Ultra-low-latency streaming audio playback with "Unknown" identity handling',
+  ],
+  techStack: ['Python', 'OpenCV', 'DeepFace (Facenet512)', 'FAISS', 'SQLite', 'Silero VAD', 'Groq LLaMA', 'Sarvam STT/TTS'],
+  liveDemo: null,
+};
+
+// ── Vayu Spotlight Card ─────────────────────────────────────────────────────
+const VayuSpotlightCard = ({ repo, githubUsername }) => {
+  const [flipped, setFlipped] = useState(false);
+  const AMBER = '#F59E0B';
+
+  const stopIfLink = (e) => {
+    if (e.target.closest('button, a')) return;
+    setFlipped(f => !f);
+  };
+
+  return (
+    <div className="vayu-flip-wrap mb-10">
+      <div className={`vayu-flip-inner ${flipped ? 'vayu-flipped' : ''}`}>
+
+        {/* FRONT */}
+        <div className="vayu-face vayu-front" onClick={stopIfLink}>
+          {/* Badge row */}
+          <div className="flex items-center justify-between mb-4">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold tracking-widest uppercase"
+              style={{ background: `${AMBER}18`, border: `1px solid ${AMBER}60`, color: AMBER }}>
+              ✦ Spotlight
+            </span>
+            <span className="text-sm font-semibold" style={{ color: AMBER }}>🌬️ Vayu</span>
+          </div>
+
+          {/* Image left + info right */}
+          <div className="flex gap-4 mb-4">
+            <div className="flex-shrink-0 w-24 h-24 rounded-xl overflow-hidden" style={{ border: `1px solid ${AMBER}30`, background: `${AMBER}10` }}>
+              <img
+                src={`https://opengraph.githubassets.com/1/${githubUsername}/${repo.name}`}
+                alt="Vayu"
+                className="w-full h-full object-cover"
+                onError={(e) => { e.target.style.display = 'none'; e.target.nextSibling.style.display = 'flex'; }}
+              />
+              <div className="hidden w-full h-full items-center justify-center text-3xl">🌬️</div>
+            </div>
+
+            <div className="flex-1 min-w-0 text-left">
+              <h3 className="text-base font-bold text-white leading-tight mb-1">
+                Vayu — Interactive Face Recognition Bot
+              </h3>
+              {repo.language && (
+                <div className="flex items-center gap-1.5 text-xs mb-2" style={{ color: AMBER }}>
+                  <span className="w-2 h-2 rounded-full inline-block" style={{ backgroundColor: AMBER }}></span>
+                  {repo.language}
+                </div>
+              )}
+              <p className="text-gray-400 text-xs leading-relaxed" style={{ display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
+                {VAYU_META.catchyDescription}
+              </p>
+            </div>
+          </div>
+
+          {/* Stats */}
+          {(repo.stargazers_count > 0 || repo.forks_count > 0) && (
+            <div className="flex gap-4 mb-4 text-xs">
+              {repo.stargazers_count > 0 && (
+                <span className="flex items-center gap-1" style={{ color: AMBER }}>
+                  <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
+                  {repo.stargazers_count}
+                </span>
+              )}
+              {repo.forks_count > 0 && (
+                <span className="flex items-center gap-1 text-green-400">
+                  <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M5 3.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm0 2.122a2.25 2.25 0 10-1.5 0v.878A2.25 2.25 0 005.75 8.5h1.5v2.128a2.251 2.251 0 101.5 0V8.5h1.5a2.25 2.25 0 002.25-2.25v-.878a2.25 2.25 0 10-1.5 0v.878a.75.75 0 01-.75.75h-4.5A.75.75 0 015 6.25v-.878zm3.75 7.378a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm3-8.75a.75.75 0 100-1.5.75.75 0 000 1.5z" />
+                  </svg>
+                  {repo.forks_count}
+                </span>
+              )}
+            </div>
+          )}
+
+          {/* Buttons */}
+          <div className="flex gap-3 mt-auto">
+            <button
+              onClick={() => setFlipped(true)}
+              className="flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300"
+              style={{ border: `1px solid ${AMBER}50`, color: AMBER, backgroundColor: `${AMBER}12` }}
+            >
+              <FaInfoCircle className="w-4 h-4" /> Details
+            </button>
+            <a
+              href={repo.html_url} target="_blank" rel="noopener noreferrer"
+              className="flex items-center justify-center px-4 py-2 rounded-lg border border-gray-600 text-gray-400 text-sm hover:border-gray-400 hover:text-gray-200 transition-all duration-300"
+            >
+              <FaGithub className="w-4 h-4" />
+            </a>
+          </div>
+        </div>
+
+        {/* BACK */}
+        <div className="vayu-face vayu-back" onClick={stopIfLink}>
+          {/* Header */}
+          <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center gap-2">
+              <div className="w-8 h-8 rounded-full flex items-center justify-center text-base" style={{ backgroundColor: `${AMBER}25` }}>🌬️</div>
+              <h3 className="text-base font-bold text-white">Vayu</h3>
+            </div>
+            <button onClick={(e) => { e.stopPropagation(); setFlipped(false); }}
+              className="p-1.5 rounded-full hover:bg-gray-700 transition-colors">
+              <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+
+          {/* Highlights */}
+          <div className="mb-3">
+            <h4 className="text-xs font-bold text-white uppercase tracking-widest mb-2">Key Highlights</h4>
+            <ul className="space-y-1.5">
+              {VAYU_META.highlights.map((h, i) => (
+                <li key={i} className="flex items-start gap-2 text-xs text-gray-400 leading-relaxed">
+                  <span className="flex-shrink-0 mt-0.5" style={{ color: AMBER }}>▸</span>{h}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Tech Stack */}
+          <div className="mb-4">
+            <h4 className="text-xs font-bold text-white uppercase tracking-widest mb-2">Tech Stack</h4>
+            <div className="flex flex-wrap gap-1.5">
+              {VAYU_META.techStack.map((tech, i) => (
+                <span key={i} className="px-2 py-0.5 text-xs rounded-full"
+                  style={{ border: `1px solid ${AMBER}40`, backgroundColor: `${AMBER}10`, color: AMBER }}>
+                  {tech}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {/* GitHub link */}
+          <div className="flex gap-3 mt-auto">
+            <a href={repo.html_url} target="_blank" rel="noopener noreferrer"
+              className="flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300"
+              style={{ border: `1px solid ${AMBER}50`, color: AMBER, backgroundColor: `${AMBER}10` }}>
+              <FaGithub className="w-4 h-4" /> View Code
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+// ───────────────────────────────────────────────────────────────────────────
+
 const Projects = () => {
+  const [spotlightRepo, setSpotlightRepo] = useState(null);
   const [repos, setRepos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   const GITHUB_USERNAME = 'AryanV-Coder';
-  // GitHub Personal Access Token from environment variable
-  // Add your token to the .env file: REACT_APP_GITHUB_TOKEN=your_token_here
   const GITHUB_TOKEN = process.env.REACT_APP_GITHUB_TOKEN || '';
 
-  // Define featured projects with custom descriptions and live demo links
+  // Vayu is first — fetched normally, then split off as spotlight
   const FEATURED_PROJECTS = useMemo(() => ({
+    'Vayu-InteractiveFaceRecognitionBot': {
+      description: VAYU_META.catchyDescription,
+      liveDemo: VAYU_META.liveDemo,
+    },
     'SpyAI': {
       description: 'Intelligent surveillance system capturing and transcribing audio with AI-powered multi-language analysis and natural language querying! 🕵️‍♂️🤖',
       liveDemo: null
@@ -54,42 +221,30 @@ const Projects = () => {
       try {
         setLoading(true);
         setError(null);
-        
-        // Fetch repositories from GitHub API
         const headers = {};
-        if (GITHUB_TOKEN) {
-          headers.Authorization = `token ${GITHUB_TOKEN}`;
-        }
+        if (GITHUB_TOKEN) headers.Authorization = `token ${GITHUB_TOKEN}`;
 
         const response = await axios.get(
           `https://api.github.com/users/${GITHUB_USERNAME}/repos`,
-          {
-            headers,
-            params: {
-              sort: 'updated',
-              per_page: 100,
-              type: 'owner'
-            }
-          }
+          { headers, params: { sort: 'updated', per_page: 100, type: 'owner' } }
         );
 
-        // Filter to show only featured projects in the specified order
         const featuredProjectNames = Object.keys(FEATURED_PROJECTS);
-        const filteredRepos = response.data
-          .filter(repo => featuredProjectNames.includes(repo.name))
-          .sort((a, b) => featuredProjectNames.indexOf(a.name) - featuredProjectNames.indexOf(b.name));
-
-        // Enhance repos with custom descriptions and live demo links
-        const reposWithCustomData = filteredRepos.map((repo) => {
-          const projectData = FEATURED_PROJECTS[repo.name];
-          return {
+        const filtered = response.data
+          .filter(r => featuredProjectNames.includes(r.name))
+          .sort((a, b) => featuredProjectNames.indexOf(a.name) - featuredProjectNames.indexOf(b.name))
+          .map(repo => ({
             ...repo,
-            catchyDescription: projectData.description,
-            homepage: projectData.liveDemo || repo.homepage
-          };
-        });
+            catchyDescription: FEATURED_PROJECTS[repo.name].description,
+            homepage: FEATURED_PROJECTS[repo.name].liveDemo || repo.homepage
+          }));
 
-        setRepos(reposWithCustomData);
+        if (filtered.length > 0 && filtered[0].name === 'Vayu-InteractiveFaceRecognitionBot') {
+          setSpotlightRepo(filtered[0]);
+          setRepos(filtered.slice(1));
+        } else {
+          setRepos(filtered);
+        }
         setLoading(false);
       } catch (err) {
         console.error('Error fetching repositories:', err);
@@ -97,47 +252,25 @@ const Projects = () => {
         setLoading(false);
       }
     };
-
     fetchRepos();
   }, [GITHUB_USERNAME, GITHUB_TOKEN, FEATURED_PROJECTS]);
 
-  // Generate description with priority: catchy description from README > repo description > generic fallback
   const generateDescription = (repo) => {
-    // First priority: Catchy description based on README analysis
-    if (repo.catchyDescription) {
-      return repo.catchyDescription;
-    }
-
-    // Second priority: Repository description from GitHub
-    if (repo.description && repo.description.length > 10) {
-      return repo.description;
-    }
-
-    // Fallback: Generate generic catchy rhyming descriptions based on language
+    if (repo.catchyDescription) return repo.catchyDescription;
+    if (repo.description && repo.description.length > 10) return repo.description;
     const language = repo.language || 'Code';
-
-    const catchyDescriptions = [
+    const opts = [
       `${language} magic that's pure delight, turning complex problems into solutions bright! ✨`,
       `Built with ${language} and innovative flair, solving real-world problems with code to spare! 🚀`,
       `Where ${language} meets creativity sublime, crafting elegant solutions one commit at a time! 💎`,
-      `Innovation and ${language} in perfect harmony, building the future with technological symphony! 🎵`,
-      `${language} powered, community inspired, features that keep developers forever admired! ⭐`,
-      `Elegant ${language} architecture that scales with ease, designed to impress and absolutely please! 🎯`,
-      `From concept to code with ${language} pride, a project where quality and passion collide! 💪`,
-      `${language} brilliance in every single line, transforming ideas into products that shine! ✨`,
     ];
-
-    // Use repo characteristics to pick a description
-    const index = (repo.id + repo.stargazers_count) % catchyDescriptions.length;
-    return catchyDescriptions[index];
+    return opts[(repo.id + repo.stargazers_count) % opts.length];
   };
 
   return (
-    <section 
-      id="projects" 
-      className="min-h-screen py-20 px-6 md:px-12 bg-dark-primary"
-    >
+    <section id="projects" className="min-h-screen py-20 px-6 md:px-12 bg-dark-primary">
       <div className="max-w-7xl mx-auto fade-in-section">
+
         {/* Section Header */}
         <div className="mb-16 text-center">
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-text-primary">
@@ -145,34 +278,36 @@ const Projects = () => {
           </h2>
           <div className="w-24 h-1 bg-saffron rounded-full mx-auto mb-6"></div>
           <p className="text-text-secondary text-lg max-w-2xl mx-auto">
-            A collection of AI-powered tools and intelligent systems that automate, interact, 
+            A collection of AI-powered tools and intelligent systems that automate, interact,
             and improve lives. Each project represents innovation with purpose. 🚀
           </p>
         </div>
 
-        {/* Loading State */}
+        {/* Loading */}
         {loading && (
           <div className="flex justify-center items-center py-20">
             <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-accent-teal"></div>
           </div>
         )}
 
-        {/* Error State */}
+        {/* Error */}
         {error && (
-          <div className="bg-red-900/20 border border-red-500/50 rounded-lg p-6 text-center">
+          <div className="bg-red-900/20 border border-red-500/50 rounded-lg p-6 text-center mb-8">
             <p className="text-red-400 text-lg">{error}</p>
-            <p className="text-text-muted mt-2">
-              Make sure to update the GITHUB_USERNAME in Projects.jsx
-            </p>
           </div>
         )}
 
-        {/* Projects Grid */}
+        {/* Vayu Spotlight */}
+        {!loading && spotlightRepo && (
+          <VayuSpotlightCard repo={spotlightRepo} githubUsername={GITHUB_USERNAME} />
+        )}
+
+        {/* Regular Grid */}
         {!loading && !error && (
           <div className="projects-grid">
             {repos.length > 0 ? (
               repos.map((repo, index) => (
-                <ProjectCard 
+                <ProjectCard
                   key={repo.id}
                   name={repo.name}
                   description={generateDescription(repo)}
@@ -187,9 +322,7 @@ const Projects = () => {
               ))
             ) : (
               <div className="col-span-full text-center py-12">
-                <p className="text-text-secondary text-xl">
-                  No public repositories found. Start building something amazing! 🚀
-                </p>
+                <p className="text-text-secondary text-xl">No public repositories found. 🚀</p>
               </div>
             )}
           </div>
@@ -197,10 +330,9 @@ const Projects = () => {
 
         {/* GitHub Profile Link */}
         <div className="mt-16 text-center">
-          <a 
+          <a
             href={`https://github.com/${GITHUB_USERNAME}`}
-            target="_blank"
-            rel="noopener noreferrer"
+            target="_blank" rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-8 py-3 bg-dark-card border-2 border-saffron text-saffron font-semibold rounded-lg hover:bg-saffron hover:text-text-dark transition-all duration-300 shadow-lg btn-glow"
           >
             <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
