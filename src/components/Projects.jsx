@@ -8,13 +8,17 @@ import './Projects.css';
 const VAYU_META = {
   displayName: 'Vayu',
   tagline: 'Interactive Face Recognition Bot',
-  catchyDescription: 'Vayu recognizes faces via FAISS embeddings and runs a personalized, streaming voice conversation pipeline (STT → LLM → TTS) with ultra-low-latency audio playback!',
+  catchyDescription: 'Vayu, an interactive face recognition bot that recognizes faces via FAISS embeddings and runs a personalized, streaming voice conversation pipeline (STT → LLM → TTS)',
   highlights: [
-    'Live multi-threaded pipeline with VAD-based listening & personalized prompting for known identities',
-    'Full face database workflow: embedding extraction → FAISS index → SQLite metadata with similarity-threshold recognition',
-    'Ultra-low-latency streaming audio playback with "Unknown" identity handling',
+    'Built a live multi-threaded pipeline with VAD-based listening, personalized prompting for known identities, and ultra-low-latency streaming audio playback.',
+    'Implemented a full face database workflow (embedding extraction → FAISS index → SQLite metadata) with similarity-threshold based recognition + “Unknown” handling.'
   ],
   techStack: ['Python', 'OpenCV', 'DeepFace (Facenet512)', 'FAISS', 'SQLite', 'Silero VAD', 'Groq LLaMA', 'Sarvam STT/TTS'],
+  demoVideos: [
+    { label: 'Calm Environment Test', url: 'https://drive.google.com/file/d/1dT3Uq6kF0FoOJfOEcv2FhiLX71rFM6U5/view?usp=sharing' },
+    { label: 'Fest Chaos Environment Test', url: 'https://drive.google.com/file/d/1HBoQsEX2dF1HfN66-JeAyLnEpBiZ2EtA/view' },
+  ],
+  linkedIn: 'https://www.linkedin.com/posts/aryan-varshney-392446310_sarvamai-deeplearning-computervision-activity-7440742289041203200-P_xU?utm_source=share&utm_medium=member_desktop&rcm=ACoAAE8WXp4BgI2VsM4AocmLbTP2t3RwvE585ao',
   liveDemo: null,
 };
 
@@ -38,14 +42,15 @@ const VayuSpotlightCard = ({ repo, githubUsername }) => {
           <div className="flex items-center justify-between mb-4">
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold tracking-widest uppercase"
               style={{ background: `${AMBER}18`, border: `1px solid ${AMBER}60`, color: AMBER }}>
-              ✦ Spotlight
+              ✶ Spotlight
             </span>
             <span className="text-sm font-semibold" style={{ color: AMBER }}>🌬️ Vayu</span>
           </div>
 
           {/* Image left + info right */}
           <div className="flex gap-4 mb-4">
-            <div className="flex-shrink-0 w-24 h-24 rounded-xl overflow-hidden" style={{ border: `1px solid ${AMBER}30`, background: `${AMBER}10` }}>
+            {/* OG image — h-32 matching other project cards */}
+            <div className="flex-shrink-0 rounded-xl overflow-hidden" style={{ width: '192px', height: '128px', border: `1px solid ${AMBER}30`, background: `${AMBER}10` }}>
               <img
                 src={`https://opengraph.githubassets.com/1/${githubUsername}/${repo.name}`}
                 alt="Vayu"
@@ -56,42 +61,40 @@ const VayuSpotlightCard = ({ repo, githubUsername }) => {
             </div>
 
             <div className="flex-1 min-w-0 text-left">
-              <h3 className="text-base font-bold text-white leading-tight mb-1">
+              <h3 className="text-lg font-bold text-white leading-tight mb-1">
                 Vayu — Interactive Face Recognition Bot
               </h3>
               {repo.language && (
-                <div className="flex items-center gap-1.5 text-xs mb-2" style={{ color: AMBER }}>
+                <div className="flex items-center gap-1.5 text-sm mb-2" style={{ color: AMBER }}>
                   <span className="w-2 h-2 rounded-full inline-block" style={{ backgroundColor: AMBER }}></span>
                   {repo.language}
                 </div>
               )}
-              <p className="text-gray-400 text-xs leading-relaxed" style={{ display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
+              <p className="text-gray-400 text-sm leading-relaxed" style={{ display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
                 {VAYU_META.catchyDescription}
               </p>
             </div>
           </div>
 
-          {/* Stats */}
-          {(repo.stargazers_count > 0 || repo.forks_count > 0) && (
-            <div className="flex gap-4 mb-4 text-xs">
-              {repo.stargazers_count > 0 && (
-                <span className="flex items-center gap-1" style={{ color: AMBER }}>
-                  <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
-                  {repo.stargazers_count}
-                </span>
-              )}
-              {repo.forks_count > 0 && (
-                <span className="flex items-center gap-1 text-green-400">
-                  <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 16 16">
-                    <path d="M5 3.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm0 2.122a2.25 2.25 0 10-1.5 0v.878A2.25 2.25 0 005.75 8.5h1.5v2.128a2.251 2.251 0 101.5 0V8.5h1.5a2.25 2.25 0 002.25-2.25v-.878a2.25 2.25 0 10-1.5 0v.878a.75.75 0 01-.75.75h-4.5A.75.75 0 015 6.25v-.878zm3.75 7.378a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm3-8.75a.75.75 0 100-1.5.75.75 0 000 1.5z" />
-                  </svg>
-                  {repo.forks_count}
-                </span>
-              )}
-            </div>
-          )}
+          {/* Stats + Demo links row */}
+          <div className="flex flex-wrap items-center gap-3 mb-4">
+            {repo.stargazers_count > 0 && (
+              <span className="flex items-center gap-1 text-sm" style={{ color: AMBER }}>
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+                {repo.stargazers_count}
+              </span>
+            )}
+            {/* Demo video links */}
+            {VAYU_META.demoVideos.map((v, i) => (
+              <a key={i} href={v.url} target="_blank" rel="noopener noreferrer"
+                className="flex items-center gap-1 text-xs px-2 py-1 rounded-md transition-all duration-200"
+                style={{ border: `1px solid ${AMBER}40`, color: AMBER, backgroundColor: `${AMBER}10` }}>
+                ▶ {v.label}
+              </a>
+            ))}
+          </div>
 
           {/* Buttons */}
           <div className="flex gap-3 mt-auto">
@@ -117,7 +120,7 @@ const VayuSpotlightCard = ({ repo, githubUsername }) => {
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-2">
               <div className="w-8 h-8 rounded-full flex items-center justify-center text-base" style={{ backgroundColor: `${AMBER}25` }}>🌬️</div>
-              <h3 className="text-base font-bold text-white">Vayu</h3>
+              <h3 className="text-lg font-bold text-white">Vayu</h3>
             </div>
             <button onClick={(e) => { e.stopPropagation(); setFlipped(false); }}
               className="p-1.5 rounded-full hover:bg-gray-700 transition-colors">
@@ -132,7 +135,7 @@ const VayuSpotlightCard = ({ repo, githubUsername }) => {
             <h4 className="text-xs font-bold text-white uppercase tracking-widest mb-2">Key Highlights</h4>
             <ul className="space-y-1.5">
               {VAYU_META.highlights.map((h, i) => (
-                <li key={i} className="flex items-start gap-2 text-xs text-gray-400 leading-relaxed">
+                <li key={i} className="flex items-start gap-2 text-sm text-gray-400 leading-relaxed">
                   <span className="flex-shrink-0 mt-0.5" style={{ color: AMBER }}>▸</span>{h}
                 </li>
               ))}
@@ -140,7 +143,7 @@ const VayuSpotlightCard = ({ repo, githubUsername }) => {
           </div>
 
           {/* Tech Stack */}
-          <div className="mb-4">
+          <div className="mb-3">
             <h4 className="text-xs font-bold text-white uppercase tracking-widest mb-2">Tech Stack</h4>
             <div className="flex flex-wrap gap-1.5">
               {VAYU_META.techStack.map((tech, i) => (
@@ -149,6 +152,25 @@ const VayuSpotlightCard = ({ repo, githubUsername }) => {
                   {tech}
                 </span>
               ))}
+            </div>
+          </div>
+
+          {/* Demo videos + LinkedIn */}
+          <div className="mb-3">
+            <h4 className="text-xs font-bold text-white uppercase tracking-widest mb-2">Demo Videos</h4>
+            <div className="flex flex-wrap gap-2">
+              {VAYU_META.demoVideos.map((v, i) => (
+                <a key={i} href={v.url} target="_blank" rel="noopener noreferrer"
+                  className="flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg transition-all duration-200"
+                  style={{ border: `1px solid ${AMBER}40`, color: AMBER, backgroundColor: `${AMBER}10` }}>
+                  ▶ {v.label}
+                </a>
+              ))}
+              <a href={VAYU_META.linkedIn} target="_blank" rel="noopener noreferrer"
+                className="flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg text-blue-400 transition-all duration-200"
+                style={{ border: '1px solid rgba(96,165,250,0.4)', backgroundColor: 'rgba(96,165,250,0.08)' }}>
+                in LinkedIn Post
+              </a>
             </div>
           </div>
 
