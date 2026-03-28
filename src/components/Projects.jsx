@@ -36,21 +36,20 @@ const VayuSpotlightCard = ({ repo, githubUsername }) => {
     <div className="vayu-flip-wrap mb-10">
       <div className={`vayu-flip-inner ${flipped ? 'vayu-flipped' : ''}`}>
 
-        {/* FRONT */}
+        {/* FRONT — drives the natural height */}
         <div className="vayu-face vayu-front" onClick={stopIfLink}>
           {/* Badge row */}
           <div className="flex items-center justify-between mb-4">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold tracking-widest uppercase"
-              style={{ background: `${AMBER}18`, border: `1px solid ${AMBER}60`, color: AMBER }}>
-              ✶ Spotlight
+            <span className="vayu-spotlight-badge">
+              ✶ Spotlight Project
             </span>
-            <span className="text-sm font-semibold" style={{ color: AMBER }}>🌬️ Vayu</span>
           </div>
 
-          {/* Image left + info right */}
-          <div className="flex gap-4 mb-4">
-            {/* OG image — h-32 matching other project cards */}
-            <div className="flex-shrink-0 rounded-xl overflow-hidden" style={{ width: '192px', height: '128px', border: `1px solid ${AMBER}30`, background: `${AMBER}10` }}>
+          {/* Image left + info right (stacks on mobile) */}
+          <div className="flex gap-4 mb-4 vayu-front-content" style={{ flexDirection: 'row' }}>
+            {/* OG image */}
+            <div className="vayu-og-image flex-shrink-0 rounded-xl overflow-hidden"
+              style={{ width: '192px', height: '128px', border: `1px solid ${AMBER}30`, background: `${AMBER}10` }}>
               <img
                 src={`https://opengraph.githubassets.com/1/${githubUsername}/${repo.name}`}
                 alt="Vayu"
@@ -60,6 +59,7 @@ const VayuSpotlightCard = ({ repo, githubUsername }) => {
               <div className="hidden w-full h-full items-center justify-center text-3xl">🌬️</div>
             </div>
 
+            {/* Title + language + description */}
             <div className="flex-1 min-w-0 text-left">
               <h3 className="text-lg font-bold text-white leading-tight mb-1">
                 Vayu — Interactive Face Recognition Bot
@@ -70,34 +70,42 @@ const VayuSpotlightCard = ({ repo, githubUsername }) => {
                   {repo.language}
                 </div>
               )}
-              <p className="text-gray-400 text-sm leading-relaxed" style={{ display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
+              <p className="text-gray-400 text-sm leading-relaxed">
                 {VAYU_META.catchyDescription}
               </p>
             </div>
           </div>
 
-          {/* Stats + Demo links row */}
-          <div className="flex flex-wrap items-center gap-3 mb-4">
-            {repo.stargazers_count > 0 && (
-              <span className="flex items-center gap-1 text-sm" style={{ color: AMBER }}>
+          {/* Stats */}
+          {repo.stargazers_count > 0 && (
+            <div className="flex gap-4 mb-4 text-sm">
+              <span className="flex items-center gap-1" style={{ color: AMBER }}>
                 <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                 </svg>
                 {repo.stargazers_count}
               </span>
-            )}
-            {/* Demo video links */}
+            </div>
+          )}
+
+          {/* Demo + LinkedIn buttons */}
+          <div className="flex flex-wrap gap-3 mb-4">
             {VAYU_META.demoVideos.map((v, i) => (
               <a key={i} href={v.url} target="_blank" rel="noopener noreferrer"
-                className="flex items-center gap-1 text-xs px-2 py-1 rounded-md transition-all duration-200"
-                style={{ border: `1px solid ${AMBER}40`, color: AMBER, backgroundColor: `${AMBER}10` }}>
+                className="flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300"
+                style={{ backgroundColor: AMBER, color: '#1a1a2e', minWidth: '140px' }}>
                 ▶ {v.label}
               </a>
             ))}
+            <a href={VAYU_META.linkedIn} target="_blank" rel="noopener noreferrer"
+              className="flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300"
+              style={{ backgroundColor: '#3b82f6', color: '#fff', minWidth: '140px' }}>
+              in LinkedIn Post
+            </a>
           </div>
 
           {/* Buttons */}
-          <div className="flex gap-3 mt-auto">
+          <div className="flex gap-3">
             <button
               onClick={() => setFlipped(true)}
               className="flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300"
@@ -114,7 +122,7 @@ const VayuSpotlightCard = ({ repo, githubUsername }) => {
           </div>
         </div>
 
-        {/* BACK */}
+        {/* BACK — fills the front's height, scrolls if needed */}
         <div className="vayu-face vayu-back" onClick={stopIfLink}>
           {/* Header */}
           <div className="flex items-center justify-between mb-4">
@@ -158,17 +166,17 @@ const VayuSpotlightCard = ({ repo, githubUsername }) => {
           {/* Demo videos + LinkedIn */}
           <div className="mb-3">
             <h4 className="text-xs font-bold text-white uppercase tracking-widest mb-2">Demo Videos</h4>
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-3">
               {VAYU_META.demoVideos.map((v, i) => (
                 <a key={i} href={v.url} target="_blank" rel="noopener noreferrer"
-                  className="flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg transition-all duration-200"
-                  style={{ border: `1px solid ${AMBER}40`, color: AMBER, backgroundColor: `${AMBER}10` }}>
+                  className="flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300"
+                  style={{ backgroundColor: AMBER, color: '#1a1a2e', minWidth: '140px' }}>
                   ▶ {v.label}
                 </a>
               ))}
               <a href={VAYU_META.linkedIn} target="_blank" rel="noopener noreferrer"
-                className="flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg text-blue-400 transition-all duration-200"
-                style={{ border: '1px solid rgba(96,165,250,0.4)', backgroundColor: 'rgba(96,165,250,0.08)' }}>
+                className="flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300"
+                style={{ backgroundColor: '#3b82f6', color: '#fff', minWidth: '140px' }}>
                 in LinkedIn Post
               </a>
             </div>
